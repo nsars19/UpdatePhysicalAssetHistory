@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1556,1187</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1556,1282</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -120,7 +120,7 @@
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="400,794" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="400,1217" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -128,7 +128,10 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Opening applications...&quot;]" />
-    <u:UMassWindowsSendExchangeMailMessage sap:VirtualizedContainerService.HintSize="338,199" sap2010:WorkflowViewState.IdRef="UMassWindowsSendExchangeMailMessage_1" in_Body="[in_ProcessName + &quot; started on &quot; + Environment.MachineName + &quot; for ROBOT user &quot; + Environment.UserName]" in_EmailTo="[in_Config(&quot;EmailTo&quot;).ToString]" in_Subject="[in_ProcessName + &quot; started on &quot; + Environment.MachineName]" />
-    <f:FinanceWindowsLogin in_CredentialAssetname="{x:Null}" in_EnvironmentAssetname="{x:Null}" in_Foldername="{x:Null}" in_URLAssetname="{x:Null}" sap:VirtualizedContainerService.HintSize="338,250" sap2010:WorkflowViewState.IdRef="FinanceWindowsLogin_1" />
+    <ui:LogMessage DisplayName="Log Message - Send Email" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Sending process start email&quot;]" />
+    <u:UMassWindowsSendExchangeMailMessage sap:VirtualizedContainerService.HintSize="338,199" sap2010:WorkflowViewState.IdRef="UMassWindowsSendExchangeMailMessage_1" in_Body="[in_ProcessName + &quot; started on &quot; + Environment.MachineName + &quot; for ROBOT user &quot; + Environment.UserName]" in_EmailTo="[in_Config(&quot;FinancePhysicalAssetHistory_EmailToField&quot;).ToString]" in_Subject="[in_ProcessName + &quot; started on &quot; + Environment.MachineName]" />
+    <ui:LogMessage DisplayName="Log Message - Finance PSTST Login Start" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Starting Finance PS login. Using environment: &quot; + in_Config(&quot;FinancePhysicalAssetHistory_Environment&quot;).ToString]" />
+    <f:FinanceWindowsLogin sap:VirtualizedContainerService.HintSize="338,250" sap2010:WorkflowViewState.IdRef="FinanceWindowsLogin_1" in_CredentialAssetname="[&quot;FinancePhysicalAssetHistory_Credentials&quot;]" in_EnvironmentAssetname="[&quot;FinancePhysicalAssetHistory_Environment&quot;]" in_Foldername="UITS" in_URLAssetname="[&quot;FinancePhysicalAssetHistory_LoginURL&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - Finance PSTST Login End" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Successfully logged into Finance PS&quot;]" />
   </Sequence>
 </Activity>
