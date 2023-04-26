@@ -470,16 +470,13 @@
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:SetTransactionStatus ContinueOnError="{x:Null}" ServiceBaseAddress="{x:Null}" Details="[if(String.IsNullOrEmpty(ScreenshotPath),String.Empty,&quot;Screenshot: &quot;+ ScreenshotPath)]" DisplayName="Set transaction status (System Exception)" ErrorType="Application" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="338,732" sap2010:WorkflowViewState.IdRef="SetTransactionStatus_8" Reason="[in_SystemException.Message]" Status="Failed" TransactionItem="[in_TransactionItem]">
+                                <ui:SetTransactionStatus ContinueOnError="{x:Null}" ServiceBaseAddress="{x:Null}" Details="[if(String.IsNullOrEmpty(ScreenshotPath),String.Empty,&quot;Screenshot: &quot;+ ScreenshotPath)]" DisplayName="Set transaction status (System Exception)" ErrorType="Application" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="338,732" sap2010:WorkflowViewState.IdRef="SetTransactionStatus_8" Reason="[in_SystemException.Message]" Status="Failed" TimeoutMS="[Timeout]" TransactionItem="[in_TransactionItem]">
                                   <ui:SetTransactionStatus.Analytics>
                                     <scg:Dictionary x:TypeArguments="x:String, InArgument" />
                                   </ui:SetTransactionStatus.Analytics>
                                   <ui:SetTransactionStatus.Output>
                                     <scg:Dictionary x:TypeArguments="x:String, InArgument" />
                                   </ui:SetTransactionStatus.Output>
-                                  <ui:SetTransactionStatus.TimeoutMS>
-                                    <InArgument x:TypeArguments="x:Int32" />
-                                  </ui:SetTransactionStatus.TimeoutMS>
                                 </ui:SetTransactionStatus>
                                 <Assign DisplayName="Assign RetryNumber from Queue" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_11">
                                   <Assign.To>
