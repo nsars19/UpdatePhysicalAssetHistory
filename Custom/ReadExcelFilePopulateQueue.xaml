@@ -183,7 +183,7 @@
                                         <Sequence DisplayName="Sheet name is sheet1" sap:VirtualizedContainerService.HintSize="733,4570" sap2010:WorkflowViewState.IdRef="Sequence_6">
                                           <Sequence.Variables>
                                             <Variable x:TypeArguments="sd:DataTable" Name="dt_Sheet" />
-                                            <Variable x:TypeArguments="sd:DataTable" Name="BulkAddErrors" />
+                                            <Variable x:TypeArguments="sd:DataTable" Name="dt_BulkAddErrors" />
                                           </Sequence.Variables>
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -193,7 +193,7 @@
                                           </sap:WorkflowViewStateService.ViewState>
                                           <ui:BuildDataTable DataTable="[dt_Sheet]" DisplayName="Build Data Table for adding to queue" sap:VirtualizedContainerService.HintSize="671,69" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;BU&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ASSET&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;PIID&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;INVDT&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;PERFORMED&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Reference&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
                                           <ui:LogMessage DisplayName="Log Message - Building data table" sap:VirtualizedContainerService.HintSize="671,101" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;Building data table for add to queue&quot;]" />
-                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="671,101" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info" Message="[&quot;Current sheet has &quot; + (CurrentSheet.RowCount - 1).ToString + &quot; rows&quot;]" />
+                                          <ui:LogMessage DisplayName="Log Message - total rows" sap:VirtualizedContainerService.HintSize="671,101" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info" Message="[&quot;Current sheet has &quot; + (CurrentSheet.RowCount - 1).ToString + &quot; rows&quot;]" />
                                           <Assign sap2010:Annotation.AnnotationText="Assign first item in array are the total amount of rows in the Excel file, minus the first header row. This corresponds to the total possible rows that can be added to the queue." DisplayName="Assign total rows" sap:VirtualizedContainerService.HintSize="671,157" sap2010:WorkflowViewState.IdRef="Assign_3">
                                             <Assign.To>
                                               <OutArgument x:TypeArguments="x:String">[io_QueueCountsErrors(0)]</OutArgument>
@@ -370,7 +370,7 @@ Environment.NewLine +
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
                                                 </Assign>
-                                                <ui:BulkAddQueueItems CommitType="ProcessAllIndependently" ContinueOnError="True" DisplayName="Bulk Add Queue Items using data table" FolderPath="UITS" sap:VirtualizedContainerService.HintSize="338,499" sap2010:WorkflowViewState.IdRef="BulkAddQueueItems_2" QueueItemsDataTable="[dt_Sheet]" QueueName="FinancePhysicalAssetHistory" Result="[BulkAddErrors]" TimeoutMS="60000" />
+                                                <ui:BulkAddQueueItems CommitType="ProcessAllIndependently" ContinueOnError="True" DisplayName="Bulk Add Queue Items using data table" FolderPath="UITS" sap:VirtualizedContainerService.HintSize="338,499" sap2010:WorkflowViewState.IdRef="BulkAddQueueItems_2" QueueItemsDataTable="[dt_Sheet]" QueueName="FinancePhysicalAssetHistory" Result="[dt_BulkAddErrors]" TimeoutMS="60000" />
                                               </Sequence>
                                             </If.Then>
                                             <If.Else>
@@ -384,7 +384,7 @@ Environment.NewLine +
                                               </Sequence>
                                             </If.Else>
                                           </If>
-                                          <If Condition="[BulkAddErrors.RowCount &gt; 0]" DisplayName="If there are any add-to-queue errors" sap:VirtualizedContainerService.HintSize="671,719" sap2010:WorkflowViewState.IdRef="If_4">
+                                          <If Condition="[dt_BulkAddErrors.RowCount &gt; 0]" DisplayName="If there are any add-to-queue errors" sap:VirtualizedContainerService.HintSize="671,719" sap2010:WorkflowViewState.IdRef="If_4">
                                             <If.Then>
                                               <Sequence DisplayName="Change count of CountsErrors variable" sap:VirtualizedContainerService.HintSize="400,333" sap2010:WorkflowViewState.IdRef="Sequence_22">
                                                 <sap:WorkflowViewStateService.ViewState>
@@ -392,13 +392,13 @@ Environment.NewLine +
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="Info" Message="[&quot;There were &quot; + BulkAddErrors.RowCount.ToString + &quot; errors during add to queue&quot;]" />
+                                                <ui:LogMessage DisplayName="Log Message - add to queue error" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="Info" Message="[&quot;There were &quot; + dt_BulkAddErrors.RowCount.ToString + &quot; errors during add to queue&quot;]" />
                                                 <Assign DisplayName="Assign add-to-queue error count" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_6">
                                                   <Assign.To>
                                                     <OutArgument x:TypeArguments="x:String">[io_QueueCountsErrors(3)]</OutArgument>
                                                   </Assign.To>
                                                   <Assign.Value>
-                                                    <InArgument x:TypeArguments="x:String">[BulkAddErrors.RowCount.ToString]</InArgument>
+                                                    <InArgument x:TypeArguments="x:String">[dt_BulkAddErrors.RowCount.ToString]</InArgument>
                                                   </Assign.Value>
                                                 </Assign>
                                               </Sequence>
