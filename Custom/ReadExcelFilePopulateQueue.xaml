@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1725,1813</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1725,2005</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ReadExcelFilePopulateQueue_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -115,7 +115,7 @@
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ReadExcelFilePopulateQueue" sap:VirtualizedContainerService.HintSize="596,1748" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Reads an excel file and populates a queue using the rows from within that file.&#xD;&#xA;&#xD;&#xA;Process returns a string array (that is passed in as an argument) containing counts of any errors and files processed, as well as any error messages. Exact format is as follow:&#xD;&#xA;&#xD;&#xA;Numbers represent index of array.&#xD;&#xA;0: total rows of file less header row&#xD;&#xA;1: total to attempt to add to queue&#xD;&#xA;2: total not being added to queue&#xD;&#xA;3: total add-to-queue errors&#xD;&#xA;4: any error messages&#xD;&#xA;5: total files processed" DisplayName="ReadExcelFilePopulateQueue" sap:VirtualizedContainerService.HintSize="596,1940" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="FilesProcessedCount">
         <Variable.Default>
@@ -126,6 +126,7 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message - ReadExcelFilePopulateQueue start" sap:VirtualizedContainerService.HintSize="534,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting ReadExcelFilePopulateQueue workflow&quot;]" />
