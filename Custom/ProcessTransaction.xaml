@@ -1,4 +1,15 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ProcessTransaction" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1388,1187" sap2010:WorkflowViewState.IdRef="ProcessTransaction_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ProcessTransaction" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_SystemException" Type="InOutArgument(s:Exception)" />
+    <x:Property Name="io_ExceptionMessage" Type="InOutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1388,2274</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -26,10 +37,19 @@
       <x:String>GlobalConstantsNamespace</x:String>
       <x:String>System.Collections.ObjectModel</x:String>
       <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="20">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="80">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -49,13 +69,216 @@
       <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
       <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="400,113" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="526,2209" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="BU" />
+      <Variable x:TypeArguments="x:String" Name="ASSET" />
+      <Variable x:TypeArguments="x:String" Name="PIID" />
+      <Variable x:TypeArguments="x:String" Name="INVDT" />
+      <Variable x:TypeArguments="x:String" Name="PERFORMED" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - ProcessTransaction start" sap:VirtualizedContainerService.HintSize="464,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting ProcessTransaction&quot;]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign - QueueItemVariables" sap:VirtualizedContainerService.HintSize="464,234" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[BU]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("BU").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[ASSET]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("ASSET").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[PIID]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("PIID").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[INVDT]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("INVDT").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[PERFORMED]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("PERFORMED").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="ProcessTransaction - Use Browser Chrome: Update Physical Inv. History" sap:VirtualizedContainerService.HintSize="464,1672" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="ProcessTransaction UseBrowser Do" sap:VirtualizedContainerService.HintSize="400,1446" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Navigate to start point" DisplayName="NavigateToPSPage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Custom\NavigateToPSPage.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_LandingPageURL">
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;FinancePhysicalAssetHistory_LandingPageURL&quot;).ToString" />
+                </InArgument>
+                <InOutArgument x:TypeArguments="s:Exception" x:Key="io_SystemException" />
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_ExceptionMessage" />
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
+            <ui:LogMessage DisplayName="Log Message - Check for search button" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Checking for search button&quot;]" />
+            <uix:NCheckState sap2010:Annotation.AnnotationText="Check if search button appears. If it doesn't throw new BRE" DisplayName="Check App State 'Search'" sap:VirtualizedContainerService.HintSize="338,103" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Search button appears" sap:VirtualizedContainerService.HintSize="400,225" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - search button appears" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Search button is present&quot;]" />
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Search button does not appear" sap:VirtualizedContainerService.HintSize="400,361" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - search button not present" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Search button is not present&quot;]" />
+                  <Throw DisplayName="Search Button doesn't appear - Throw BRE" Exception="[new BusinessRuleException(&quot;Search button does not appear&quot;)]" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/UMASS_CUSTOM.UM_PI_ASSET_HIST1.GBL?NavColl=true&amp;ICAGTarget=start" DesignTimeRectangle="319, 353, 68, 16" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Search'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' aaname='Search' class='PSPUSHBUTTONTBSEARCH' name='#ICSearch' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' aaname='Search' class='PSPUSHBUTTONTBSEARCH' name='#ICSearch' type='button' check:text='Search' /&gt;" Guid="e814e9a6-3aa7-4a05-b596-095f96416fe8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEgAAAAUCAYAAAAuoXvLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALQSURBVFhH7VhLU9NQFO5/yt8R2LUzdim2urWu4sKK+A80LcjYzrCS0YEkBR+oKSj24bC1adCygE2bjMdzX7k3l+j0wUqz+ObLOd85p/d+ObBIbnw5gtPtB9C1ShkUnG6bML4YQY48/AovM6SALE6OuBWddzOkgHhDDQpHXzHRyVjj2KBodILJkwQL6Pn/SZcb9PMzJr4syE0wDQOMGHfBm6pvUW5Bs2CAuT9t/fSsGHRMEXGePW5Qc4o1N9b82gqadAdNSqu/zthlBrWua56ENOhHG8Wj+bn/BIrGCjT7av4FNc1s8fgbqRHbVYa20u9bxEyhiTkOvXixwDQxp31f1GHOlXVmTc4vWrZyjvlZMchbEHv0kOzQafoWM4trXgVrC+vgE80tY18ZPF5LtcoWPvOZ9JlpvrUs4/46GkL6eF1i3jKazHoWgTTo7CMmPlGOOM8VOyVqUvyGHa7TfAk8Ud97jJdTYmXekJrwHONdaObJNuxyncWmm6yPtLqIvgxikND1+uljxaAPEAYIwn/CrHpvDU3Ag/bw2bmdMI6Ba2ev6QUTWmUzzpsOnxdssi0UcQxeZ4uY1InZCua4X2zQJHiPiUPGwSFCiXVO0200oLKh6a+gQS/I9fwaDFL6fWsJtUfgi/gZxpV6sl+dZ+u/r9UFG2jQEhokdI1nuJ/coOAdhEOEygJ6PlWvs7drixhhr+I24EE7V3VqgrEKHtb5T4lBVfCVOdSgYIdvBp+HOv3/dI9oGHeruKFkvl5HZmC+K/tSWeAvutyg4RsU3jIOOM8c19jlYtyARkfRO1W4qWjNjuhX+26BR4zNP0TDdvjGqL/3MvHnaNqkX6uj89T5av9ssdyg4QFM/IOMNZYb5Lcg9Pcz1lgxyIXJQEEWU5YGfbcx4SBsCAlnMY2pQeSj0PlxHZN7VzFIyan4h3XiCfmYyD+5mtStDBJkccYXI/gNXcF3sI+TrMQAAAAASUVORK5CYII=" InformativeScreenshot="dc17fb305ac52eb916865e4850ba0515.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Update Physical Inv. History' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target DesignTimeRectangle="316, 153, 2244, 16" ElementType="Text" FriendlyName="'Update Physical'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='H1' aaname='Update Physical Inv. History' innertext='Update Physical Inv. History' visibleinnertext='Update Physical Inv. History' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='H1' aaname='Update Physical Inv. History' innertext='Update Physical Inv. History' visibleinnertext='Update Physical Inv. History' type='' class='PSSRCHTITLE' check:text='Update Physical Inv. History' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAACMgAAAAUCAYAAAByZ5OPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUaSURBVHhe7d07bttIAIDhXG2vkjJHcLt9gCB9TpAmhbvkCIYrXyEBcgktSXGG8yQpWQ6WyvcBA1iv4cyI5Q/r3QkAAAAAAAAAAO6YQAYAAAAAAAAAgLsmkAEAAAAAAAAA4K4JZAAAAAAAAAAAuGtJIPNy+vj+0+mf919Pz/Mz0dPX4fnhtYcfp1/zU1cJ83x+mZ/4A37+OH2Y9tUYyTp+PX6Znvvw+Ht+5g2Etbz2HBPPn897+fg0P1EIr7/pvhL9c/x9+vaQr3Vr7QAAAAAAAAAAt3CAQGYMK76cvv2cH15qLZAZx7wWgcxtvHkgM57hDc8PAAAAAAAAALh///NAJqzpBoFMufawlnm/fySQeQNHDmQudqv7EAAAAAAAAAD4q1wVyCwRxEuMHs6PiygiRijzvI1AJgQc2fumV8J6khE+l827EX90/2tLHt+kYUf4exrhms15QvSRBDzF2rLXVudovH8UPpOMdL+XBjLpPrOzD2tqfEeXhEqXBDL12suzGEbnOx9H/Fx1Rvk9HK/zuLzv4d/5ufTcmnsHAAAAAAAAAI7uVYFMa8QwohE0xDEHCN15ptc7gUxn3jrImPUCmTjPeb8x7Hio13SeuxHDlHN39zyfabWWRhAyjXCNxhlkr18fyLTG+T2N+yDsa0c4sjZ/GO1ApncW87oaZzt9rnvm9Rllr32v97R1lgAAAAAAAADAMb0ykFneWz4Xo4QYICQBRC+0KK6zrCnEDsscS8Swsu5R4z+wZGNey+qeiveUsUl4vBmSdIOa+ppxzky9/62oI7xerjm9ZvldlXNuXSO1zN8f7XnD3pawpVLdH+17qref5XOj8r7ZuI8AAAAAAAAAgMN65U8spRFHGrN0YodeQBJDkXl0A5nwuDU6YcVKIJOuP4Yd6drK9WaBS2uPjfWl8xWBzHoMk0pCkHnsjVfC61Ugs2ef0+OV+6Khv6dlD721x7XF0bl/qvujWFv8zs/Pl2cQZNfv3ZsAAAAAAAAAwOE1AplGaFKECe0IIv38vkCmmqcbQIR5wuPWaKx7VEQpPc09VdFEsq+ntXnLdc5ruziQCfOEAGQ7Min1Apl9+xyuW722rr+n/WsPc8QRrt29P/YFMtUZJXvbOkcAAAAAAAAA4LiSQGYJGPLoI3l+DhWWgCEJE0JsUEQJdXQRnivjl2TeeP3wmfCeOrLYdNNApo43+nHLWRaolGspzmwU5x+umf59toQ3W5FJkF1/cN0+O/FRQ3P+Sf3dbUYpRehSf5f1vTkq773+dcqQKbmfAQAAAAAAAIC7kQQygxhstEYjZGmMGEaszTWFC0ncUI5WADGO8XO9eXsBzI0DmSXaGEcejvTPZX7fWuBRjCnmWDnDvZHJtYFMts/k7OIe0/cmmvNPtgKZMlZJRrhWdvZbZ7R8N2tnFF6bRmdPAAAAAAAAAMCx5YHMqIgQziP/zxppBJEGBlUUkcULwxxliFHFJiGi6MQ4IdQoo4i1+KWKUtp2hyODuOfWnI1gI4YZzbXUkUwaclQBR7GmtfhjFF4P+7pmn+l74/dRvDdozj/ZCmRGjWBo5aziNap7Nr9fV88o+WzvDAEAAAAAAACAY6sDmR36EcTfoRWOcFAxkPHzSgAAAAAAAABwrwQyl4pBRf7zShxTiJ16/xEHAAAAAAAAADg+gcwFYkwxDD/Hc3DpzzJt/PwWAAAAAAAAAHBsVwUyAAAAAAAAAABwFAIZAAAAAAAAAADu2On0H62f74WK0iRZAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Advanced Search'" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/UMASS_CUSTOM.UM_PI_ASSET_HIST1.GBL?NavColl=true&amp;ICAGTarget=start" DesignTimeRectangle="394, 354, 95, 14" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Advanced Search'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl name='#ICAdvSearch' tag='A' aaname='Advanced Search' innertext='Advanced Search' visibleinnertext='Advanced Search' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl name='#ICAdvSearch' tag='A' aaname='Advanced Search' innertext='Advanced Search' visibleinnertext='Advanced Search' type='' class='PSHYPERLINK' check:text='Advanced Search' /&gt;" Guid="e48ba601-3b5b-45d6-9405-c4ad505e4a6c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGMAAAASCAYAAABPRWDxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJISURBVFhH7VUxjgIxDOR/FPxlP7H1SdS0NLSU1PRIvAHEJ3KxYye24yx7J6TLSRkp0iVx7PGMl9uEgW4wzOgIw4yOMMzoCK4Z1/1X2EyX8KC9i9spbLancKVtT3icD23+z0vYbWN/vN71+Slg3WW9ajPg0XQK83QIxyedefiPZpAR8432EasG7xP4jRnQyO78Sg3t73RKEFM179mMVzhOdYOQA4B5eAq3xWCMiTnylCpB7mHOb0QDon41CDgccH6I3BpmeAOEOcXg5TxxqRypz+qO3u/wjnM7/MmMY9ajHnZjBhTkIEgoiacCLDJOFN1r4yCOcpjm8Q3FyfcscjJUm1typ/p8ju+VIPq9a0YWqRYCoYyhPJKv6pHqqdqABn+KU/oZjtoMeCAC4EEugsmEOXIvRYe/XSG0abo50YCtw7BTbevLmgscAK2vFc9X5bF8hbkt/jbOya3M0CRpsWBLYoivAURm9/N0Ofm8OGzO1mHguclFNdeL6EDUc/tnLtivvnOHp8Xfi2uboX8GEorIVTKzT+Leo6jFfSsS7t+ZYeswlgS2d41YqF9qMkqPkp9G4reKb4u/PV80Ay6rJJKEJoQ/MzY5TIwVP++T2W/NMENRcjjnub68S7k8M5IgZVgAKo+5xx4xj+6de3XNaPH/iRlY2JmKmmyMi2t3vsSiNYkiMCCdpc86xgoCbTMiRB1luDrXouZhiGuO3OT/PgWVA5bsIULkUXfyPOqU+VuRAR5/G7dkxsDfY5jREYYZHWGY0RGGGd0ghG9mqJdCo60HqQAAAABJRU5ErkJggg==" InformativeScreenshot="40a1c6f174ae1fbf380bc7198004ff2b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Update Physical Inv. History' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target DesignTimeRectangle="316, 153, 2244, 16" ElementType="Text" FriendlyName="'Update Physical'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='H1' aaname='Update Physical Inv. History' innertext='Update Physical Inv. History' visibleinnertext='Update Physical Inv. History' class='PSSRCHTITLE' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='H1' aaname='Update Physical Inv. History' innertext='Update Physical Inv. History' visibleinnertext='Update Physical Inv. History' class='PSSRCHTITLE' type='' check:text='Update Physical Inv. History' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAACMgAAAAUCAYAAAByZ5OPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUaSURBVHhe7d07bttIAIDhXG2vkjJHcLt9gCB9TpAmhbvkCIYrXyEBcgktSXGG8yQpWQ6WyvcBA1iv4cyI5Q/r3QkAAAAAAAAAAO6YQAYAAAAAAAAAgLsmkAEAAAAAAAAA4K4JZAAAAAAAAAAAuGtJIPNy+vj+0+mf919Pz/Mz0dPX4fnhtYcfp1/zU1cJ83x+mZ/4A37+OH2Y9tUYyTp+PX6Znvvw+Ht+5g2Etbz2HBPPn897+fg0P1EIr7/pvhL9c/x9+vaQr3Vr7QAAAAAAAAAAt3CAQGYMK76cvv2cH15qLZAZx7wWgcxtvHkgM57hDc8PAAAAAAAAALh///NAJqzpBoFMufawlnm/fySQeQNHDmQudqv7EAAAAAAAAAD4q1wVyCwRxEuMHs6PiygiRijzvI1AJgQc2fumV8J6khE+l827EX90/2tLHt+kYUf4exrhms15QvSRBDzF2rLXVudovH8UPpOMdL+XBjLpPrOzD2tqfEeXhEqXBDL12suzGEbnOx9H/Fx1Rvk9HK/zuLzv4d/5ufTcmnsHAAAAAAAAAI7uVYFMa8QwohE0xDEHCN15ptc7gUxn3jrImPUCmTjPeb8x7Hio13SeuxHDlHN39zyfabWWRhAyjXCNxhlkr18fyLTG+T2N+yDsa0c4sjZ/GO1ApncW87oaZzt9rnvm9Rllr32v97R1lgAAAAAAAADAMb0ykFneWz4Xo4QYICQBRC+0KK6zrCnEDsscS8Swsu5R4z+wZGNey+qeiveUsUl4vBmSdIOa+ppxzky9/62oI7xerjm9ZvldlXNuXSO1zN8f7XnD3pawpVLdH+17qref5XOj8r7ZuI8AAAAAAAAAgMN65U8spRFHGrN0YodeQBJDkXl0A5nwuDU6YcVKIJOuP4Yd6drK9WaBS2uPjfWl8xWBzHoMk0pCkHnsjVfC61Ugs2ef0+OV+6Khv6dlD721x7XF0bl/qvujWFv8zs/Pl2cQZNfv3ZsAAAAAAAAAwOE1AplGaFKECe0IIv38vkCmmqcbQIR5wuPWaKx7VEQpPc09VdFEsq+ntXnLdc5ruziQCfOEAGQ7Min1Apl9+xyuW722rr+n/WsPc8QRrt29P/YFMtUZJXvbOkcAAAAAAAAA4LiSQGYJGPLoI3l+DhWWgCEJE0JsUEQJdXQRnivjl2TeeP3wmfCeOrLYdNNApo43+nHLWRaolGspzmwU5x+umf59toQ3W5FJkF1/cN0+O/FRQ3P+Sf3dbUYpRehSf5f1vTkq773+dcqQKbmfAQAAAAAAAIC7kQQygxhstEYjZGmMGEaszTWFC0ncUI5WADGO8XO9eXsBzI0DmSXaGEcejvTPZX7fWuBRjCnmWDnDvZHJtYFMts/k7OIe0/cmmvNPtgKZMlZJRrhWdvZbZ7R8N2tnFF6bRmdPAAAAAAAAAMCx5YHMqIgQziP/zxppBJEGBlUUkcULwxxliFHFJiGi6MQ4IdQoo4i1+KWKUtp2hyODuOfWnI1gI4YZzbXUkUwaclQBR7GmtfhjFF4P+7pmn+l74/dRvDdozj/ZCmRGjWBo5aziNap7Nr9fV88o+WzvDAEAAAAAAACAY6sDmR36EcTfoRWOcFAxkPHzSgAAAAAAAABwrwQyl4pBRf7zShxTiJ16/xEHAAAAAAAAADg+gcwFYkwxDD/Hc3DpzzJt/PwWAAAAAAAAAHBsVwUyAAAAAAAAAABwFAIZAAAAAAAAAADu2On0H62f74WK0iRZAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Business Unit'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="338,227" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Text="[BU]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/UMASS_CUSTOM.UM_PI_ASSET_HIST1.GBL?NavColl=true&amp;ICAGTarget=start" DesignTimeRectangle="509, 293, 146, 18" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT PI_HIST_SRCH_BUSI…'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl class='PSPAGECONTAINER' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='INPUT' aaname='Business Unit' class='PSEDITBOX' name='PI_HIST_SRCH_BUSINESS_UNIT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl class='PSPAGECONTAINER' tag='TABLE' /&gt;&lt;webctrl tag='INPUT' aaname='Business Unit' class='PSEDITBOX' name='PI_HIST_SRCH_BUSINESS_UNIT' type='text' /&gt;" Guid="74f37dac-a4de-4dd4-897d-402af14cfba3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJYAAAAWCAYAAAAisWU6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABgSURBVGhD7dKxDcAgAMCw/v8Sx1ExooqJZrOlfJBnQsBYJLaxxhjSdctnLLhhLBLGImEsEsYiYSwSxiJhLBLGImEsEsYiYSwSxiJhLBLGImEsEsexpNuWbSz4i7EIzPkCk25dLzFc4wsAAAAASUVORK5CYII=" InformativeScreenshot="03312b3c42f7e14e4afaaf191a4a6fd9.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Update Physical Inv. History' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target DesignTimeRectangle="347, 295, 73, 14" ElementType="Text" FriendlyName="'Business Unit'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl class='PSPAGECONTAINER' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='LABEL' aaname='Business Unit' innertext='Business Unit' visibleinnertext='Business Unit' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl class='PSPAGECONTAINER' tag='TABLE' /&gt;&lt;webctrl type='' tag='LABEL' aaname='Business Unit' innertext='Business Unit' visibleinnertext='Business Unit' class='PSSRCHEDITBOXLABEL' check:text='Business Unit' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE0AAAASCAYAAAAe0VOSAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGZSURBVFhH7ZPZkcQgDESdItEQCqmQh6NwFFojBG5h5IOdndoPuooaBnQ+5IWmXmtCG9CENqAJbUCLD6tsidbgyDm9fNzkdkBbJO8CHRm+qy16cj6S7mCl4DzdtrWG6stxgNMSQqiNMTS4zE0/SPBP9StooBM0DHqCtt9E7ygf4T5JJ1dTWoxw0vjlAoU9RrbThaM/Tnc37i7rHHULTeoLEKuGKpOWfps8C1/KnxM09XldQINRzna6KHaR5Nk/xyq5VHPsI3ZWXOu80TNoxyNx/8UecpwmTX5Z6vVkHbZPoYFO0MoDYCE5bjtd/N+Ka503egYNgGNc2N9Dg0vd0AW0XRxYQFcALTRooIWGD8VLEnXj7rLOUWxzC+14yA9BQ4cGWvtKVWD3AlqTtiPL7sK/ycnCuv8GWi4IJ63ccyBJroMmu05RJjTZ17s0CTmnFdfM14rza6DcY8n1MWgy8nVhRikifxIRPk8BWu+kg4fQklRuBaQT1zzvCGrmBTWo+pIMaLxPvlKXgjb1TBPagCa0AU1oA5rQXovoB5Ky9N/gnKWIAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Asset Identification'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="338,227" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Text="[PIID]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/UMASS_CUSTOM.UM_PI_ASSET_HIST1.GBL?NavColl=true&amp;ICAGTarget=start" DesignTimeRectangle="509, 314, 146, 18" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT PI_HIST_SRCH_ASSE…'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl class='PSPAGECONTAINER' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='INPUT' aaname='Asset Identification' class='PSEDITBOX' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl class='PSPAGECONTAINER' tag='TABLE' /&gt;&lt;webctrl tag='INPUT' aaname='Asset Identification' class='PSEDITBOX' type='text' /&gt;" Guid="c3c03c0b-87a1-4c4e-86eb-716cd01b92ad" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJYAAAAWCAYAAAAisWU6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABtSURBVGhD7doxCsQgAEXBnNrLeTgXQ7Kw7crrZuCLWL/Sa0FAWCR+wppzmh1vu8YY92V7H+FfwiIhLBLCIiEsEsIiISwSwiIhLBLCIiEsEsIiISwSwiIhLBLCIvEN6z4f+9HsdJuvySSERWCtDxsLQ3/7fGZmAAAAAElFTkSuQmCC" InformativeScreenshot="5eca6bfc2d35b8e9f7d378383c7ed471.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Update Physical Inv. History' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target DesignTimeRectangle="320, 316, 101, 14" ElementType="Text" FriendlyName="'Asset Identification'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl class='PSPAGECONTAINER' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='LABEL' aaname='Asset Identification' class='PSSRCHEDITBOXLABEL' innertext='Asset Identification' visibleinnertext='Asset Identification' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl class='PSPAGECONTAINER' tag='TABLE' /&gt;&lt;webctrl type='' tag='LABEL' aaname='Asset Identification' class='PSSRCHEDITBOXLABEL' innertext='Asset Identification' visibleinnertext='Asset Identification' check:text='Asset Identification' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGkAAAASCAYAAABYZ/A4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJYSURBVFhH7VbBrewgDPwtphq6eFduv470Een1kCp42BgzBhxF2j0kEiMhbcB4xh4j7b+08Hgsk16AZdILsEx6AaYmHXFLW9jTKd9fx7mnsMV0yCeCuMM+Zz738Jku5DUazrSHXPOW189/V9sdsMYot4/4lT6OJpH4EFMMITm9+hxPMMngSPEDYxDGpC9hMIlIqEkzMn5hNG204MzbL02pZ7UJ1JB+r2EwiaaRY0OKEU2C6c9LacWICJrKWcerhuF+HszfzkisAQaE+4P36EC15kWk3UvCPmmNrt6GziQqvL6gbroMIcR5+1J8JWSBNU4bNMKYJA0qOcQUycH5WvJcnPDKnZrD5TUaSCven+zTV9XGfE0/ajHDDb0ppiK31HWlV2BNogsQQBcqHxIaXO1DIUUMioQzgDaifNjc+m0HICdkA1vRrbEmh6vBMcmrrQMa45lk6spQY6/0CoxJ9gnLap0w50g43Scy2WtrNq0WWAznRcFaQDGpz8/3+txYNJ6ZuLlJA79CXjXyX5pU4oeeqUmOXgGY1E8nAcQbwOQawP6ETNELA9x/STNdGVdF45mJm5vk1dCbh8bMTaKf1iT7khy9gmYSHWIwo02AIef9UpS3nxMa0zlu2iALWwzmKFqwaOXlfBJ3VTSemTjHJP7dhqFyci3ayKKxavFMGuu/oVegJpmiAS25NIkE5dUa6e1niJhy1orVwlCcwJqUwcNTcsQ959MCHN7LooHXxDkmEYB/zCO5kKPGUy8NN33WO3f1Ftg/DguPxDLpBVgmvQDLpBdgmfR4pPQHPTEk/0aHiWsAAAAASUVORK5CYII=" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Search'" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/UMASS_CUSTOM.UM_PI_ASSET_HIST1.GBL?NavColl=true&amp;ICAGTarget=start" DesignTimeRectangle="319, 398, 68, 16" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Search'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' aaname='Search' class='PSPUSHBUTTONTBSEARCH' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' aaname='Search' class='PSPUSHBUTTONTBSEARCH' type='button' check:text='Search' /&gt;" Guid="50912dd4-bbb6-48f0-8179-4839323b5f96" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEgAAAAUCAYAAAAuoXvLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALQSURBVFhH7VhLU9NQFO5/yt8R2LUzdim2urWu4sKK+A80LcjYzrCS0YEkBR+oKSj24bC1adCygE2bjMdzX7k3l+j0wUqz+ObLOd85p/d+ObBIbnw5gtPtB9C1ShkUnG6bML4YQY48/AovM6SALE6OuBWddzOkgHhDDQpHXzHRyVjj2KBodILJkwQL6Pn/SZcb9PMzJr4syE0wDQOMGHfBm6pvUW5Bs2CAuT9t/fSsGHRMEXGePW5Qc4o1N9b82gqadAdNSqu/zthlBrWua56ENOhHG8Wj+bn/BIrGCjT7av4FNc1s8fgbqRHbVYa20u9bxEyhiTkOvXixwDQxp31f1GHOlXVmTc4vWrZyjvlZMchbEHv0kOzQafoWM4trXgVrC+vgE80tY18ZPF5LtcoWPvOZ9JlpvrUs4/46GkL6eF1i3jKazHoWgTTo7CMmPlGOOM8VOyVqUvyGHa7TfAk8Ud97jJdTYmXekJrwHONdaObJNuxyncWmm6yPtLqIvgxikND1+uljxaAPEAYIwn/CrHpvDU3Ag/bw2bmdMI6Ba2ev6QUTWmUzzpsOnxdssi0UcQxeZ4uY1InZCua4X2zQJHiPiUPGwSFCiXVO0200oLKh6a+gQS/I9fwaDFL6fWsJtUfgi/gZxpV6sl+dZ+u/r9UFG2jQEhokdI1nuJ/coOAdhEOEygJ6PlWvs7drixhhr+I24EE7V3VqgrEKHtb5T4lBVfCVOdSgYIdvBp+HOv3/dI9oGHeruKFkvl5HZmC+K/tSWeAvutyg4RsU3jIOOM8c19jlYtyARkfRO1W4qWjNjuhX+26BR4zNP0TDdvjGqL/3MvHnaNqkX6uj89T5av9ssdyg4QFM/IOMNZYb5Lcg9Pcz1lgxyIXJQEEWU5YGfbcx4SBsCAlnMY2pQeSj0PlxHZN7VzFIyan4h3XiCfmYyD+5mtStDBJkccYXI/gNXcF3sI+TrMQAAAAASUVORK5CYII=" InformativeScreenshot="d517600de4326d7b2cd4a2ec4dc79845.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Update Physical Inv. History' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target DesignTimeRectangle="316, 153, 2244, 16" ElementType="Text" FriendlyName="'Update Physical'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='H1' aaname='Update Physical Inv. History' class='PSSRCHTITLE' innertext='Update Physical Inv. History' visibleinnertext='Update Physical Inv. History' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='H1' aaname='Update Physical Inv. History' class='PSSRCHTITLE' innertext='Update Physical Inv. History' visibleinnertext='Update Physical Inv. History' type='' check:text='Update Physical Inv. History' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAACMgAAAAUCAYAAAByZ5OPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUaSURBVHhe7d07bttIAIDhXG2vkjJHcLt9gCB9TpAmhbvkCIYrXyEBcgktSXGG8yQpWQ6WyvcBA1iv4cyI5Q/r3QkAAAAAAAAAAO6YQAYAAAAAAAAAgLsmkAEAAAAAAAAA4K4JZAAAAAAAAAAAuGtJIPNy+vj+0+mf919Pz/Mz0dPX4fnhtYcfp1/zU1cJ83x+mZ/4A37+OH2Y9tUYyTp+PX6Znvvw+Ht+5g2Etbz2HBPPn897+fg0P1EIr7/pvhL9c/x9+vaQr3Vr7QAAAAAAAAAAt3CAQGYMK76cvv2cH15qLZAZx7wWgcxtvHkgM57hDc8PAAAAAAAAALh///NAJqzpBoFMufawlnm/fySQeQNHDmQudqv7EAAAAAAAAAD4q1wVyCwRxEuMHs6PiygiRijzvI1AJgQc2fumV8J6khE+l827EX90/2tLHt+kYUf4exrhms15QvSRBDzF2rLXVudovH8UPpOMdL+XBjLpPrOzD2tqfEeXhEqXBDL12suzGEbnOx9H/Fx1Rvk9HK/zuLzv4d/5ufTcmnsHAAAAAAAAAI7uVYFMa8QwohE0xDEHCN15ptc7gUxn3jrImPUCmTjPeb8x7Hio13SeuxHDlHN39zyfabWWRhAyjXCNxhlkr18fyLTG+T2N+yDsa0c4sjZ/GO1ApncW87oaZzt9rnvm9Rllr32v97R1lgAAAAAAAADAMb0ykFneWz4Xo4QYICQBRC+0KK6zrCnEDsscS8Swsu5R4z+wZGNey+qeiveUsUl4vBmSdIOa+ppxzky9/62oI7xerjm9ZvldlXNuXSO1zN8f7XnD3pawpVLdH+17qref5XOj8r7ZuI8AAAAAAAAAgMN65U8spRFHGrN0YodeQBJDkXl0A5nwuDU6YcVKIJOuP4Yd6drK9WaBS2uPjfWl8xWBzHoMk0pCkHnsjVfC61Ugs2ef0+OV+6Khv6dlD721x7XF0bl/qvujWFv8zs/Pl2cQZNfv3ZsAAAAAAAAAwOE1AplGaFKECe0IIv38vkCmmqcbQIR5wuPWaKx7VEQpPc09VdFEsq+ntXnLdc5ruziQCfOEAGQ7Min1Apl9+xyuW722rr+n/WsPc8QRrt29P/YFMtUZJXvbOkcAAAAAAAAA4LiSQGYJGPLoI3l+DhWWgCEJE0JsUEQJdXQRnivjl2TeeP3wmfCeOrLYdNNApo43+nHLWRaolGspzmwU5x+umf59toQ3W5FJkF1/cN0+O/FRQ3P+Sf3dbUYpRehSf5f1vTkq773+dcqQKbmfAQAAAAAAAIC7kQQygxhstEYjZGmMGEaszTWFC0ncUI5WADGO8XO9eXsBzI0DmSXaGEcejvTPZX7fWuBRjCnmWDnDvZHJtYFMts/k7OIe0/cmmvNPtgKZMlZJRrhWdvZbZ7R8N2tnFF6bRmdPAAAAAAAAAMCx5YHMqIgQziP/zxppBJEGBlUUkcULwxxliFHFJiGi6MQ4IdQoo4i1+KWKUtp2hyODuOfWnI1gI4YZzbXUkUwaclQBR7GmtfhjFF4P+7pmn+l74/dRvDdozj/ZCmRGjWBo5aziNap7Nr9fV88o+WzvDAEAAAAAAACAY6sDmR36EcTfoRWOcFAxkPHzSgAAAAAAAABwrwQyl4pBRf7zShxTiJ16/xEHAAAAAAAAADg+gcwFYkwxDD/Hc3DpzzJt/PwWAAAAAAAAAHBsVwUyAAAAAAAAAABwFAIZAAAAAAAAAADu2On0H62f74WK0iRZAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="6a051e9b7d8ce936b115fcb01dee6883.jpg" Selector="&lt;html app='chrome.exe' title='Update Physical Inv. History' /&gt;" Url="[in_Config(&quot;FinancePhysicalAssetHistory_LandingPageURL&quot;).ToString]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
   </Sequence>
 </Activity>
