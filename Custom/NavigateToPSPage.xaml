@@ -1,0 +1,188 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="NavigateToPSPage" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_LandingPageURL" Type="InArgument(x:String)" />
+    <x:Property Name="io_SystemException" Type="InOutArgument(s:Exception)" />
+    <x:Property Name="io_ExceptionMessage" Type="InOutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1388,1894</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>NavigateToPSPage_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="31">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="NavigateToPSPage" sap:VirtualizedContainerService.HintSize="502,1088" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - Start NavigateToPSPage" sap:VirtualizedContainerService.HintSize="440,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Beginning NavigateToPSPage Workflow&quot;]" />
+    <TryCatch DisplayName="Try Catch - Navigate to PS Page" sap:VirtualizedContainerService.HintSize="440,684" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Homepage" sap:VirtualizedContainerService.HintSize="434,1391" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="a1535cca-8832-41a9-80e8-0aaf71e06bde" Version="V2">
+          <uix:NApplicationCard.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Start Navigation" sap:VirtualizedContainerService.HintSize="400,1125" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message - Click 'Asset Management'" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Clicking 'Asset Management'&quot;]" />
+                <uix:NClick ClickType="Single" DisplayName="Click 'Asset Management'" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1535cca-8832-41a9-80e8-0aaf71e06bde" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL?&amp;lp=ERP.EMPLOYEE.FINANCIALS" DesignTimeRectangle="1050, 242, 232, 159" DesignTimeScaleFactor="1" FriendlyName="'DIV win0groupletPTNUI_L…'" FullSelectorArgument="&lt;webctrl class='ps_box-grouplet' css-selector='body&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='2' parentname='win0' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ps_box-grouplet' type='' aaname='' parentname='win0' tag='DIV' /&gt;" Guid="d8a6a032-ae33-4418-8973-1d8e1a051cc7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOwAAACjCAYAAACJ3fKtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATeSURBVHhe7d0xi1x1FMZhv5u9vYWVtYpgxN5u22yCYKqYwk9gYSWYTsVgII0IEUTsVUhgyciNuTmTcYbZje8ZOOzzwNvcuTN/ZsiPkIWdvLEBxhAsDCJYGESwMIhgYRDBwiCChUEEC4MIFgYRLAwiWBhEsDCIYGEQwcIggoVBBAuDCBYGESwMIlgYRLAwiGBhEMHCIIKFQQQLgwgWBhFs0K3P723efOudl/vzr79fPHL9LO99+7NYPhv+P8EGCbYItodggwRbBNtDsEGCLYLtIdggwRbB9hBskGCLYHsINkiwRbA9BBsk2CLYHoINukywT54+3Tx4+Ci2n395vLm4uHjx6sed6nzB9hBs0LFgf/zp0SuPJ3eZv81Peb5gewg26FiwH3zy6fPrP9z/4uC2n7/u5vnZ3nuXLY8t9ywxHnPK8wXbQ7BBx4Jdrz/59bOD237+uu++vbv33mXLY8s9lwl2fb19r7NuvWd7r3O+YHsINkiwRbA9BBsk2CLYHoINEmwRbA/BBiWCvXnz7D97/PDLvfcuSwebOl+wPQQblAj2qksHe9UJ9rQEGyTYItgegg0SbBFsD8EGCbYItodggwRbBNtDsEGCLYLtIdggwRbB9hBskGCLYHsINkiwRbA9BBsk2CLYHoINEmwRbA/BBgm2CLaHYIMEWwTbQ7BBu8F+ena+uX3n3sut189vncX2/o2Pn7/m8vUv22ft2ynPX977et4ywWYINmg3WKsJNkOwQYI9PMFmCDZIsIcn2AzBBu0Gu3zJ9vLDl+u45b1vfxaCzRBs0G6wyx/c62p579ufhWAzBBsk2CLYHoINEmwRbA/BBgm2CLaHYIMEWwTbQ7BBgi2C7SHYIMEWwfYQbJBgi2B7CDZIsEWwPQQbdJlgnz179vx6cldxqvOX69ufhWAzBBt0LNjffv/jlcdTe/vdDzcXFxcvTjnslOcLtodgg44Fu/6O6L7/IW7d9vPXvffRjb33LlseW+65zC+wn/J8wfYQbNCxYNfr+765Yd3289ct3+qw795l6W+cWO/Z3uucL9gegg0SbBFsD8EGCbYItodggwRbBNtDsEGCLYLtIdigRLBXXTrYq06wpyXYIMEWwfYQbJBgi2B7CDZIsEWwPQQbJNgi2B6CDRJsEWwPwQYJtgi2h2CDBFsE20OwQYItgu0h2CDBFsH2EGyQYItgewg2SLBFsD0EGyTYItgegg3aDfarr7/ZPHj46OXW69/fvxvb+a1/v9bl9p17r5y1b6c8f3nv63nLBJsh2KDdYK0m2AzBBgn28ASbIdggwR6eYDMEG7Qb7O6/Ya/T/Bu2h2CDdoPd/SnxdeKnxD0EGyTYItgegg0SbBFsD8EGCbYItodggwRbBNtDsEGCLYLtIdggwRbB9hAsDCJYGESwMIhgYRDBwiCChUEEC4MIFgYRLAwiWBhEsDCIYGEQwcIggoVBBAuDCBYGESwMIlgYRLAwiGBhEMHCIIKFQQQLgwgWBhEsDCJYGESwMIhgYRDBwiCChUEEC4MIFgYRLAwiWBhEsDCIYGEQwcIggoVBBAuDCBYGESwMIlgYRLAwiGBhEMHCIIKFQQQLgwgWBhEsDCJYGESwMIhgYRDBwiCChUEEC4MIFgYRLAwiWBhEsDCIYGEQwcIggoUxNpt/AFUUrN4fdodRAAAAAElFTkSuQmCC" InformativeScreenshot="40d901cda2534464e94f66f08c09ae8c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Homepage' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                          <uix:Target DesignTimeRectangle="1052, 222, 229, 16" ElementType="Text" FriendlyName="'Asset Management'" FullSelectorArgument="&lt;webctrl tag='SPAN' aaname='Asset Management' class='ps-label' innertext='Asset Management' parentclass='ps_groupleth' visibleinnertext='Asset Management' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SPAN' aaname='Asset Management' class='ps-label' innertext='Asset Management' parentclass='ps_groupleth' visibleinnertext='Asset Management' type='' check:text='Asset Management' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOkAAAAUCAYAAABoOxokAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANBSURBVHhe7Zg9chsxDIVzEp8spe6hU6h15VKNKzXqVKvz+Ay2L8Esf0ACD9g/JU52GbwZjKQll4TA95Er/Qgul2vTckhdro3LIXW5Ni6H1OXauPqE9OsWDj9fwtMQp/dybWtiOeo838KJtR2uH+W6639Ul5B+Xs/V4E/Pb+Xq39ZHeD2ew+tX+YgCSEWe0OaQrlCs3fEWPsvHHtQhpOUUOl7C6RhNPgHKt4lOwgWQDiDn12YssckM4ZAu1Psl18wh3bjKQiVj8/dC8ZRrEKSAE/f+DO248GSIEm0O+aiawjrNK6S4mVBu53B6zrDWsfH05W113ku4Qz/xKD05RhbfJGIbfW79sH7DnKWFt52ufK7Sh9cN6oKbE8+b5yDWhtYF1iPGZn/qrFR3kOYFJMMz46bWKAPQEmRCBSgFmcowRIx8/1pIb+FeDJhNVe5n10fHTYHf1Qr6/nNjaFBiHIbTPr2mPMbqR3OM19cKAsmad0l7jJSXQ7oTMePjo2NbMDLR+KMoQWovMjspajuZH2EYn0PkSgaLMLP3/PTQwjwagLV/PTXH8sAx2uc2J4xL+Rk1zve0MaxNjWpGNc73GPWCtWyQtg23bqY4D8utB3UF6dRuy08z3Q9MzExFoYG0gsZZCSn1H97zU9WGlEFQQkLK56S+mMfcGPzJQ+YxX+M2dq1Z3SzauOK71XYr8j11XraOfEMTnx3SrUobT4YGRhmOGyAKYeVAmfEopJh7vk8YWQGEMFiAUR/Ma80YfxBSBo/4bisgzbUockh3JsMIJHOBuapJpDmbOHSGCZUQDkOQrzA/XBNw1I2EcloO6fwY7bu1WrU+6dosCA9AKuqb21GyfxFCOuGBPasbSOVvHJCAsJlOBZwEKmjx8YTFdhyjQsGEhuJjlv7CmGNzDrEU0vkxGMgslv1xpEFfDqk9bwqrFqQxSEvU+XeuTiCd24nROIbRYPfV//DCKYuGh/uF6aAtSRm3bR4IDBlT5BSNKUy6ANJB02Nk8dzj3BoQXb8GxGOQRomaxTBymoQU8hJ9d6yu/jhy/a6YyQ3j92L6vckhdQmp06zG+O9F1/fKIXUp6Ud9B/RfyiF1uTYuh9Tl2rRC+AVFqP5QTBA6aAAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <ui:LogMessage DisplayName="Log Message - Click 'Physical Inventory'" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Clicking 'Physical Inventory'&quot;]" />
+                <uix:NClick ClickType="Single" DisplayName="Click 'Physical Inventory'" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1535cca-8832-41a9-80e8-0aaf71e06bde" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/NUI_FRAMEWORK.PT_AGSTARTPAGE_NUI.GBL?CONTEXTIDPARAMS=TEMPLATE_ID%3aPTPPNAVCOL&amp;scname=ADMN_UM_ASSET_MANAGEMENT&amp;PanelCollapsible=Y&amp;PTPPB_GROUPLET_ID=UM_ASSET_MANAGEMENT&amp;CRefName=ADMN_NAVCOLL_2" DesignTimeRectangle="42, 1047, 119, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Physical Inventory'" FullSelectorArgument="&lt;webctrl tag='SPAN' aaname='Physical Inventory' class='ps_box-value' innertext='Physical Inventory' visibleinnertext='Physical Inventory' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SPAN' aaname='Physical Inventory' class='ps_box-value' innertext='Physical Inventory' visibleinnertext='Physical Inventory' type='' check:text='Physical Inventory' /&gt;" Guid="ce7b95f6-7c82-422b-a967-3f206325408c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHsAAAAUCAYAAACtZULwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ9SURBVGhD7VbJkcMgEFSCiko5bABkwnuTUBj+sQgY6DkkHyu83hKPLhfXTE/3gDzdbrcwcA0Msy+EYfaFMMy+EJjZq5vDNE0mZreWfT4scbz4du48nBh7dWGe5uBWYy3CL7GuxZtrfwMffBdNG7TZswsrzCUk4ciEnmafiH9l9ns0fczsiCbOMPt8fLrZLt92euYrUb/EsRCZCb8GN7dzfK8uWn5a2uekcII1Fuspsylv/lW5Uk1L8HCe6qh7yutXuWAjERdvacZz4jlen9Qpjt3Ga1tbwte2V3gn/XzM7FSsJAfFM4PzOpqCceWN4jnzWTI7Gw1FFkG3dc21NBHNvWD2MzWx+KrBCxeKT40AfHNtlI/XrWqp+zkfVv8OB+T88B+0RsQoXJBNQlYimFSIoIBxNNl7YA3wgtlHNcnmwvEWS/HE/MXspqFYF7ls7qjHPt86Z8R4+BlvEMSsOewymTStURPJgjCOlccAixfxC7MPa2LxjAZGDhU7Gqh4ln7ys1H8SZxtbfCSWV72MRvE2I+JIllF2wURUlx2VvA/22w0OMXmTzC/ZQInmd0472hTY2IztvVOZpdYizOTciAxjGMT1mfaPHb2+WY3fRw7m7m0sYFnzTa57+mk9+Q/z7r2bmZnwlEEltQQ5qDoxId1OBX8reLkvXGuo9k0t+Vh8+VTgnOMu8WFzaGRbYxe5Hi2TgilA6Cf2QZh3Juf4Ix2Tsep5AuaICLOlieJXgTpYnY5Zzyx6r8D7rlrtm1SzkXA8za3hBRXv3obmNnnQnbrwFtw0OT9zE5JjRsw0BXphdj5/9DFbHp+zGdmoBPos7Z/wTo+4wOfhmH2ZXALP4740v9vbZfpAAAAAElFTkSuQmCC" InformativeScreenshot="2c2b9acf95e54ccffc50cef3df4886f9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Basic Add' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                          <uix:Target DesignTimeRectangle="8, 1030, 286, 49" FriendlyName="'Step LabelPhysical'" FullSelectorArgument="&lt;webctrl aria-role='link' tag='DIV' innertext=' Step LabelPhysical Inventory   ' visibleinnertext='Physical Inventory' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='link' tag='DIV' innertext=' Step LabelPhysical Inventory   ' visibleinnertext='Physical Inventory' type='' class='ps_box-group psc_layout   ps_ag-step-group-button' aaname='' check:text='Step LabelPhysical Inventory' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAASIAAAA1CAYAAADlGuYhAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAToSURBVHhe7dvPa+RkHMfx/lEevIjsZRF02IMXhSJ4sB4r3nrRw4AXZT3IVlR0MYriYQ8etOJSMbAgWC10d0UZZR1wFdSlCwrS22OeJ3mS58c3M02byTOz8y68aCd58s3zZPh+Jmnphv06OTlRADCkVy7vKv1VxdDGxuHtiQKAIUVBJKUVACwSQQQgOYIIQHIEEYDkCCIAyRFEAJIjiAAkRxABSI4gApAcQQQgOYIIQHIEEYDkCCIAyRFEAJIjiAAk1zmIju/kavrJRXXn44vqhw8eV4dXL6kbbz+prl95aq69y0+o+3/+KtYFsL46B9Fv339kgkjy4/sX1LdvPqL2X31YXXv5ochX7zyrbl3fFesCWF+9BpHru7cejYJI3xURRABCCwuiW+9dIIgAnMpSB9E0G+mJiUbZtBqXq3HxepzHx59fj7WnmRptjFQ2FfYV8nGxrnEu7ksjV/lCrikQW/4gGmVqGu4zTW0DYpFB1KOVCqIVuaZ4YAwaRPqX1V3+atYaRIWmcQmi/hFEGNZgQfT5a4+pr999TqzZplMQZeVdUrEEo26ifFy8DgLAC4WpykbNcf7YuCHDx8XmEbGak7PPq9UpiOx5y+/Rucyaxip3jrfrqMdUd431XNyQs3PJpWvmn9M9zl9feJ2K15mel943Vrt6bPDezXo/sdwmk4na3t4236X92mnGtBksiPRjWW9BZBoxbBynMb3wKfe7geHWDe9E/HOWx9ogKkPIacCq2fX+eK5VwNltZwiiLmvy6kfhW83F1rch5cy3XJs9n7/uaC31eH8+3vpb5uDNGSvj+PhY7ezsqK2tLTFojo6OzD49Ro8N98+z/EFkGjLWNInQlEEjmSavm8RtiKBBI26d7o3khdMZgmjWmsLgc1/rWtE83fNXQdRcw2B/cC557u71aJ9vvW3O+rH8bBhtbm6q/f39erv+WW87awhpq3lH5AmaRtrmfjqHDWH22YALG8WtI51H4NUrnCOIZq7JqyeEqzuHWss1iOpJ1y98FKzeHzNn+dq4HwCney+x7MIw6iOEtPUIIqdR22u6DSw1pNxslqnrHRvMv+8gcsPH1PYfq/y7k0BPQdTMueXa1DXdoAzGYOW4YdRHCGlrEkRVrXF2ioZwm8atM6uZ5H3uHUH/QdRcn8w7tpxL81rQNYjEubddp3hM+YeE9rVj9dgw6iOEtLUJorKZigb1GkJo2hkNaebj3RnYZjyI6pRji20LDCK7TZ/H2149HrrbvLlLc/G2uSHTvHbfi7KefJ1c0XXAA0MHUB8hpK1PEAnN5I4tll5rjovr1I1VaZo1qKPPYwKhataFBFF1nPDYFP2uyh0zN4jkACnPZbnHy3MzTN34bhFwLTaIXipCqLL3+iV148MXxJrDCD/lMYg5AQxonYPo75++EIMnFN4RadObX4o1B2EaQrhzwEKZO6tZv68CCp2D6L9/76npp8+I4eP65drT5v/KrN8n34j1hmAfKcRHByyIfVQl/DFf5yDSdBjd//kz9dfBG+ru3vNiEP2x/6J4LACEzhREIR1M/9w9UPeOrpoA0kGkf5bGAkColyACgPMgiAAkRxABSI4gApAcQQQgOYIIQHIEEYDkCCIAyRFEAJIjiAAkRxABSI4gApAcQQQgOYIIQHIEEYDkoiA6vD1RADCkMoiU+h/I/lj73GAowwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <ui:LogMessage DisplayName="Log Message - Click 'Update Physical Inv. History'" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Clicking 'Update Physical Inv. History'&quot;]" />
+                <uix:NClick ClickType="Single" DisplayName="Click 'Update Physical'" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1535cca-8832-41a9-80e8-0aaf71e06bde" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/NUI_FRAMEWORK.PT_AGSTARTPAGE_NUI.GBL?CONTEXTIDPARAMS=TEMPLATE_ID%3aPTPPNAVCOL&amp;scname=ADMN_UM_ASSET_MANAGEMENT&amp;PanelCollapsible=Y&amp;PTPPB_GROUPLET_ID=UM_ASSET_MANAGEMENT&amp;CRefName=ADMN_NAVCOLL_2" DesignTimeRectangle="40, 1127, 182, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Update Physical'" FullSelectorArgument="&lt;webctrl tag='SPAN' aaname='Update Physical Inv. History' innertext='Update Physical Inv. History' visibleinnertext='Update Physical Inv. History' idx='1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SPAN' aaname='Update Physical Inv. History' innertext='Update Physical Inv. History' visibleinnertext='Update Physical Inv. History' type='' class='ps_box-value' check:text='Update Physical Inv. History' /&gt;" Guid="78f4b8e5-0430-480d-a6ba-9df31f0f30ea" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALoAAAAUCAYAAAA6GCdvAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOTSURBVGhD7VjRlaQwDKNDyqKIK4BS+L4qpoxc4sSJrTgQYGbf7BG9x9sFEluSBTs7kxsYeABG0AcegRH0gUdgBH3gERBBf7l1nty8vtK5xrZMblq2dHYBr9XN0+wa5Q283LZ1L67wWmc3TZ6zcRSNm1v8+R1Zbbyx9oF3t2fTi23x/i1emQHgeI7T5medfv0QvjTo+1x6QEGfV18JQDw4gJ8M+hvxC4Pej5+ZwfOC7lG0jKCfwtOCziFawzVPkg4MFQkv95cVjID7dFD9yCNfE3WJQ16/b+qpoBO3UjubToOFPmqgwFWtrQeIH6ek11pbONCrtl4ddO4bf1a9zLB2vlguf3Rp+aQ5ttfLnmGP378GLvHen9ALZo3zvx50ixiYXWqxIC0wLw8gE/kacsH6HlYIBZpBV32YlzBS1UUduq4eJvbUGqNngm960MP9mmvSy9cuBP2MpqP6GVTnfNDP+MTncj3tz33TfelXlYU6yzeCDoKF0HpwHhUZhBQMXKh2bTAaKBE5BoPqA03VmrXx1CNrkbxSGBv9d/V0QHl4Ieh7mnA+5rws0AyLj/VhBf2MT+HUepjkmra+fM3w69ZHF72ykDEDaA4rmeD38RG3AZc9g7FPQt/wwGQCXJMPKGpQvFCbrGP1MYA6bwR9V5Oqd+IhNEOYABwVp26fQhl7bqFe5Gh7Sf3SPquGCLosVkPeux/0uJaE53VSgDaf+rUMbuBtQRdc2jXlA6s1xjpWn4KoT+4F/u8OutAUa3d6ezXoGUc+hTKWxzIPDS9zf7m2QAWdmlQVAgwyKFgINcmSSUmcZRjt5x5AVu7thG0YoicUqdbi//k2DNRoDcQ2P8K+R0H5WNCTJl+fvlDQi9u4HXRGy6dwavWQayx9AbFm9aVHggp6JHtgukcMuhQSm6DZpU4810GXZPh+EaCNSvVVcLGHxjuDzr5ozqjZQw1b14meyQHysP9WdbK/Hww6X5OeH+JS0I98Yh9YXOIl1lOt3NfSElH5JqCDTigG5AM2cojU14tVZ10Hn7RMiu9vYAiZGu6xwHRf7GmFPIA5tlcEWKZZ11Lvql7tVdlX10HN9YsgHaGPfBl8JOhpnwzuQZ84k7NBp7Mdn4Qv2V+ctexpayEQBzsXRtCP0Rei/wn41hn4Suw8qCPoPSADG2+yga8B5dJ81Y+gHyL+eW/8qRz4EvBHo/bL6FLQBwZ+G0bQBx4A5/4Bh4k1H+f6H48AAAAASUVORK5CYII=" InformativeScreenshot="031e64180f3db63156a1ba1f1198aa34.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Basic Add' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                          <uix:Target DesignTimeRectangle="8, 1111, 269, 47" FriendlyName="'Step LabelUpdate'" FullSelectorArgument="&lt;webctrl aria-role='link' tag='DIV' visibleinnertext='Update Physical Inv. History' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='link' tag='DIV' visibleinnertext='Update Physical Inv. History' type='' class='ps_box-group psc_layout   ps_ag-step-button' aaname='' check:text='Step LabelUpdate Physical Inv. History' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAREAAAAzCAYAAACwhzwHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASFSURBVHhe7ZlNlqs2EEa9Q+8qnmWYSRbAUjzOKjzuWc8I+oNSSQLhsk+A3HuOzmtAlKpKnz67+90SIwDADn5+fvyIFoKJAMA+MBEAMIGJAIAJTAQATGAiAGACEwEAE5gIAJjARADABCYCACYwEQAwgYkAgAlMBABMYCIAYAITAQATmAgAmMBEAMAEJgIAJjARADCBiQCAiQOayGsc7rfxPrzidc7zcRtvj2e8eoPXMN5v97ERvsJrfD67Jxe8hrtrbnUsNT7Hx3RtKavNB2Nv9M68N708H1P/HlNlFVSO+3J6Tnsdf4RuMJFV1nPpwZvIfZgiKXwe6XB/00Q+yAlNpJ+T7MEBwURW+aKJTCy1YCK7wEQOxalNJB3Qwd2bUvdDH1gvquX5Y1AiU8/98PFDHvM9EdfnMM9fF+wuE/G5LbFnQftDo9bJDovKNZtbHg79K5bsdV6bG7pX7XpzE0nrhn+LtapG0Gnab/860+pTnmN7vlzTvTO9P7hcwrO/3Vpqr9f2/yqc30Rqm66EvMRKYsnFM093eIGmezoXHX+idsAFTRFl66S8hEizuLqOPG5+UPSaeY2hZyLfaKLueZlrrDfde8NE9tS0FX/Gx9lvInv6lK7lfP/+vG58LvtVaGFdy1fhAiaixCREVB6KiWKjNVJMKhcfuxSvFqck5OjEVw4t2LzmXNR+jbkWmVc86I31V+vpIOvhGyayVpPen+p+1fB7uPSxHDUT2dMnd1kzKjmnXd98r9cUT875TaQQ3bLR1cNd3dgosOm9NMJrKpc18ep1In0HQwnYo+5J89M1ZHnp2mSc2joVdJ0GE1mtKYu3w+CqBzyicsxy6u6TC1PfNxcv5FjvpV8vvtdtiifngCYiN6pEPrObSJjryq6LPxe2X68l3gYfMxGRSzumNMO8xhCnts5CqE++q/L/tImImkLszt6+ayIzW31yYWo9lnpo9HJeX869Noc0Eb+Bxe44KhutxSREVBWCF2AUTk2M/v20hhKCfLeTuhg1PQcuxnoMHeJsiX1N2PVn/hB+zURiTVN8/8fxfHIbs4kkWn1yl7U15JxafY4Qs/gD/oU5pIkEIWwIeiKYiBRJ2EAt5CVOuM5NRG50er6IIxdhjJ+Zgl4j55MmkvqS56xrnsgOUh4n9EwejnSQ/inizP39oomke7Lnm7xlIlt9Sn1IxcW8xHwfa163Vkug6NvFOaaJeBZxzUNtSjqg2X/xFruax9GfEPOGp+dPJTYvWPcsiSc+F++0DMSRclwXU02QtXtx7SJe2avlvTKOrrk02TjcOtJov2Ii8T1pChvrhD3ZayL+aqVPoi9zf/VeyzXrtXh8Duu6uBIHNpFt+g7oldCflnBItkzwYmAiZ8KLs/EJDIfB67L6FeWaYCInIXzlb3x9hoOQfl36fxn9qU0EAP57MBEAMIGJAIAJTAQATGAiAGACEwEAE5gIAJjARADABCYCACYwEQAwgYkAgAlMBABMYCIAYAITAQATmAgAmKiayB9//sVgMBhdo2oiv7+/DAaD0TWCifyM/wKkgOrEUo14hAAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NClick.Target>
+                </uix:NClick>
+              </Sequence>
+            </ActivityAction>
+          </uix:NApplicationCard.Body>
+          <uix:NApplicationCard.TargetApp>
+            <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="94710b3590377b2d6e817a9c1b28d2b8.jpg" Selector="&lt;html app='chrome.exe' title='Homepage' /&gt;" Url="[in_LandingPageURL]" />
+          </uix:NApplicationCard.TargetApp>
+        </uix:NApplicationCard>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,512" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="NavigateToPSPage - Catch block" sap:VirtualizedContainerService.HintSize="400,443" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message - NavigateToPSPage exception caught" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[&quot;Error during NavigateToPSPage: &quot; + exception.Message]" />
+              <Assign DisplayName="NavigateToPSPage - Assign Exception" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="s:Exception">[io_SystemException]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="s:Exception">[exception]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="NavigateToPSPage - Assign Exception Message" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[io_ExceptionMessage]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[exception.Message]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+    <ui:LogMessage DisplayName="Log Message - End NavigateToPSPage" sap:VirtualizedContainerService.HintSize="440,101" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Finished NavigateToPSPage Workflow&quot;]" />
+  </Sequence>
+</Activity>
