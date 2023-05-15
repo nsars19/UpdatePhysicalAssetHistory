@@ -113,7 +113,15 @@
         <InOutArgument x:TypeArguments="s:Exception" x:Key="io_SystemException">
           <VisualBasicReference x:TypeArguments="s:Exception" ExpressionText="io_SystemException" />
         </InOutArgument>
-        <InOutArgument x:TypeArguments="x:String" x:Key="io_ExceptionMessage" />
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_ExceptionMessage">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_ExceptionMessage" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="x:Int32" x:Key="io_PhysicalAssetHistoryCount">
+          <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="io_PhysicalAssetCount" />
+        </InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ScreenshotsPath">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ExScreenshotsFolderPath&quot;).ToString" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>
