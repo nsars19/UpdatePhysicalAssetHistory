@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1388,4029</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1388,4103</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -102,14 +102,14 @@
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="596,3964" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="596,4038" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="BU" />
       <Variable x:TypeArguments="x:String" Name="ASSET" />
       <Variable x:TypeArguments="x:String" Name="PIID" />
       <Variable x:TypeArguments="x:String" Name="INVDT" />
       <Variable x:TypeArguments="x:String" Name="PERFORMED" />
-      <Variable x:TypeArguments="x:String" Name="PerformedDisplayName" />
+      <Variable x:TypeArguments="x:String" Name="PerformedByFormatted" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -179,7 +179,7 @@
           </sap:WorkflowViewStateService.ViewState>
           <Assign DisplayName="Assign formatted name to Display Name" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[PerformedDisplayName]</OutArgument>
+              <OutArgument x:TypeArguments="x:String">[PerformedByFormatted]</OutArgument>
             </Assign.To>
             <Assign.Value>
               <InArgument x:TypeArguments="x:String">[PERFORMED.Split(" ")(1) + "," + PERFORMED.Split(" ")(0)]</InArgument>
@@ -188,21 +188,21 @@
         </Sequence>
       </If.Then>
     </If>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="ProcessTransaction - Use Browser Chrome: Update Physical Inv. History" sap:VirtualizedContainerService.HintSize="534,3326" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="ProcessTransaction - Use Browser Chrome: Update Physical Inv. History" sap:VirtualizedContainerService.HintSize="534,3400" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="ProcessTransaction UseBrowser Do" sap:VirtualizedContainerService.HintSize="500,3100" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="ProcessTransaction UseBrowser Do" sap:VirtualizedContainerService.HintSize="500,3174" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <TryCatch DisplayName="Try Catch for ProcessTransaction" sap:VirtualizedContainerService.HintSize="438,2977" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <TryCatch DisplayName="Try Catch for ProcessTransaction" sap:VirtualizedContainerService.HintSize="438,3050" sap2010:WorkflowViewState.IdRef="TryCatch_1">
               <TryCatch.Try>
-                <Sequence DisplayName="ProcessTransaction Try block sequence" sap:VirtualizedContainerService.HintSize="400,2718" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <Sequence DisplayName="ProcessTransaction Try block sequence" sap:VirtualizedContainerService.HintSize="400,2791" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -289,7 +289,7 @@
                       </uix:TargetAnchorable>
                     </uix:NClick.Target>
                   </uix:NClick>
-                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Business Unit'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="338,227" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Text="[BU]" Version="V3">
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Business Unit'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="338,263" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Text="[BU]" Version="V3">
                     <uix:NTypeInto.Target>
                       <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/UMASS_CUSTOM.UM_PI_ASSET_HIST1.GBL?NavColl=true&amp;ICAGTarget=start" DesignTimeRectangle="509, 293, 146, 18" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT PI_HIST_SRCH_BUSI…'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl class='PSPAGECONTAINER' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='INPUT' aaname='Business Unit' class='PSEDITBOX' name='PI_HIST_SRCH_BUSINESS_UNIT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl class='PSPAGECONTAINER' tag='TABLE' /&gt;&lt;webctrl tag='INPUT' aaname='Business Unit' class='PSEDITBOX' name='PI_HIST_SRCH_BUSINESS_UNIT' type='text' /&gt;" Guid="74f37dac-a4de-4dd4-897d-402af14cfba3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJYAAAAWCAYAAAAisWU6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABgSURBVGhD7dKxDcAgAMCw/v8Sx1ExooqJZrOlfJBnQsBYJLaxxhjSdctnLLhhLBLGImEsEsYiYSwSxiJhLBLGImEsEsYiYSwSxiJhLBLGImEsEsexpNuWbSz4i7EIzPkCk25dLzFc4wsAAAAASUVORK5CYII=" InformativeScreenshot="03312b3c42f7e14e4afaaf191a4a6fd9.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Update Physical Inv. History' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
                         <uix:TargetAnchorable.Anchors>
@@ -299,8 +299,18 @@
                         </uix:TargetAnchorable.Anchors>
                       </uix:TargetAnchorable>
                     </uix:NTypeInto.Target>
+                    <uix:NTypeInto.VerifyOptions>
+                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" ExpectedText="[BU]" Mode="Appears">
+                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                      </uix:VerifyExecutionTypeIntoOptions>
+                    </uix:NTypeInto.VerifyOptions>
                   </uix:NTypeInto>
-                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Asset Identification'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="338,227" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Text="[PIID]" Version="V3">
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Asset Identification'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="338,263" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Text="[ASSET]" Version="V3">
                     <uix:NTypeInto.Target>
                       <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/UMASS_CUSTOM.UM_PI_ASSET_HIST1.GBL?NavColl=true&amp;ICAGTarget=start" DesignTimeRectangle="509, 314, 146, 18" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT PI_HIST_SRCH_ASSE…'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl class='PSPAGECONTAINER' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='INPUT' aaname='Asset Identification' class='PSEDITBOX' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl class='PSPAGECONTAINER' tag='TABLE' /&gt;&lt;webctrl tag='INPUT' aaname='Asset Identification' class='PSEDITBOX' type='text' /&gt;" Guid="c3c03c0b-87a1-4c4e-86eb-716cd01b92ad" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJYAAAAWCAYAAAAisWU6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABtSURBVGhD7doxCsQgAEXBnNrLeTgXQ7Kw7crrZuCLWL/Sa0FAWCR+wppzmh1vu8YY92V7H+FfwiIhLBLCIiEsEsIiISwSwiIhLBLCIiEsEsIiISwSwiIhLBLCIvEN6z4f+9HsdJuvySSERWCtDxsLQ3/7fGZmAAAAAElFTkSuQmCC" InformativeScreenshot="5eca6bfc2d35b8e9f7d378383c7ed471.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Update Physical Inv. History' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
                         <uix:TargetAnchorable.Anchors>
@@ -310,6 +320,16 @@
                         </uix:TargetAnchorable.Anchors>
                       </uix:TargetAnchorable>
                     </uix:NTypeInto.Target>
+                    <uix:NTypeInto.VerifyOptions>
+                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" ExpectedText="[ASSET]" Mode="Appears">
+                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                      </uix:VerifyExecutionTypeIntoOptions>
+                    </uix:NTypeInto.VerifyOptions>
                   </uix:NTypeInto>
                   <uix:NClick ClickType="Single" DisplayName="Click 'Search'" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
                     <uix:NClick.Target>
@@ -333,7 +353,7 @@
                       </uix:TargetAnchorable>
                     </uix:NClick.Target>
                   </uix:NClick>
-                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Physical Inv.' - Performed By" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="338,263" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="Simulate" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Text="[PerformedDisplayName]" Version="V3">
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Physical Inv.' - Performed By" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="338,263" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="Simulate" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Text="[PerformedByFormatted]" Version="V3">
                     <uix:NTypeInto.Target>
                       <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/UMASS_CUSTOM.UM_PI_ASSET_HIST1.GBL?NavColl=true&amp;ICAGTarget=start" DesignTimeRectangle="584, 341, 227, 18" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'UI Path Account'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl id='ACE_$ICField8$0' tableRow='3' tag='TABLE' /&gt;&lt;webctrl tableRow='7' tag='INPUT' class='PSEDITBOX' name='PI_ASSET_HIST_PERFORMED_BY$1' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl id='ACE_$ICField8$0' tag='TABLE' /&gt;&lt;webctrl aaname='' tag='INPUT' class='PSEDITBOX' name='PI_ASSET_HIST_PERFORMED_BY$1' type='text' /&gt;" Guid="ea0d03e5-1f2c-4e05-8873-cce8045f71b3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOcAAAAWCAYAAAA7OoucAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIISURBVHhe7ZbtjcMgDIZvRaZhFFZB6hiZIlNw2ECwoTlorkr48T4SauLw4UR+oD8BALAkkBOARVFyvl4vNDS0BRrRyQkAeBbICcCiQE4AFmUs5+6DNTb4Pd9nNmeCzcHd22DcxteaLThjgmnb274NvK6LMzTXM3B/E2aWuZPz7wRAzy1y6kd78HZCnH/ISbk555YTAXKCT3hATj023qhTNfWVJ26UMsvpaR2O9flUaCyJTL99P841z33kEDmLU659vN1gxFr0PtYFF5+ncSKe54GgYIYH5BSxZm6ex/pY+nxTT0u+ruuxMKVfC0mQF6T5pGhJnDKuFaqPJ2F1DmnqgZxNP5kPxASz3CLncWLkpoSRSEk6OUUOSiYN5XWkQuNEP5mzZDZO9+k9R3LmvCPy20BO8AkPnJwaLngp76mcteBZgLdyvtsMSu5JqF7C+Xh9z4GcIjfICa4yllMW3oEu3MtyNqeMKuwLcnIeTVzmNntCFto4byQ8VyOn3MAgJ/gSE3KmQlRFxVJVYb8jZ17nspx6wzgQa2h5a25/xlUO5V30N0n9ICf4LhNyErkYY3Hqv4qJ86IbyKnmjXNuUsI0luWYkVOeXoo0T5FW/o3uTsUP4mm9EvdxjbGc/IzGQFAwwaScAIC7gZwALArkBGBRICcAi3IqJxoa2vONUHICANYBcgKwJCH8Am+m1oK9GBL/AAAAAElFTkSuQmCC" InformativeScreenshot="d61f12e7fac21428a68f88b6e0e061b8.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Update Physical Inv. History' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
                         <uix:TargetAnchorable.Anchors>
@@ -344,7 +364,7 @@
                       </uix:TargetAnchorable>
                     </uix:NTypeInto.Target>
                     <uix:NTypeInto.VerifyOptions>
-                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" ExpectedText="[PerformedDisplayName]" Mode="Appears">
+                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" ExpectedText="[PerformedByFormatted]" Mode="Appears">
                         <uix:VerifyExecutionTypeIntoOptions.Retry>
                           <InArgument x:TypeArguments="x:Boolean" />
                         </uix:VerifyExecutionTypeIntoOptions.Retry>
