@@ -143,13 +143,13 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:LogMessage DisplayName="Log Message - Send start email" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Sending process start email&quot;]" />
-          <u:UMassWindowsSendExchangeMailMessage sap:VirtualizedContainerService.HintSize="338,199" sap2010:WorkflowViewState.IdRef="UMassWindowsSendExchangeMailMessage_1" in_Body="[in_ProcessName + &quot; started on &quot; + Environment.MachineName + &quot; for ROBOT user &quot; + Environment.UserName]" in_EmailTo="[in_Config(&quot;FinancePhysicalAssetHistory_EmailToField&quot;).ToString]" in_Subject="[in_ProcessName + &quot; started on &quot; + Environment.MachineName]" />
+          <u:UMassWindowsSendExchangeMailMessage DisplayName="Start process - UMassWindowsSendExchangeMailMessage" sap:VirtualizedContainerService.HintSize="338,199" sap2010:WorkflowViewState.IdRef="UMassWindowsSendExchangeMailMessage_1" in_Body="[in_ProcessName + &quot; started on &quot; + Environment.MachineName + &quot; for ROBOT user &quot; + Environment.UserName]" in_EmailTo="[in_Config(&quot;FinancePhysicalAssetHistory_EmailToField&quot;).ToString]" in_Subject="[in_ProcessName + &quot; started on &quot; + Environment.MachineName]" />
           <ui:LogMessage DisplayName="Log Message - Sent start email" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Sent process start email successfully&quot;]" />
         </Sequence>
       </If.Then>
     </If>
     <ui:LogMessage DisplayName="Log Message - Finance Login Start" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Starting Finance PS login. Using environment: &quot; + in_Config(&quot;FinancePhysicalAssetHistory_Environment&quot;).ToString]" />
-    <f:FinanceWindowsLogin sap:VirtualizedContainerService.HintSize="338,250" sap2010:WorkflowViewState.IdRef="FinanceWindowsLogin_2" in_CredentialAssetname="[&quot;FinancePhysicalAssetHistory_Credentials&quot;]" in_EnvironmentAssetname="[&quot;FinancePhysicalAssetHistory_Environment&quot;]" in_Foldername="UITS" in_URLAssetname="[&quot;FinancePhysicalAssetHistory_LoginURL&quot;]" />
+    <f:FinanceWindowsLogin DisplayName="Start process - FinanceWindowsLogin" sap:VirtualizedContainerService.HintSize="338,250" sap2010:WorkflowViewState.IdRef="FinanceWindowsLogin_2" in_CredentialAssetname="[&quot;FinancePhysicalAssetHistory_Credentials&quot;]" in_EnvironmentAssetname="[&quot;FinancePhysicalAssetHistory_Environment&quot;]" in_Foldername="UITS" in_URLAssetname="[&quot;FinancePhysicalAssetHistory_LoginURL&quot;]" />
     <ui:LogMessage DisplayName="Log Message - Finance Login End" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Successfully logged into Finance PS&quot;]" />
   </Sequence>
 </Activity>
