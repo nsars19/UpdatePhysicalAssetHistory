@@ -3,7 +3,7 @@
   "description": "Upload and update an excel sheet data of physical assets inventory history into Asset Management",
   "main": "Main.xaml",
   "dependencies": {
-    "FinanceWindowsLogin": "[1.0.1]",
+    "FinanceWindowsLogin": "[1.0.2]",
     "KillAllChromeWindowsProcess": "[1.0.1]",
     "ReadEmailDownloadExcelFileWindows": "[1.0.6]",
     "UiPath.Excel.Activities": "[2.16.0]",

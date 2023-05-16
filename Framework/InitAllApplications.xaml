@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Initialize_Applications" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:f="clr-namespace:FinanceWindowsLogin;assembly=FinanceWindowsLogin" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:u="clr-namespace:UMassWindowsSendExchangeMailMessage;assembly=UMassWindowsSendExchangeMailMessage" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Initialize_Applications" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:f="clr-namespace:FinanceWindowsLogin;assembly=FinanceWindowsLogin" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:u="clr-namespace:UMassWindowsSendExchangeMailMessage;assembly=UMassWindowsSendExchangeMailMessage" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_FirstRun" Type="InArgument(x:Boolean)" />
@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1156,1959</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1036,1187</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -120,15 +120,21 @@
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="544,1894" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="400,938" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="482,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Opening applications...&quot;]" />
-    <If Condition="[in_FirstRun]" DisplayName="Send process start email if in first run" sap:VirtualizedContainerService.HintSize="482,866" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Opening applications...&quot;]" />
+    <If Condition="[in_FirstRun]" DisplayName="Send process start email if in first run" sap:VirtualizedContainerService.HintSize="338,61" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <If.Then>
         <Sequence DisplayName="Send Process Start email" sap:VirtualizedContainerService.HintSize="400,603" sap2010:WorkflowViewState.IdRef="Sequence_11">
           <sap:WorkflowViewStateService.ViewState>
@@ -142,20 +148,8 @@
         </Sequence>
       </If.Then>
     </If>
-    <ui:LogMessage DisplayName="Log Message - Finance PSTST Login Start" sap:VirtualizedContainerService.HintSize="482,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Starting Finance PS login. Using environment: &quot; + in_Config(&quot;FinancePhysicalAssetHistory_Environment&quot;).ToString]" />
-    <f:FinanceWindowsLogin sap:VirtualizedContainerService.HintSize="482,250" sap2010:WorkflowViewState.IdRef="FinanceWindowsLogin_2" in_CredentialAssetname="[&quot;FinancePhysicalAssetHistory_Credentials&quot;]" in_EnvironmentAssetname="[&quot;FinancePhysicalAssetHistory_Environment&quot;]" in_Foldername="UITS" in_URLAssetname="[&quot;FinancePhysicalAssetHistory_LoginURL&quot;]" />
-    <ui:LogMessage DisplayName="Log Message - Finance PSTST Login End" sap:VirtualizedContainerService.HintSize="482,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Successfully logged into Finance PS&quot;]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom\NavigateToPSPage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="482,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Custom\NavigateToPSPage.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_LandingPageURL">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;FinancePhysicalAssetHistory_LandingPageURL&quot;).ToString" />
-        </InArgument>
-        <InOutArgument x:TypeArguments="s:Exception" x:Key="io_SystemException" />
-        <InOutArgument x:TypeArguments="x:String" x:Key="io_ExceptionMessage" />
-        <InArgument x:TypeArguments="x:String" x:Key="in_ScreenshotsFolder">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ExScreenshotsFolderPath&quot;).ToString" />
-        </InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message - Finance Login Start" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Starting Finance PS login. Using environment: &quot; + in_Config(&quot;FinancePhysicalAssetHistory_Environment&quot;).ToString]" />
+    <f:FinanceWindowsLogin sap:VirtualizedContainerService.HintSize="338,250" sap2010:WorkflowViewState.IdRef="FinanceWindowsLogin_2" in_CredentialAssetname="[&quot;FinancePhysicalAssetHistory_Credentials&quot;]" in_EnvironmentAssetname="[&quot;FinancePhysicalAssetHistory_Environment&quot;]" in_Foldername="UITS" in_URLAssetname="[&quot;FinancePhysicalAssetHistory_LoginURL&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - Finance Login End" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Successfully logged into Finance PS&quot;]" />
   </Sequence>
 </Activity>
