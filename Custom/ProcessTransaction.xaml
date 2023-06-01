@@ -10,7 +10,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1432,6829</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1432,7071</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -104,7 +104,7 @@
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="1112,6764" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="1112,7006" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="BU" />
       <Variable x:TypeArguments="x:String" Name="ASSET" />
@@ -202,21 +202,21 @@
         </Assign>
       </If.Else>
     </If>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="ProcessTransaction - Use Browser Chrome: Update Physical Inv. History" sap:VirtualizedContainerService.HintSize="1050,5979" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="ProcessTransaction - Use Browser Chrome: Update Physical Inv. History" sap:VirtualizedContainerService.HintSize="1050,6221" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="ProcessTransaction UseBrowser Do" sap:VirtualizedContainerService.HintSize="1016,5753" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="ProcessTransaction UseBrowser Do" sap:VirtualizedContainerService.HintSize="1016,5995" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <TryCatch DisplayName="Try Catch for ProcessTransaction" sap:VirtualizedContainerService.HintSize="954,5629" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <TryCatch DisplayName="Try Catch for ProcessTransaction" sap:VirtualizedContainerService.HintSize="954,5871" sap2010:WorkflowViewState.IdRef="TryCatch_1">
               <TryCatch.Try>
-                <Sequence DisplayName="ProcessTransaction Try block sequence" sap:VirtualizedContainerService.HintSize="916,5370" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <Sequence DisplayName="ProcessTransaction Try block sequence" sap:VirtualizedContainerService.HintSize="916,5612" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -357,6 +357,45 @@
                       </uix:TargetAnchorable>
                     </uix:NClick.Target>
                   </uix:NClick>
+                  <ui:LogMessage DisplayName="Log Message - check if asset does not exist" sap:VirtualizedContainerService.HintSize="854,101" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[&quot;Checking to see if asset does not exist&quot;]" />
+                  <uix:NCheckState DisplayName="Check App State - check if asset does not exist" sap:VirtualizedContainerService.HintSize="854,61" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Asset does not exist" sap:VirtualizedContainerService.HintSize="400,362" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message - asset doesn't exist" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;Asset: &quot; + ASSET + &quot; does not exist&quot;]" />
+                        <Throw DisplayName="Throw BRE - asset does not exist" Exception="[new BusinessRuleException(&quot;Asset: &quot; + ASSET + &quot; does not exist&quot;)]" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="Throw_4" />
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Asset does exist" sap:VirtualizedContainerService.HintSize="400,225" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message - asset exists" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;Asset: &quot; + ASSET+ &quot; exists - continuing transaction&quot;]" />
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/UMASS_CUSTOM.UM_PI_ASSET_HIST1.GBL?NavColl=true&amp;ICAGTarget=start" DesignTimeRectangle="316, 466, 300, 14" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'No matching'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='H2' aaname='No matching values were found.' class='PSSRCHINSTRUCTIONS' innertext='No matching values were found.' visibleinnertext='No matching values were found.' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='H2' aaname='No matching values were found.' class='PSSRCHINSTRUCTIONS' innertext='No matching values were found.' visibleinnertext='No matching values were found.' type='' check:text='No matching values were found.' /&gt;" Guid="de455153-a595-49aa-a781-a7a34dda3b10" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATAAAAASCAYAAADc6IJ6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPOSURBVHhe7ZjrceUwCIW3RVfjUtyK+3AVtwqtAD0OCJz82GziXL4Zz1q2BAjBud78KUmSJA8lBSxJkseSApYkyWNJAUuS5LGAgF3l2LayHVcbC69zX579D65jK/v5aqOA6yjbfpZ11quc+1a+IezGd/v/WuhsNqoVN/f/Esnjh3WQvC2rgG17wXp5poB9N79ZwGhvuka+jhSw5B4jYHs5jipYIAqLgJFosNDd/AI3YTn7L/V2lOt1lr2tw4Jk+91eE098NubC+uHX8yOTp4DwuqPuq8/RwjJ9tb0vqrOKEYqrF7/nfyy3ohvlE/drflQEOa+ZnhrHWK9jHl9M9dL53Mte5428KZ8Q80Dsdlsf2w/2zff1TIYtvb/5hSdzsF6SBFkE7Hzp4ufGmAMucBm2Yu7vkNaUal4vZn7n3PNw2kORqCPVrOOd54cHsIcWc7fFPnojtSaWV+0LtPlHVA4wljB+6z9oZOU/iJ+gNWMwIX/98VXFd68NL0OKUe6VsOH54T0j+5/2IE8KHZsIePO72A/2HZ6bby8FLIlwBIxuZ2Oq5sUiJGCewjwfgkPYwgbQl1pj/XaMn7neCsgUP7Sl9lax4wH6iWKpxP5hv9a/zSePjYAFKH/HWa465iHZgThQAEZevbxgnOE56djUOVVY+Ojlzb6tL8y7Zw/HSYL4AkajVjhYXEvDRUWOxcpDKEK1RppB/hvRLqeQF78d40c19CcEhHx0fwTuVTNzoxsqiv9z/tkfruWrz5UvIv3MQLbJFv1LzqrtfmYSoxMfXTTXi8vOQ4EbwN7a/cwHmW05vNm3uq/Yc0N7Ot9JogkFTArQ/F3IFJ4UvdNcZl4kYFy4biGbNdZv54NGkNu4kdAfYceIxHNVuzNHcfyxf1xz508R7Z/9VNv1PeeKfNUvsRkjxGG5ycs92qYVGBrznm72bX1hHjx7OE4SJBawChdW/8WWB7Uo9a+v24CmQFURQmGromb/0966ZsY2miRshFhA1BplV/tfoHX03vpz47f+Tc5c/+SivzNnQb6DuORvX2Cfx/cxcl5tXtq77kbOHt93YG80wnm417t9h+dW4TxreylgScStgI3C68VF9EamC4pQYQo0EjDx2WzRM1gnjQHrPL/Gz2wEaDLbqN6a5v/ERlqA5h9E8XtNTnNqfk/tX+3Lxuk9t/C8+V7lusHC2G3NoHReiCYYMtfWQkfvjUD76Dvct3cGYHDakzMRm159Ju8OCNi7I41pmz9Jkp/LewuY+sqpV/j1lSTJTyS/wJIkeSwpYEmSPJYUsCRJHkopfwH9HqGa18/0owAAAABJRU5ErkJggg==" InformativeScreenshot="062b659cf32bb365e2dbb2a07e5fe431.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Update Physical Inv. History' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target DesignTimeRectangle="316, 153, 2244, 16" ElementType="Text" FriendlyName="'Update Physical'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='H1' aaname='Update Physical Inv. History' innertext='Update Physical Inv. History' visibleinnertext='Update Physical Inv. History' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='H1' aaname='Update Physical Inv. History' innertext='Update Physical Inv. History' visibleinnertext='Update Physical Inv. History' type='' class='PSSRCHTITLE' check:text='Update Physical Inv. History' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAACMgAAAAUCAYAAAByZ5OPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUaSURBVHhe7d07bttIAIDhXG2vkjJHcLt9gCB9TpAmhbvkCIYrXyEBcgktSXGG8yQpWQ6WyvcBA1iv4cyI5Q/r3QkAAAAAAAAAAO6YQAYAAAAAAAAAgLsmkAEAAAAAAAAA4K4JZAAAAAAAAAAAuGtJIPNy+vj+0+mf919Pz/Mz0dPX4fnhtYcfp1/zU1cJ83x+mZ/4A37+OH2Y9tUYyTp+PX6Znvvw+Ht+5g2Etbz2HBPPn897+fg0P1EIr7/pvhL9c/x9+vaQr3Vr7QAAAAAAAAAAt3CAQGYMK76cvv2cH15qLZAZx7wWgcxtvHkgM57hDc8PAAAAAAAAALh///NAJqzpBoFMufawlnm/fySQeQNHDmQudqv7EAAAAAAAAAD4q1wVyCwRxEuMHs6PiygiRijzvI1AJgQc2fumV8J6khE+l827EX90/2tLHt+kYUf4exrhms15QvSRBDzF2rLXVudovH8UPpOMdL+XBjLpPrOzD2tqfEeXhEqXBDL12suzGEbnOx9H/Fx1Rvk9HK/zuLzv4d/5ufTcmnsHAAAAAAAAAI7uVYFMa8QwohE0xDEHCN15ptc7gUxn3jrImPUCmTjPeb8x7Hio13SeuxHDlHN39zyfabWWRhAyjXCNxhlkr18fyLTG+T2N+yDsa0c4sjZ/GO1ApncW87oaZzt9rnvm9Rllr32v97R1lgAAAAAAAADAMb0ykFneWz4Xo4QYICQBRC+0KK6zrCnEDsscS8Swsu5R4z+wZGNey+qeiveUsUl4vBmSdIOa+ppxzky9/62oI7xerjm9ZvldlXNuXSO1zN8f7XnD3pawpVLdH+17qref5XOj8r7ZuI8AAAAAAAAAgMN65U8spRFHGrN0YodeQBJDkXl0A5nwuDU6YcVKIJOuP4Yd6drK9WaBS2uPjfWl8xWBzHoMk0pCkHnsjVfC61Ugs2ef0+OV+6Khv6dlD721x7XF0bl/qvujWFv8zs/Pl2cQZNfv3ZsAAAAAAAAAwOE1AplGaFKECe0IIv38vkCmmqcbQIR5wuPWaKx7VEQpPc09VdFEsq+ntXnLdc5ruziQCfOEAGQ7Min1Apl9+xyuW722rr+n/WsPc8QRrt29P/YFMtUZJXvbOkcAAAAAAAAA4LiSQGYJGPLoI3l+DhWWgCEJE0JsUEQJdXQRnivjl2TeeP3wmfCeOrLYdNNApo43+nHLWRaolGspzmwU5x+umf59toQ3W5FJkF1/cN0+O/FRQ3P+Sf3dbUYpRehSf5f1vTkq773+dcqQKbmfAQAAAAAAAIC7kQQygxhstEYjZGmMGEaszTWFC0ncUI5WADGO8XO9eXsBzI0DmSXaGEcejvTPZX7fWuBRjCnmWDnDvZHJtYFMts/k7OIe0/cmmvNPtgKZMlZJRrhWdvZbZ7R8N2tnFF6bRmdPAAAAAAAAAMCx5YHMqIgQziP/zxppBJEGBlUUkcULwxxliFHFJiGi6MQ4IdQoo4i1+KWKUtp2hyODuOfWnI1gI4YZzbXUkUwaclQBR7GmtfhjFF4P+7pmn+l74/dRvDdozj/ZCmRGjWBo5aziNap7Nr9fV88o+WzvDAEAAAAAAACAY6sDmR36EcTfoRWOcFAxkPHzSgAAAAAAAABwrwQyl4pBRf7zShxTiJ16/xEHAAAAAAAAADg+gcwFYkwxDD/Hc3DpzzJt/PwWAAAAAAAAAHBsVwUyAAAAAAAAAABwFAIZAAAAAAAAAADu2On0H62f74WK0iRZAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NCheckState.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NCheckState>
                   <ui:LogMessage DisplayName="Log Message - Click first plus sign" sap:VirtualizedContainerService.HintSize="854,101" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Clicking to add new row&quot;]" />
                   <uix:NClick ClickType="Single" DisplayName="Click 'Physical Inv.'" sap:VirtualizedContainerService.HintSize="854,166" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
                     <uix:NClick.Target>
