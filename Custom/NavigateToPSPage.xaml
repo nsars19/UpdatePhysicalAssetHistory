@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1036,2097</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1437,2093</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>NavigateToPSPage_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -90,7 +90,7 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="NavigateToPSPage" sap:VirtualizedContainerService.HintSize="534,1992" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="NavigateToPSPage" sap:VirtualizedContainerService.HintSize="534,2028" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ScreenshotFilepath" />
     </Sequence.Variables>
@@ -100,22 +100,22 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message - Start NavigateToPSPage" sap:VirtualizedContainerService.HintSize="472,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Beginning NavigateToPSPage Workflow&quot;]" />
-    <TryCatch DisplayName="Try Catch - Navigate to PS Page" sap:VirtualizedContainerService.HintSize="472,1588" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch - Navigate to PS Page" sap:VirtualizedContainerService.HintSize="472,1624" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Browser Chrome: Homepage" sap:VirtualizedContainerService.HintSize="434,1351" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="a1535cca-8832-41a9-80e8-0aaf71e06bde" Version="V2">
+        <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Browser Chrome: Homepage" sap:VirtualizedContainerService.HintSize="434,1387" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="a1535cca-8832-41a9-80e8-0aaf71e06bde" Version="V2" WindowResize="Maximize">
           <uix:NApplicationCard.Body>
             <ActivityAction x:TypeArguments="x:Object">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Start Navigation" sap:VirtualizedContainerService.HintSize="400,1125" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <Sequence DisplayName="Start Navigation" sap:VirtualizedContainerService.HintSize="400,1161" sap2010:WorkflowViewState.IdRef="Sequence_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:LogMessage DisplayName="Log Message - Click 'Asset Management'" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Clicking 'Asset Management'&quot;]" />
-                <uix:NClick ClickType="Single" DisplayName="Click 'Asset Management'" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1535cca-8832-41a9-80e8-0aaf71e06bde" Version="V3">
+                <uix:NClick ClickType="Single" DisplayName="Click 'Asset Management'" sap:VirtualizedContainerService.HintSize="338,202" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1535cca-8832-41a9-80e8-0aaf71e06bde" Version="V3">
                   <uix:NClick.Target>
                     <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL?&amp;lp=ERP.EMPLOYEE.FINANCIALS" DesignTimeRectangle="1050, 242, 232, 159" DesignTimeScaleFactor="1" FriendlyName="'DIV win0groupletPTNUI_L…'" FullSelectorArgument="&lt;webctrl class='ps_box-grouplet' css-selector='body&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='2' parentname='win0' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ps_box-grouplet' type='' aaname='' parentname='win0' tag='DIV' /&gt;" Guid="d8a6a032-ae33-4418-8973-1d8e1a051cc7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOwAAACjCAYAAACJ3fKtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATeSURBVHhe7d0xi1x1FMZhv5u9vYWVtYpgxN5u22yCYKqYwk9gYSWYTsVgII0IEUTsVUhgyciNuTmTcYbZje8ZOOzzwNvcuTN/ZsiPkIWdvLEBxhAsDCJYGESwMIhgYRDBwiCChUEEC4MIFgYRLAwiWBhEsDCIYGEQwcIggoVBBAuDCBYGESwMIlgYRLAwiGBhEMHCIIKFQQQLgwgWBhFs0K3P723efOudl/vzr79fPHL9LO99+7NYPhv+P8EGCbYItodggwRbBNtDsEGCLYLtIdggwRbB9hBskGCLYHsINkiwRbA9BBsk2CLYHoINukywT54+3Tx4+Ci2n395vLm4uHjx6sed6nzB9hBs0LFgf/zp0SuPJ3eZv81Peb5gewg26FiwH3zy6fPrP9z/4uC2n7/u5vnZ3nuXLY8t9ywxHnPK8wXbQ7BBx4Jdrz/59bOD237+uu++vbv33mXLY8s9lwl2fb19r7NuvWd7r3O+YHsINkiwRbA9BBsk2CLYHoINEmwRbA/BBiWCvXnz7D97/PDLvfcuSwebOl+wPQQblAj2qksHe9UJ9rQEGyTYItgegg0SbBFsD8EGCbYItodggwRbBNtDsEGCLYLtIdggwRbB9hBskGCLYHsINkiwRbA9BBsk2CLYHoINEmwRbA/BBgm2CLaHYIMEWwTbQ7BBu8F+ena+uX3n3sut189vncX2/o2Pn7/m8vUv22ft2ynPX977et4ywWYINmg3WKsJNkOwQYI9PMFmCDZIsIcn2AzBBu0Gu3zJ9vLDl+u45b1vfxaCzRBs0G6wyx/c62p579ufhWAzBBsk2CLYHoINEmwRbA/BBgm2CLaHYIMEWwTbQ7BBgi2C7SHYIMEWwfYQbJBgi2B7CDZIsEWwPQQbdJlgnz179vx6cldxqvOX69ufhWAzBBt0LNjffv/jlcdTe/vdDzcXFxcvTjnslOcLtodgg44Fu/6O6L7/IW7d9vPXvffRjb33LlseW+65zC+wn/J8wfYQbNCxYNfr+765Yd3289ct3+qw795l6W+cWO/Z3uucL9gegg0SbBFsD8EGCbYItodggwRbBNtDsEGCLYLtIdigRLBXXTrYq06wpyXYIMEWwfYQbJBgi2B7CDZIsEWwPQQbJNgi2B6CDRJsEWwPwQYJtgi2h2CDBFsE20OwQYItgu0h2CDBFsH2EGyQYItgewg2SLBFsD0EGyTYItgegg3aDfarr7/ZPHj46OXW69/fvxvb+a1/v9bl9p17r5y1b6c8f3nv63nLBJsh2KDdYK0m2AzBBgn28ASbIdggwR6eYDMEG7Qb7O6/Ya/T/Bu2h2CDdoPd/SnxdeKnxD0EGyTYItgegg0SbBFsD8EGCbYItodggwRbBNtDsEGCLYLtIdggwRbB9hAsDCJYGESwMIhgYRDBwiCChUEEC4MIFgYRLAwiWBhEsDCIYGEQwcIggoVBBAuDCBYGESwMIlgYRLAwiGBhEMHCIIKFQQQLgwgWBhEsDCJYGESwMIhgYRDBwiCChUEEC4MIFgYRLAwiWBhEsDCIYGEQwcIggoVBBAuDCBYGESwMIlgYRLAwiGBhEMHCIIKFQQQLgwgWBhEsDCJYGESwMIhgYRDBwiCChUEEC4MIFgYRLAwiWBhEsDCIYGEQwcIggoUxNpt/AFUUrN4fdodRAAAAAElFTkSuQmCC" InformativeScreenshot="40d901cda2534464e94f66f08c09ae8c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Homepage' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
                       <uix:TargetAnchorable.Anchors>
@@ -125,6 +125,25 @@
                       </uix:TargetAnchorable.Anchors>
                     </uix:TargetAnchorable>
                   </uix:NClick.Target>
+                  <uix:NClick.VerifyOptions>
+                    <uix:VerifyExecutionOptions DisplayName="Label 'Asset Basic Information'" Mode="Appears">
+                      <uix:VerifyExecutionOptions.Retry>
+                        <InArgument x:TypeArguments="x:Boolean" />
+                      </uix:VerifyExecutionOptions.Retry>
+                      <uix:VerifyExecutionOptions.Target>
+                        <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/MANAGE_ASSETS.BASIC.GBL?NavColl=true&amp;ICAGTarget=start" DesignTimeRectangle="316, 153, 2244, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Asset Basic Information'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='H1' aaname='Asset Basic Information' innertext='Asset Basic Information' visibleinnertext='Asset Basic Information' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='H1' aaname='Asset Basic Information' innertext='Asset Basic Information' visibleinnertext='Asset Basic Information' type='' class='PSSRCHTITLE' check:text='Asset Basic Information' /&gt;" Guid="39932ec9-0edc-410d-922d-898191dd31da" ImageBase64="iVBORw0KGgoAAAANSUhEUgAACMgAAAAUCAYAAAByZ5OPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAR6SURBVHhe7d1NbtRKFIBRtva2wpAlsIhIiDkryCQDhiwhYsQWQGITfu2Oq1x/13aHjtJqnSOVRLpj+7rM8JPzYQIAAAAAAAAAgDsmkAEAAAAAAAAA4K4JZAAAAAAAAAAAuGsCGQAAAAAAAAAA7loQyPyaHj5+mf47rU/f/y6f3Zp1xtG67tzpWo/Tz+WTS/38+rq50nHn9fXX8ukN+/1j+jTP+vnH9Gf5CAAAAAAAAADgPY0DmefHNcp4x9BhjkMenpcfOtuBzLziYy/1ToFM+RzmdaOBTPWcBDIAAAAAAAAAwI0ZBDJ/p6fPc5DxOD0sUcf1QpOj0gxHApk+Wvnz/dvNBSX/FMjc7JtjjjwnAAAAAAAAAID31Qcy6Q0gc5RR/rtR/emfebVvDGnffvLx2/T0e/nubI0rXlYKXdrPT2v4NpL9QKaMUbp52+M25x1fqz3nViTSBjLp54fn5n6Xvc6RT17rPN131fNZZ33Kv3eaO93faS+firlf5ilnaJ5Tty/pPoPnFLxBZnPm8pjqeu3/GQAAAAAAAACAy3WBTAoZ6giiDhX62GRZKXoYRBUvayOCyd8H4cX5uFIKQYJVHNPHJss6PG8fyER7EEUyUSAzWvM5okAmPC7f72BfuvBkZ6VzpXClWxvPaRDI7M4cXue0ivMAAAAAAAAAALxGE8gM3pSyhBWjt7GEb0xJMUb1ZpNC+r6IH1IQ0r7RJLzGXiAzr6PX35u33ZccdBTh0M45wkAm78F6z3mv23MWIcm6L+s+vHy2/lw+s3yuPHMRuHShSvH8K+nc/TnyPG0gc2Tm0e/keaNZAAAAAAAAAACOqQOZHCUMVhGzjH5vjR9mawCRVxGOhG90mdf59y4JZAYBRRRXtHPne9qet7tWOk8Qw4xEgUwZsdSR0El7neC6eT/Pn6dZ67f+5GOL59jPEO1puz8XBDJHZh6GOdEsAAAAAAAAAACXqQKZ/FaTYHWxSoof0iojmrNxWPHmgUz+rr5eF54cnLe7VhB9bIkCmfL+rhvINPsyuOd+hubYNnZp9vXqgUz1PIL7AAAAAAAAAAC4UBHIbAQJu0FIG070qkBkEGu0RgFJ7cC85+/62XKcceD6L7FKc638xpPifnfuqT7f+P52A5l83VHUkj4L9mUwXz9DfWw78+i+u3O0scuRmdtjzoL7AAAAAAAAAAC4UA5k6reQtFKsMIcR61tDurUEDvlc3UphRXyOFFGk8OK8htHJGlmE63wv15i3jzWq+YqVY5JGG5t0YcnJbiBzEl133aMgLHlFILO/L80887kHscvuzAIZAAAAAAAAAOANLYHM/p80SpFDG3isKwgyilWfuw9Xqu+r40eRxE4gU4Y+xVtM6shnDT225x3HGu0eRHHMLNq/8p6PBDKzLlypvr9eINM+o3mucMZ03DB22ZlZIAMAAAAAAAAAvKHiTywBAAAAAAAAAMD9EcgAAAAAAAAAAHDXBDIAAAAAAAAAANw1gQwAAAAAAAAAAHdNIAMAAAAAAAAAwB2bpv8BZLKrwMC8pdYAAAAASUVORK5CYII=" InformativeScreenshot="ac126d8baf3826f645c864a15393b20b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Basic Add' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                              <uix:Target DesignTimeRectangle="42, 141, 210, 16" FriendlyName="'Step LabelAsset'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentname='win0' tag='DIV' innertext=' Step LabelAsset Management ' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentname='win0' tag='DIV' innertext=' Step LabelAsset Management ' class='ps_box-group psc_layout ps_ag-step-link-wrapper' aaname='' check:text='Step LabelAsset Management' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPEAAAAYCAYAAAArgBtDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAR8SURBVHhe7ZtLaxRBEID3P+nFg4qoAwqCoBdRD+JVL54GPOjFF6KorAoqKB5EicpohCQqwYhKlMUHwSfE7O4fKadnprq7qmt2Ztfd7Ebr8MGmu6f6VV/3bEIa3W4XFEVZu6jEirLGIRK3W/eh/SCC5XsRLN3dAR9u7YKF67th9vIemLm8tyfT53fC8o/PJLiiKKOHSPzt+blMYs7K/e3w9c4W+HB9E8xf2ACPT66DRyfWE+auHYD305dIcEVRRg+R+OvsaVFizvtrGwOJZ5v7YDE5T4IrijJ6BpL4483NKrGiTAj0dXrulCgt59ON4UqcxA1oNFKiJrSE+knAjlEYZ6sZubpGDIlXpyijhko8O7jEc1f3w+LTCyR4PRKIrQARNFtSm1UgiaERJ3JdCpGYjZPWqcT9YNYuTuQ6pR5DvYl/LS2S4HXAWyyOU4mMBD1EGhX2Jq0hcRQV47WJ5x9CBpW4Hi1oRvmaqcR/x1AkfnJmK7y4cZgErgdupEl8/zNr12pCRERhG19Vn0JfeV09Ly97G0CJg8PG3ODZz3Ehsxs/vaFpnR2zeTXHGBmsf1KXQ+fmHyImPv7sryM7aPyvA3btYmj6a1HMz58D7ddJmCP1l5axvclj8GdTJvir1KQzFInN34jnbx8lgWuBG1wkDAoVNVthm4Ai2avqvbgck1B9S5wUCVokHT5vy4tkLuvTyl867hRM6NI2KAyT05C+KeTP9GhjqOxDAmMKEpL6kj4zTBuVeJiMVWInBpZRQbIyTLKyTa6qtwnlycmescLVeJ2OE0xAE8//jP1gIjPwRsVxevLY+dtbtyQGn4vQ3h0eeZk0N7Luwjjc7YtxS/r11hz7yQ9gbO8dyLYf3Acnstt/ZRDGKLHb6BDcaEPVqV1R7yVpSHmic/zEx/b0Vsb5MAH563Agsd++JEawVvn6UHHkGE7IkOw5YRzheviHlVcvkT2DY5D2USUeNuOTmCc3JxAqlJVufkn9CCQOxk4Sl8a0gvHbC8dFDiQmcdCGyjFqiV3cQSV2MVXi0TE2iYkUpE5KAEqVdLSeJr7U3gpWV2IbUyoz4w77tGPqQ2Ls08pkhSvi2sMkFBDLqtZqEImDAymAzkOMkZaV54DSD+ORWEgcH5K8/NbzyDa/qj6N5xKbgYlNYsiy04Rzt4hr7yeuX8/oQ+LScQd9etT9xRbGGETiHvMLD7Q8Zi+JM0oPBKWKsUhceTvwk94mmsMlWI36lEAI0jdNdOlm4LeGjWeTjyUuGZNJXJbENSTmspg5hYL5YzfPSQLR+fkiDSaxX+Zw6yaNQYhBDk+/rdIPTOIzorScj6nED1N5kSdnt8Gru8dIYGUVsBJIYqgU/wtE4uV3d0RpOfwmNnx5/YAEVlYDfsN69Ph+r/xbEIk7v7/DytQuUVyf71MHs392QJbeacKMDeGrhAr8f0Ekzlj5Bd1Pj6CzcBba04dEiTsvj9NnFEUZG6HEnJWf0PnyDDpvr0B75gi0p3ZC581Fua2iKKtOtcSKokw0KrGirGm68AfoFhRxwEmp3QAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:VerifyExecutionOptions.Target>
+                      <uix:VerifyExecutionOptions.Timeout>
+                        <InArgument x:TypeArguments="x:Double" />
+                      </uix:VerifyExecutionOptions.Timeout>
+                    </uix:VerifyExecutionOptions>
+                  </uix:NClick.VerifyOptions>
                 </uix:NClick>
                 <ui:LogMessage DisplayName="Log Message - Click 'Physical Inventory'" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Clicking 'Physical Inventory'&quot;]" />
                 <uix:NClick ClickType="Single" DisplayName="Click 'Physical Inventory'" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1535cca-8832-41a9-80e8-0aaf71e06bde" Version="V3">
