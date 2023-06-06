@@ -10,7 +10,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1437,10066</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1437,8374</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="86">
@@ -120,7 +120,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="966,10001" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="966,8309" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="BU" />
       <Variable x:TypeArguments="x:String" Name="ASSET" />
@@ -263,36 +263,36 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="ProcessTransaction - Use Browser Chrome: Update Physical Inv. History" sap:VirtualizedContainerService.HintSize="904,8896" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OutUiElement="[PS]" ScopeGuid="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="ProcessTransaction - Use Browser Chrome: Update Physical Inv. History" sap:VirtualizedContainerService.HintSize="904,7204" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OutUiElement="[PS]" ScopeGuid="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="ProcessTransaction UseBrowser Do" sap:VirtualizedContainerService.HintSize="870,8670" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="ProcessTransaction UseBrowser Do" sap:VirtualizedContainerService.HintSize="870,6978" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <TryCatch DisplayName="Try Catch for ProcessTransaction" sap:VirtualizedContainerService.HintSize="808,8546" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <TryCatch DisplayName="Try Catch for ProcessTransaction" sap:VirtualizedContainerService.HintSize="808,6854" sap2010:WorkflowViewState.IdRef="TryCatch_1">
               <TryCatch.Try>
-                <Sequence DisplayName="ProcessTransaction Try block sequence" sap:VirtualizedContainerService.HintSize="770,8287" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <Sequence DisplayName="ProcessTransaction Try block sequence" sap:VirtualizedContainerService.HintSize="770,6595" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="708,61" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="708,469" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                     <ui:CommentOut.Body>
-                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="916,366" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,381" sap2010:WorkflowViewState.IdRef="Sequence_14">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:LogMessage DisplayName="Log Message - Check for search button" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Checking for search button&quot;]" />
-                        <uix:NCheckState sap2010:Annotation.AnnotationText="Check if search button appears. If it doesn't throw new BRE" DisplayName="Check App State 'Search'" sap:VirtualizedContainerService.HintSize="338,103" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
+                        <uix:NCheckState sap2010:Annotation.AnnotationText="Check if search button appears. If it doesn't throw new BRE" DisplayName="Check App State 'Search'" sap:VirtualizedContainerService.HintSize="338,118" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
                           <uix:NCheckState.IfExists>
                             <Sequence DisplayName="Search button appears" sap:VirtualizedContainerService.HintSize="400,225" sap2010:WorkflowViewState.IdRef="Sequence_3">
                               <sap:WorkflowViewStateService.ViewState>
@@ -335,15 +335,15 @@
                     </ui:CommentOut.Body>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CommentOut>
-                  <Sequence sap2010:Annotation.AnnotationText="Fill in the form using queue item data" DisplayName="Add queue item details" sap:VirtualizedContainerService.HintSize="708,2221" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                  <Sequence sap2010:Annotation.AnnotationText="Fill in the form using transaction item data" DisplayName="Add transaction item details" sap:VirtualizedContainerService.HintSize="708,121" sap2010:WorkflowViewState.IdRef="Sequence_22">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
@@ -518,7 +518,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NCheckState>
                     </Sequence>
-                    <Sequence sap2010:Annotation.AnnotationText="Builds a dictionary at runtime that uses asset entry dates as keys, and any PIIDs entered on those dates as a value (contained within a string array).&#xD;&#xA;&#xD;&#xA;eg.&#xD;&#xA;{&#xD;&#xA;  &quot;12/17/2018&quot;: [&#xD;&#xA;      &quot;DAR-UPDATE&quot;&#xD;&#xA;  ],&#xD;&#xA;  &quot;4/14/2022&quot;: [&#xD;&#xA;      &quot;ONLINE&quot;&#xD;&#xA;  ],&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;The current transaction item's INVDT is used to select the correct date key within the dictionary to search for the performed entries on that date. If the array contains the transaction item's PIID (ie. entry type) then it is considered a duplicate entry, and a Business Rule Exception is thrown and the current transaction is skipped." DisplayName="Check for duplicate entry" sap:VirtualizedContainerService.HintSize="646,3071" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                    <Sequence sap2010:Annotation.AnnotationText="Builds a dictionary at runtime that uses asset entry dates as keys, and any PIIDs (ie. entry types) entered on those dates as a value (value as a string array).&#xD;&#xA;&#xD;&#xA;eg.&#xD;&#xA;{&#xD;&#xA;  &quot;12/17/2018&quot;: [&#xD;&#xA;      &quot;DAR-UPDATE&quot;&#xD;&#xA;  ],&#xD;&#xA;  &quot;4/14/2022&quot;: [&#xD;&#xA;      &quot;ONLINE&quot;&#xD;&#xA;  ],&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;The current transaction item's INVDT is used to select the correct date key within the dictionary to search for the performed entries on that date. If the array contains the transaction item's PIID (ie. entry type) then it is considered a duplicate entry, and a Business Rule Exception is thrown and the current transaction is skipped." DisplayName="Check for duplicate entry" sap:VirtualizedContainerService.HintSize="646,3071" sap2010:WorkflowViewState.IdRef="Sequence_12">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="sd:DataTable" Name="AssetHistory" />
                         <Variable x:TypeArguments="scg:Dictionary(x:String, s:String[])" Name="AssetDict" />
@@ -541,7 +541,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NExtractData>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="584,101" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;Extracted History. Found &quot; + AssetHistory.RowCount.ToString + &quot; rows&quot;]" />
+                      <ui:LogMessage DisplayName="Log Message - Extract history found" sap:VirtualizedContainerService.HintSize="584,101" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;Extracted History. Found &quot; + AssetHistory.RowCount.ToString + &quot; rows&quot;]" />
                       <Assign sap2010:Annotation.AnnotationText="Dictionary uses the asset Inventory Date (INVDT) field as a key, and the asset PIID as a value." DisplayName="Instantiate Dictionary" sap:VirtualizedContainerService.HintSize="584,128" sap2010:WorkflowViewState.IdRef="Assign_5">
                         <Assign.To>
                           <OutArgument x:TypeArguments="scg:Dictionary(x:String, s:String[])">[AssetDict]</OutArgument>
@@ -655,7 +655,7 @@
                       </If>
                     </Sequence>
                   </Sequence>
-                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="708,2173" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="651,2173" sap2010:WorkflowViewState.IdRef="CommentOut_7">
                     <ui:CommentOut.Body>
                       <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="462,2085" sap2010:WorkflowViewState.IdRef="Sequence_21">
                         <sap:WorkflowViewStateService.ViewState>
