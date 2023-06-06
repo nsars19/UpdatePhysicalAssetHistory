@@ -10,7 +10,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1422,5223</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1422,1187</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="86">
@@ -487,7 +487,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NCheckState>
                     </Sequence>
-                    <Sequence sap2010:Annotation.AnnotationText="Builds a dictionary at runtime that uses asset entry dates as keys, and any PIIDs (ie. entry types) entered on those dates as a value (value as a string array).&#xD;&#xA;&#xD;&#xA;eg.&#xD;&#xA;{&#xD;&#xA;  &quot;12/17/2018&quot;: [&#xD;&#xA;      &quot;DAR-UPDATE&quot;&#xD;&#xA;  ],&#xD;&#xA;  &quot;4/14/2022&quot;: [&#xD;&#xA;      &quot;ONLINE&quot;&#xD;&#xA;  ],&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;The current transaction item's INVDT is used to select the correct date key within the dictionary to search for the performed entries on that date. If the array contains the transaction item's PIID (ie. entry type) then it is considered a duplicate entry, and a Business Rule Exception is thrown and the current transaction is skipped." DisplayName="Check for duplicate entry" sap:VirtualizedContainerService.HintSize="646,3470" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                    <Sequence sap2010:Annotation.AnnotationText="Builds a dictionary at runtime that uses asset entry dates as keys, and any PIIDs (ie. entry types) entered on those dates as a value (value as a string array).&#xD;&#xA;&#xD;&#xA;eg.&#xD;&#xA;{&#xD;&#xA;  &quot;12/17/2018&quot;: [&#xD;&#xA;      &quot;DAR-UPDATE&quot;&#xD;&#xA;  ],&#xD;&#xA;  &quot;4/14/2022&quot;: [&#xD;&#xA;      &quot;ONLINE&quot;&#xD;&#xA;  ],&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;The current transaction item's INVDT is used to select the correct date key within the dictionary to search for the performed entries on that date. If the array contains the transaction item's PIID (ie. entry type) then it is considered a duplicate entry, and a Business Rule Exception is thrown and the current transaction is skipped." DisplayName="Check for duplicate entry" sap:VirtualizedContainerService.HintSize="688,4130" sap2010:WorkflowViewState.IdRef="Sequence_12">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="sd:DataTable" Name="dt_AssetHistory" />
                         <Variable x:TypeArguments="scg:Dictionary(x:String, s:String[])" Name="AssetDict" />
@@ -499,8 +499,8 @@
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message - Extract asset history" sap:VirtualizedContainerService.HintSize="584,101" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;Extracting asset history&quot;]" />
-                      <uix:NExtractData sap2010:Annotation.AnnotationText="Hacky implementation of selector. This was the only way I could get this activity to return data. While it does return data, there are empty rows &amp; duplicate rows that need to be accounted for when checking for any duplicate entry business exceptions." AppendResults="False" ContinueOnError="True" DataTable="[dt_AssetHistory]" DelayBefore="5" DisplayName="Extract Table Data - Get asset history" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table'&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-0' ReferenceIdx='0' Name='Column-0' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-1' ReferenceIdx='1' Name='Column-1' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-2' ReferenceIdx='2' Name='PIID'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-3' ReferenceIdx='3' Name='Column-3' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-4' ReferenceIdx='4' Name='InventoryDate'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-5' ReferenceIdx='5' Name='Column-5' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-6' ReferenceIdx='6' Name='Column-6' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-7' ReferenceIdx='7' Name='Column-7' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-8' ReferenceIdx='8' Name='Column-8' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;column name='Column-6' attr='text' /&gt;&lt;column name='Column-7' attr='text' /&gt;&lt;column name='Column-8' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="584,253" sap2010:WorkflowViewState.IdRef="NExtractData_1" InteractionMode="Simulate" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
+                      <ui:LogMessage DisplayName="Log Message - Extract asset history" sap:VirtualizedContainerService.HintSize="626,101" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;Extracting asset history&quot;]" />
+                      <uix:NExtractData sap2010:Annotation.AnnotationText="Hacky implementation of selector. This was the only way I could get this activity to return data. While it does return data, there are empty rows &amp; duplicate rows that need to be accounted for when checking for any duplicate entry business exceptions." AppendResults="False" ContinueOnError="True" DataTable="[dt_AssetHistory]" DelayBefore="5" DisplayName="Extract Table Data - Get asset history" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table'&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-0' ReferenceIdx='0' Name='Column-0' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-1' ReferenceIdx='1' Name='Column-1' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-2' ReferenceIdx='2' Name='PIID'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-3' ReferenceIdx='3' Name='Column-3' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-4' ReferenceIdx='4' Name='InventoryDate'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-5' ReferenceIdx='5' Name='Column-5' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-6' ReferenceIdx='6' Name='Column-6' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-7' ReferenceIdx='7' Name='Column-7' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-8' ReferenceIdx='8' Name='Column-8' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;column name='Column-6' attr='text' /&gt;&lt;column name='Column-7' attr='text' /&gt;&lt;column name='Column-8' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="626,253" sap2010:WorkflowViewState.IdRef="NExtractData_1" InteractionMode="Simulate" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
                         <uix:NExtractData.Target>
                           <uix:TargetAnchorable DesignTimeRectangle="335, 263, 565, 153" DesignTimeScaleFactor="1" FriendlyName="'PI IDInventory'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl id='ACE_$ICField8$0' tableRow='3' tag='TABLE' /&gt;" Guid="de46953d-5ecf-4cc6-aac8-73cab2fbdb66" InformativeScreenshot="b3127f94cdf29c506343bb5172981fdd.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Update Physical Inv. History' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
                         </uix:NExtractData.Target>
@@ -510,8 +510,8 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NExtractData>
-                      <ui:LogMessage DisplayName="Log Message - Extract history found" sap:VirtualizedContainerService.HintSize="584,101" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;Extracted History. Found &quot; + dt_AssetHistory.RowCount.ToString + &quot; rows&quot;]" />
-                      <Assign sap2010:Annotation.AnnotationText="Dictionary uses the asset Inventory Date (INVDT) field as a key, and the asset PIID as a value." DisplayName="Instantiate Dictionary" sap:VirtualizedContainerService.HintSize="584,127" sap2010:WorkflowViewState.IdRef="Assign_5">
+                      <ui:LogMessage DisplayName="Log Message - Extract history found" sap:VirtualizedContainerService.HintSize="626,101" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;Extracted History. Found &quot; + dt_AssetHistory.RowCount.ToString + &quot; rows&quot;]" />
+                      <Assign sap2010:Annotation.AnnotationText="Dictionary uses the asset Inventory Date (INVDT) field as a key, and the asset PIID as a value." DisplayName="Instantiate Dictionary" sap:VirtualizedContainerService.HintSize="626,127" sap2010:WorkflowViewState.IdRef="Assign_5">
                         <Assign.To>
                           <OutArgument x:TypeArguments="scg:Dictionary(x:String, s:String[])">[AssetDict]</OutArgument>
                         </Assign.To>
@@ -524,7 +524,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </Assign>
-                      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_AssetHistory]" DisplayName="For Each Asset Entry in Asset Entry List" sap:VirtualizedContainerService.HintSize="584,1176" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_AssetHistory]" DisplayName="For Each Asset Entry in Asset Entry List" sap:VirtualizedContainerService.HintSize="626,1176" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
                         <ui:ForEachRow.Body>
                           <ActivityAction x:TypeArguments="sd:DataRow">
                             <ActivityAction.Argument>
@@ -570,24 +570,24 @@
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <If Condition="[not AssetDict.Keys.Contains(AssetInvDate)]" DisplayName="If key doesn't exist, create it &amp; it's default value" sap:VirtualizedContainerService.HintSize="344,363" sap2010:WorkflowViewState.IdRef="If_5">
+                                    <If Condition="[AssetDict.ContainsKey(AssetInvDate)]" DisplayName="If keys exists, add it to array, otherwise create initial array" sap:VirtualizedContainerService.HintSize="344,363" sap2010:WorkflowViewState.IdRef="If_5">
                                       <If.Then>
-                                        <Assign DisplayName="Create initial array" sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_6">
-                                          <Assign.To>
-                                            <OutArgument x:TypeArguments="s:String[]">[AssetDict(AssetInvDate)]</OutArgument>
-                                          </Assign.To>
-                                          <Assign.Value>
-                                            <InArgument x:TypeArguments="s:String[]">[new String(){ AssetPIID }]</InArgument>
-                                          </Assign.Value>
-                                        </Assign>
-                                      </If.Then>
-                                      <If.Else>
                                         <Assign DisplayName="Build Dictionary Entry" sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_4">
                                           <Assign.To>
                                             <OutArgument x:TypeArguments="s:String[]">[AssetDict(AssetInvDate)]</OutArgument>
                                           </Assign.To>
                                           <Assign.Value>
                                             <InArgument x:TypeArguments="s:String[]">[AssetDict(AssetInvDate).Concat({ AssetPIID }).ToArray]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Assign DisplayName="Create initial array" sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="s:String[]">[AssetDict(AssetInvDate)]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="s:String[]">[new String(){ AssetPIID }]</InArgument>
                                           </Assign.Value>
                                         </Assign>
                                       </If.Else>
@@ -605,7 +605,25 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:ForEachRow>
-                      <If sap2010:Annotation.AnnotationText="Nested IF statements because Logical AND is not lazily evaluated, and accessing non-present keys in the dictionary throws an error. To prevent the error we would get when logically chaining key-presence checks with array-presence checks we break the conditions into separate blocks.&#xD;&#xA;&#xD;&#xA;ie. instead of: &#xD;&#xA;  if (condition 1 AND condition 2) {&#xD;&#xA;    doSomething();&#xD;&#xA;  }&#xD;&#xA;we do:&#xD;&#xA;  if (condition 1) {&#xD;&#xA;    if (condition 2) {&#xD;&#xA;      doSomething();&#xD;&#xA;    }&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;so much more readable... -_____-" Condition="[AssetDict.ContainsKey(INVDT)]" DisplayName="If entry was made on INVDT" sap:VirtualizedContainerService.HintSize="584,1138" sap2010:WorkflowViewState.IdRef="If_6">
+                      <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="626,357" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[AssetDict.Keys]">
+                        <ui:ForEach.Body>
+                          <ActivityAction x:TypeArguments="x:Object">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="x:Object" Name="key" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,223" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_35" Message="[key.ToString]" />
+                            </Sequence>
+                          </ActivityAction>
+                        </ui:ForEach.Body>
+                      </ui:ForEach>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="626,101" sap2010:WorkflowViewState.IdRef="LogMessage_36" Message="[&quot;asset dict contains key &quot; + INVDT + &quot;: &quot; + AssetDict.ContainsKey(INVDT).ToString]" />
+                      <If sap2010:Annotation.AnnotationText="Nested IF statements because Logical AND is not lazily evaluated, and accessing non-present keys in the dictionary throws an error. To prevent the error we would get when logically chaining key-presence checks with array-presence checks we break the conditions into separate blocks.&#xD;&#xA;&#xD;&#xA;ie. instead of: &#xD;&#xA;  if (condition 1 AND condition 2) {&#xD;&#xA;    doSomething();&#xD;&#xA;  }&#xD;&#xA;we do:&#xD;&#xA;  if (condition 1) {&#xD;&#xA;    if (condition 2) {&#xD;&#xA;      doSomething();&#xD;&#xA;    }&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;so much more readable... -_____-" Condition="[AssetDict.ContainsKey(INVDT)]" DisplayName="If entry was made on INVDT" sap:VirtualizedContainerService.HintSize="626,1260" sap2010:WorkflowViewState.IdRef="If_6">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -614,19 +632,26 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <If.Then>
-                          <If Condition="[AssetDict(INVDT).ToArray.Contains(PIID)]" DisplayName="If entry made on INVDT was the same entry type as PIID (ie. is a duplicate entry)" sap:VirtualizedContainerService.HintSize="482,623" sap2010:WorkflowViewState.IdRef="If_7">
-                            <If.Then>
-                              <Sequence DisplayName="Duplicate entry sequence" sap:VirtualizedContainerService.HintSize="400,360" sap2010:WorkflowViewState.IdRef="Sequence_35">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <ui:LogMessage DisplayName="Log Message - duplicate entry BRE" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;Found duplicate entry for date &quot; + INVDT + &quot; with PIID &quot; + PIID]" />
-                                <Throw DisplayName="Throw duplicate entry BRE" Exception="[new BusinessRuleException(&quot;Asset with PIID &quot; + PIID + &quot; already exists for date &quot; + INVDT)]" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="Throw_5" />
-                              </Sequence>
-                            </If.Then>
-                          </If>
+                          <Sequence sap:VirtualizedContainerService.HintSize="544,745" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If Condition="[AssetDict(INVDT).ToArray.Contains(PIID)]" DisplayName="If entry made on INVDT was the same entry type as PIID (ie. is a duplicate entry)" sap:VirtualizedContainerService.HintSize="482,623" sap2010:WorkflowViewState.IdRef="If_7">
+                              <If.Then>
+                                <Sequence DisplayName="Duplicate entry sequence" sap:VirtualizedContainerService.HintSize="400,360" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:LogMessage DisplayName="Log Message - duplicate entry BRE" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;Found duplicate entry for date &quot; + INVDT + &quot; with PIID &quot; + PIID]" />
+                                  <Throw DisplayName="Throw duplicate entry BRE" Exception="[new BusinessRuleException(&quot;Asset with PIID &quot; + PIID + &quot; already exists for date &quot; + INVDT)]" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="Throw_5" />
+                                </Sequence>
+                              </If.Then>
+                            </If>
+                          </Sequence>
                         </If.Then>
                       </If>
                     </Sequence>
