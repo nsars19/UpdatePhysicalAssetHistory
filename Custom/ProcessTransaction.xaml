@@ -2,15 +2,12 @@
   <x:Members>
     <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="io_SystemException" Type="InOutArgument(s:Exception)" />
-    <x:Property Name="io_ExceptionMessage" Type="InOutArgument(x:String)" />
-    <x:Property Name="io_PhysicalAssetHistoryCount" Type="InOutArgument(x:Int32)" />
     <x:Property Name="in_ScreenshotsPath" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1422,2552</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>648,2552</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -968,7 +965,7 @@
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="ProcessTransaction Exception Catch block" sap:VirtualizedContainerService.HintSize="400,635" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                    <Sequence DisplayName="ProcessTransaction Exception Catch block" sap:VirtualizedContainerService.HintSize="400,524" sap2010:WorkflowViewState.IdRef="Sequence_7">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -981,14 +978,6 @@
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                       <ui:LogMessage DisplayName="Log Message - ProcessTransaction Exception" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Error" Message="[&quot;Exception caught: &quot; + exception.Message]" />
-                      <Assign DisplayName="ProcessTransaction Exception Assign exception message" sap:VirtualizedContainerService.HintSize="338,71" sap2010:WorkflowViewState.IdRef="Assign_3">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="x:String">[io_ExceptionMessage]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="x:String">[exception.Message]</InArgument>
-                        </Assign.Value>
-                      </Assign>
                       <Throw DisplayName="Rethrow Exception to be handled in higher scope catch block" Exception="[exception]" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="Throw_3" />
                     </Sequence>
                   </ActivityAction>
