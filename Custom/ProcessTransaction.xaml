@@ -10,10 +10,10 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1422,1187</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1422,2552</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="86">
+    <scg:List x:TypeArguments="x:String" Capacity="44">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -61,7 +61,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="112">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="57">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -120,7 +120,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="756,5158" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="658,2487" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="BU" />
       <Variable x:TypeArguments="x:String" Name="ASSET" />
@@ -136,8 +136,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - ProcessTransaction start" sap:VirtualizedContainerService.HintSize="694,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting ProcessTransaction&quot;]" />
-    <ui:MultipleAssign DisplayName="Multiple Assign - QueueItemVariables" sap:VirtualizedContainerService.HintSize="694,234" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:LogMessage DisplayName="Log Message - ProcessTransaction start" sap:VirtualizedContainerService.HintSize="596,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting ProcessTransaction&quot;]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign - QueueItemVariables" sap:VirtualizedContainerService.HintSize="596,234" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -183,7 +183,115 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <If sap2010:Annotation.AnnotationText="Used to determine whether or not the name needs to be formatted. Names will contain spaces only when they are not formatted properly, as any leading or trailing spaces are trimmed before being added to the queue." Condition="[PERFORMED.Contains(&quot; &quot;)]" DisplayName="If name contains a space" sap:VirtualizedContainerService.HintSize="694,208" sap2010:WorkflowViewState.IdRef="If_1">
+    <Sequence sap2010:Annotation.AnnotationText="Validates that the date is in the format MM/DD/YYYY, and formats the date to match PeopleSoft's date string if it is. ie. Turns transaction item date 5/8/2022 to 05/08/2022, which is the format PeopleSoft uses. Throws a Business Rule Exception otherwise." DisplayName="Date validation &amp; formatting" sap:VirtualizedContainerService.HintSize="596,162" sap2010:WorkflowViewState.IdRef="Sequence_40">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Validate date. An invalid date will throw a Business Rule exception which will be caught in the ProcessTransaction catch block for handling." DisplayName="ValidateDate.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="400,118" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Custom\ValidateDate.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_Date">[INVDT]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:InvokeWorkflowFile>
+      <Sequence DisplayName="Format Date to match PeopleSoft Date" sap:VirtualizedContainerService.HintSize="400,90" sap2010:WorkflowViewState.IdRef="Sequence_38">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="x:String" Name="Month" />
+          <Variable x:TypeArguments="x:String" Name="Day" />
+          <Variable x:TypeArguments="x:String" Name="Year" />
+        </Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:MultipleAssign DisplayName="Split date string into parts" sap:VirtualizedContainerService.HintSize="431,172" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+          <ui:MultipleAssign.AssignOperations>
+            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[Month]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[INVDT.Split("/")(0)]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[Day]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[INVDT.Split("/")(1)]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[Year]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[INVDT.Split("/")(2)]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+            </scg:List>
+          </ui:MultipleAssign.AssignOperations>
+        </ui:MultipleAssign>
+        <If Condition="[Convert.ToInt32(Month) &lt; 10]" DisplayName="If Month is less than 10 pad with a zero" sap:VirtualizedContainerService.HintSize="431,61" sap2010:WorkflowViewState.IdRef="If_8">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If.Then>
+            <Assign DisplayName="Pad Month with a 0" sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_7">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Month]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">["0" + Month]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </If.Then>
+        </If>
+        <If Condition="[Convert.ToInt32(Day) &lt; 10]" DisplayName="If Day is less than 10 pad with a zero" sap:VirtualizedContainerService.HintSize="431,61" sap2010:WorkflowViewState.IdRef="If_9">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If.Then>
+            <Assign DisplayName="Pad Day with a 0" sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_8">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Day]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">["0" + Day]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </If.Then>
+        </If>
+        <Assign DisplayName="Rebuild INVDT" sap:VirtualizedContainerService.HintSize="431,70" sap2010:WorkflowViewState.IdRef="Assign_9">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[INVDT]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[Month + "/" + Day + "/" + Year]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+    </Sequence>
+    <If sap2010:Annotation.AnnotationText="Used to determine whether or not the name needs to be formatted. Names will contain spaces only when they are not formatted properly, as any leading or trailing spaces are trimmed before being added to the queue." Condition="[PERFORMED.Contains(&quot; &quot;)]" DisplayName="If name contains a space" sap:VirtualizedContainerService.HintSize="596,208" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -219,48 +327,36 @@
         </Assign>
       </If.Else>
     </If>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Validate date. An invalid date will throw a Business Rule exception which will be caught in the ProcessTransaction catch block for handling." DisplayName="ValidateDate.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="694,179" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Custom\ValidateDate.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Date">[INVDT]</InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:InvokeWorkflowFile>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="ProcessTransaction - Use Browser Chrome: Update Physical Inv. History" sap:VirtualizedContainerService.HintSize="694,4154" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OutUiElement="[PS]" ScopeGuid="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="ProcessTransaction - Use Browser Chrome: Update Physical Inv. History" sap:VirtualizedContainerService.HintSize="596,1500" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OutUiElement="[PS]" ScopeGuid="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="ProcessTransaction UseBrowser Do" sap:VirtualizedContainerService.HintSize="660,3928" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="ProcessTransaction UseBrowser Do" sap:VirtualizedContainerService.HintSize="562,1234" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <TryCatch DisplayName="Try Catch for ProcessTransaction" sap:VirtualizedContainerService.HintSize="598,3804" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <TryCatch DisplayName="Try Catch for ProcessTransaction" sap:VirtualizedContainerService.HintSize="500,1110" sap2010:WorkflowViewState.IdRef="TryCatch_1">
               <TryCatch.Try>
-                <Sequence DisplayName="ProcessTransaction Try block sequence" sap:VirtualizedContainerService.HintSize="560,3545" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <Sequence DisplayName="ProcessTransaction Try block sequence" sap:VirtualizedContainerService.HintSize="462,851" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="498,61" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="400,61" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                     <ui:CommentOut.Body>
-                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,366" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="916,962" sap2010:WorkflowViewState.IdRef="Sequence_14">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message - Check for search button" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Checking for search button&quot;]" />
-                        <uix:NCheckState sap2010:Annotation.AnnotationText="Check if search button appears. If it doesn't throw new BRE" DisplayName="Check App State 'Search'" sap:VirtualizedContainerService.HintSize="338,103" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
+                        <ui:LogMessage DisplayName="Log Message - Check for search button" sap:VirtualizedContainerService.HintSize="854,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Checking for search button&quot;]" />
+                        <uix:NCheckState sap2010:Annotation.AnnotationText="Check if search button appears. If it doesn't throw new BRE" DisplayName="Check App State 'Search'" sap:VirtualizedContainerService.HintSize="854,699" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
                           <uix:NCheckState.IfExists>
                             <Sequence DisplayName="Search button appears" sap:VirtualizedContainerService.HintSize="400,225" sap2010:WorkflowViewState.IdRef="Sequence_3">
                               <sap:WorkflowViewStateService.ViewState>
@@ -293,7 +389,7 @@
                           </uix:NCheckState.Target>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                             </scg:Dictionary>
@@ -308,7 +404,28 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CommentOut>
-                  <Sequence sap2010:Annotation.AnnotationText="Fill in the form using transaction item data" DisplayName="Add transaction item details" sap:VirtualizedContainerService.HintSize="498,121" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                  <Sequence sap2010:Annotation.AnnotationText="Reload at the start of a transaction to put the form in a clean state.&#xD;&#xA;&#xD;&#xA;When exceptions are thrown in a transaction, the following transaction will pick up at the page where the exception was thrown. This prevents that." DisplayName="Reload Physical Inv. Page" sap:VirtualizedContainerService.HintSize="400,177" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message - Reload Phys. Inv. Page" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_39" Level="Info" Message="[&quot;Clicking to reload Physical Inv. History page&quot;]" />
+                    <uix:NClick ClickType="Single" DisplayName="Reload Physical Inv. Page by clicking link" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/NUI_FRAMEWORK.PT_AGSTARTPAGE_NUI.GBL?CONTEXTIDPARAMS=TEMPLATE_ID%3aPTPPNAVCOL&amp;scname=ADMN_UM_ASSET_MANAGEMENT&amp;PanelCollapsible=Y&amp;PTPPB_GROUPLET_ID=UM_ASSET_MANAGEMENT&amp;CRefName=ADMN_NAVCOLL_2" DesignTimeRectangle="42, 623, 196, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Update Physical'" FullSelectorArgument="&lt;webctrl tag='SPAN' aaname='Update Physical Inv. History' innertext='Update Physical Inv. History' idx='1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SPAN' aaname='Update Physical Inv. History' innertext='Update Physical Inv. History' type='' class='ps_box-value' check:text='Update Physical Inv. History' /&gt;" Guid="93b815cb-1886-4fb2-a609-e4cfa776605d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMgAAAAUCAYAAADIpHLKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPeSURBVGhD7ZY7ThxBEIZ9pj0MiMCJQ4TEHZBINjfSZhsRkEHi0Ckn4BC+xLi7p6u6nj0PZrFGruCTmOnu6nr8/7Df3v98DEEQ2IRBgqADGuTt968gCCphkCDoYBjkNNweDsPhcDc8yQPnu/Q+rd08Ds9ybQkQ5/5kr1+C18fhqtRlQPJ4Pl6Xd1fHF35+SyCXz/aR8HQ/1nJ77q9ftC6C38eX4eGG5zqV+79kRwbJjb0eHl6ttRn0DJKpuYRBtuHiBsk93LB/HjsxCOS0gUFk7pBLrfdLDHIB9myQxWylwxl8yiCtCScsenwWTUER1riGQWCAbF9Zg3wIcI7FnRi++9Xm5qODhb8LcKcZB4ZODCxyY2vdGMZ+eoZA611qEFon6z3kZMxoyYdqiUF07rIXCWfmGTynesQ1jPcc277vP+o72jdS+yYGscDGGAUhtWg3Tll3DOLE1QOpeAbBOGO9ONj0c47GLe9KbMMMMrZbc+2pysUQRAHuMHrA1tcbxGLcY+gA6gKxdujFB2yDeL2oeRm9LefcnusesbWfuiaaz0YGaXvlO0wKEyAN8Bot7mk5QbEtRhNEJ++M8QVm1Fy6NYk9UmzwPCkk11D6TozJ0PVzkWlgXeZM75SzkjGn7qC0+D52XKitCVuh9GFryqunnctI3fDnTQzCh0jF7BTrCQiFUnENAs8WTmM7BqH542BpbjJfJnCrRiM/Gk8YpG8GChFCZa54YV0ZZE6d5bmjCwO/plaDlzvmhjj6UfoQueHMx/eyBwC7X/SgYxBDaCIxuwn0/DyDqDhuAyAOPFsYeWeEKNV6xaxJ5Mu+cudeXJlnzW2xQSAOCGBaZBLPIPPqTPeqtT5+TfNzhxgI3O3qY55BVI9IbXKPYZBWAB86eV8TbQWQxOAykZRuOryT4idx8X44A3t0kyfZ1CB6eL64R5hAZS6iZ3k/xk930r/HeM14UyID2P3peV2dzsfHwIxf0LObyl0KXc9SazMjteffIz9kbQ6GQdICDszCELIBNqYXqyROipNYDcjkc15czwAbG6QNLcOF4/el7usNWFCG2enhXJGtNQirk/QOa6R7CWb8wpRBpFgJcBfr/VSP2mx6PYK1AqnJNkhGJDFC/lMkaBPoBaopLPkUQw5CiQ2a6JgRBiWb0hO/EqXNbOEksGYrpjEwHIyZizYJHaQaoMipN3y6DnWtqZPuxXmIvXJdaWHSIHwP0ukV3qE0y/Xa7RE5S9d9g8zAb8L/gSWcYKegQbipwiBrwYbyn1fBPoGPnfyPGAZZATYz4f2kCXYC/Vlm/FRWBgmCQBMGCQKXj+Ev7CSO1dUC1d4AAAAASUVORK5CYII=" InformativeScreenshot="22f343fe48bcca4b435e1ffac3fa87cd.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Update Physical Inv. History' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="8, 605, 286, 51" FriendlyName="'Step LabelUpdate'" FullSelectorArgument="&lt;webctrl aria-role='link' tabindex='0' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='link' tabindex='0' tag='DIV' type='' class='ps_box-group psc_layout   ps_ag-step-button psc_visited psc_selected' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAASIAAAA3CAYAAACo0kcqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUkSURBVHhe7dexbtxGEMbxPJPqPIcNF2kCuDEM+B0MOIWKdBGgyqpcuHOalGnzBHmIPIE6huRxlrOzM0ve5XRrbv4EfrDvSC53lzOfpB/kGDg4ODhufPzy68P87xJDBBEHB8ftjyKIfvz8dgCAWyKIADQXBtFf//wNAC+KIALQHEEEoDmCCEBzBBGA5ggiAM0RRACaI4gANEcQAWiOIALQHEEEoDmCCEBzBBGA5ggiAM0RRACaI4gANPfdB9Hvf/4BYOH1SA8IIuBAvB7pwQGC6HF4d3c33N29Hx7si3l6P34/nnvzafhiz51Dxvnw6J9/Cd8+Da/mdTnUPL7cv56/e3X/Nb//mmQu/3UflYcPp7W8e6qff9F1KfE+fh0+vsnnujX3lrwe6QFBNLkoiKYCfj18/Oad26EWRJNlLgTRdbx4EE17eMX9i3g90gOCaHJ2EMmcrhBEdu4yl2W9NwmiF3DkIDrbtepwB69HetBVEK3F9piK6/TZFF9q9mVcJ4ikUbLr5nMyH0Xuy8bdaLLwt5A85HQDyf9n8kx3HGkuFZRmbtm56hjO9foeRa/33CDS68z2XubkvKNzfiCcE0Tl3O1ejIJ3Pkn3FXuU13B6zv163U8/L9/pfVNr93qkB10GkScVoFM4yVJc4Tjz+SCIgnHLwl9EQZTGOa03NdD4Z6Aed/5uHtsJHTt2uOZlT4u5OI03k2c4e5CdvzyIPKdrnDqQdUkoVNTGF34QRXuxzMvZ2/m+cM/LPcrO/VauSc/H65EedBpE67X2u/Ty04tWhRYVtHnOOicpqnWMtfEq8544v1FklrlU12SusU0tnzcbNgyu8plpzEy5/ryZS3Lezlk/074rO+bWM7R1/Jg/rqxtDZBCUR9+TUXrWe+b2LrJP3s90oMugyhvFh0aQVFFjZoachEGkXz2BAVcCSI9/9RAem52vlmQeGt05qfHM0FUDx1NNdxib0jI+SKI9qxz/lypC0e8pnUN0dzT3JKgfor6MHNL7/z0vd0DkT3f7IHXIz04UBA5DW0KwC82ff++ICrGCQtNxpHPHmfeE9P8xfmFuyYz3+yn9lNtXDvPZW5nB5GMI4223cxWFET71jk+tzhXF69p/9xljESeHdbHviAq9kitzV7j9UgPDhBEa6HkzaW+XwpiLRRVAPJSzcsvi1u+syGjxk3Pl3vkmrKYN101iMomiUPkJAsCOxezZ9P1afzxmfr/p/HWgNtqZpE9f/x82TqDkHe448/Kd7c1dxso5bssa3Niay9+jv2Bsb4Hr0d6cIAgGl9AagyPExiOVIC1seYCUUVkeYU2me6Lxo2C5spBtDbHJG/QeF+W62qNZMxNU9nDvc18aRBl61R7l9aor1Xc8WdbQWRDQZFnZXu/tUfru6ntkZybqTV5PdKDYwTRxLzsE/Wbz0gXm36RRfFlRTKOYQu+aGop1iD0pCFs8dVCpmh+3+4GHaU1e2M6jZEawJ1LGUa6YYpGMXOqNZk+L+u6ZJ362vQ+zLX2fFELm0GUX5NU9io9o6jZvF6re6Tu1ee9HunBcYJoh7jY/h+8BsVBpSDKw8vrkR4QRL1IhZv/WYZjkh8q9jc8r0d6QBB1IBXtKPpTCAeh/5xz/sT2eqQH330QAegfQQSgOYIIQHMEEYDmCCIAzRFEAJojiAA0RxABaI4gAtAcQQSgOYIIQHMEEYDmCCIAzRFEAJojiAA0txlEAHArBBGA5oogmr4AgFvLguj5+XkAgFs6BdEw/AuZcXNBsGCCmwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                  </Sequence>
+                  <Sequence sap2010:Annotation.AnnotationText="Fill in the form using transaction item data" DisplayName="Add transaction item details" sap:VirtualizedContainerService.HintSize="400,121" sap2010:WorkflowViewState.IdRef="Sequence_22">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -432,11 +549,12 @@
                       </uix:NClick.Target>
                     </uix:NClick>
                   </Sequence>
-                  <Sequence sap2010:Annotation.AnnotationText="Check to see if:&#xD;&#xA;1. The asset does not exist&#xD;&#xA;2. The asset would be a duplicate entry" DisplayName="Business Rule Exception Checks" sap:VirtualizedContainerService.HintSize="498,740" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                  <Sequence sap2010:Annotation.AnnotationText="Check to see if:&#xD;&#xA;1. The asset does not exist&#xD;&#xA;2. The asset would be a duplicate entry" DisplayName="Business Rule Exception Checks" sap:VirtualizedContainerService.HintSize="400,147" sap2010:WorkflowViewState.IdRef="Sequence_23">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <Sequence sap2010:Annotation.AnnotationText="Indicated by text appearing on the page saying the asset doesn't exist. This checks for that text element." DisplayName="Check if asset does not exist" sap:VirtualizedContainerService.HintSize="400,132" sap2010:WorkflowViewState.IdRef="Sequence_24">
@@ -487,7 +605,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NCheckState>
                     </Sequence>
-                    <Sequence sap2010:Annotation.AnnotationText="Builds a dictionary at runtime that uses asset entry dates as keys, and any PIIDs (ie. entry types) entered on those dates as a value (value as a string array).&#xD;&#xA;&#xD;&#xA;eg.&#xD;&#xA;{&#xD;&#xA;  &quot;12/17/2018&quot;: [&#xD;&#xA;      &quot;DAR-UPDATE&quot;&#xD;&#xA;  ],&#xD;&#xA;  &quot;4/14/2022&quot;: [&#xD;&#xA;      &quot;ONLINE&quot;&#xD;&#xA;  ],&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;The current transaction item's INVDT is used to select the correct date key within the dictionary to search for the performed entries on that date. If the array contains the transaction item's PIID (ie. entry type) then it is considered a duplicate entry, and a Business Rule Exception is thrown and the current transaction is skipped." DisplayName="Check for duplicate entry" sap:VirtualizedContainerService.HintSize="688,4130" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                    <Sequence sap2010:Annotation.AnnotationText="Builds a dictionary at runtime that uses asset entry dates as keys, and any PIIDs (ie. entry types) entered on those dates as a value (value as a string array).&#xD;&#xA;&#xD;&#xA;eg.&#xD;&#xA;{&#xD;&#xA;  &quot;12/17/2018&quot;: [&#xD;&#xA;      &quot;DAR-UPDATE&quot;&#xD;&#xA;  ],&#xD;&#xA;  &quot;4/14/2022&quot;: [&#xD;&#xA;      &quot;ONLINE&quot;&#xD;&#xA;  ],&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;The current transaction item's INVDT is used to select the correct date key within the dictionary to search for the performed entries on that date. If the array contains the transaction item's PIID (ie. entry type) then it is considered a duplicate entry, and a Business Rule Exception is thrown and the current transaction is skipped." DisplayName="Check for duplicate entry" sap:VirtualizedContainerService.HintSize="400,387" sap2010:WorkflowViewState.IdRef="Sequence_12">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="sd:DataTable" Name="dt_AssetHistory" />
                         <Variable x:TypeArguments="scg:Dictionary(x:String, s:String[])" Name="AssetDict" />
@@ -511,7 +629,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NExtractData>
                       <ui:LogMessage DisplayName="Log Message - Extract history found" sap:VirtualizedContainerService.HintSize="626,101" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;Extracted History. Found &quot; + dt_AssetHistory.RowCount.ToString + &quot; rows&quot;]" />
-                      <Assign sap2010:Annotation.AnnotationText="Dictionary uses the asset Inventory Date (INVDT) field as a key, and the asset PIID as a value." DisplayName="Instantiate Dictionary" sap:VirtualizedContainerService.HintSize="626,127" sap2010:WorkflowViewState.IdRef="Assign_5">
+                      <Assign sap2010:Annotation.AnnotationText="Dictionary uses the asset Inventory Date (INVDT) field as a key, and the asset PIID as a value." DisplayName="Instantiate Dictionary" sap:VirtualizedContainerService.HintSize="626,128" sap2010:WorkflowViewState.IdRef="Assign_5">
                         <Assign.To>
                           <OutArgument x:TypeArguments="scg:Dictionary(x:String, s:String[])">[AssetDict]</OutArgument>
                         </Assign.To>
@@ -524,13 +642,13 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </Assign>
-                      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_AssetHistory]" DisplayName="For Each Asset Entry in Asset Entry List" sap:VirtualizedContainerService.HintSize="626,1176" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_AssetHistory]" DisplayName="For Each Asset Entry in Asset Entry List" sap:VirtualizedContainerService.HintSize="626,1179" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
                         <ui:ForEachRow.Body>
                           <ActivityAction x:TypeArguments="sd:DataRow">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="AssetEntry" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Build Dictionary entry for entry to be used to check for BREs" sap:VirtualizedContainerService.HintSize="550,1051" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                            <Sequence DisplayName="Build Dictionary entry for entry to be used to check for BREs" sap:VirtualizedContainerService.HintSize="550,1053" sap2010:WorkflowViewState.IdRef="Sequence_13">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:String" Name="AssetPIID" />
                                 <Variable x:TypeArguments="x:String" Name="AssetInvDate" />
@@ -605,24 +723,6 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:ForEachRow>
-                      <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="626,357" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[AssetDict.Keys]">
-                        <ui:ForEach.Body>
-                          <ActivityAction x:TypeArguments="x:Object">
-                            <ActivityAction.Argument>
-                              <DelegateInArgument x:TypeArguments="x:Object" Name="key" />
-                            </ActivityAction.Argument>
-                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,223" sap2010:WorkflowViewState.IdRef="Sequence_37">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_35" Message="[key.ToString]" />
-                            </Sequence>
-                          </ActivityAction>
-                        </ui:ForEach.Body>
-                      </ui:ForEach>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="626,101" sap2010:WorkflowViewState.IdRef="LogMessage_36" Message="[&quot;asset dict contains key &quot; + INVDT + &quot;: &quot; + AssetDict.ContainsKey(INVDT).ToString]" />
                       <If sap2010:Annotation.AnnotationText="Nested IF statements because Logical AND is not lazily evaluated, and accessing non-present keys in the dictionary throws an error. To prevent the error we would get when logically chaining key-presence checks with array-presence checks we break the conditions into separate blocks.&#xD;&#xA;&#xD;&#xA;ie. instead of: &#xD;&#xA;  if (condition 1 AND condition 2) {&#xD;&#xA;    doSomething();&#xD;&#xA;  }&#xD;&#xA;we do:&#xD;&#xA;  if (condition 1) {&#xD;&#xA;    if (condition 2) {&#xD;&#xA;      doSomething();&#xD;&#xA;    }&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;so much more readable... -_____-" Condition="[AssetDict.ContainsKey(INVDT)]" DisplayName="If entry was made on INVDT" sap:VirtualizedContainerService.HintSize="626,1260" sap2010:WorkflowViewState.IdRef="If_6">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -647,7 +747,7 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                   <ui:LogMessage DisplayName="Log Message - duplicate entry BRE" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;Found duplicate entry for date &quot; + INVDT + &quot; with PIID &quot; + PIID]" />
-                                  <Throw DisplayName="Throw duplicate entry BRE" Exception="[new BusinessRuleException(&quot;Asset with PIID &quot; + PIID + &quot; already exists for date &quot; + INVDT)]" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="Throw_5" />
+                                  <Throw DisplayName="Throw duplicate entry BRE" Exception="[new BusinessRuleException(&quot;Asset &quot; + ASSET + &quot; with PIID &quot; + PIID + &quot; already exists for date &quot; + INVDT)]" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="Throw_5" />
                                 </Sequence>
                               </If.Then>
                             </If>
@@ -656,7 +756,7 @@
                       </If>
                     </Sequence>
                   </Sequence>
-                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="498,2173" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="400,61" sap2010:WorkflowViewState.IdRef="CommentOut_7">
                     <ui:CommentOut.Body>
                       <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="462,2085" sap2010:WorkflowViewState.IdRef="Sequence_21">
                         <sap:WorkflowViewStateService.ViewState>
@@ -769,7 +869,7 @@
                           </ui:CommentOut>
                           <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="338,61" sap2010:WorkflowViewState.IdRef="CommentOut_3">
                             <ui:CommentOut.Body>
-                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="544,815" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="544,847" sap2010:WorkflowViewState.IdRef="Sequence_16">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -819,22 +919,17 @@
                         </Sequence>
                       </Sequence>
                     </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
                   </ui:CommentOut>
-                  <uix:NClick ClickType="Single" DisplayName="Reload Physical Inv. Page by clicking link" sap:VirtualizedContainerService.HintSize="498,166" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
-                    <uix:NClick.Target>
-                      <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/NUI_FRAMEWORK.PT_AGSTARTPAGE_NUI.GBL?CONTEXTIDPARAMS=TEMPLATE_ID%3aPTPPNAVCOL&amp;scname=ADMN_UM_ASSET_MANAGEMENT&amp;PanelCollapsible=Y&amp;PTPPB_GROUPLET_ID=UM_ASSET_MANAGEMENT&amp;CRefName=ADMN_NAVCOLL_2" DesignTimeRectangle="42, 623, 196, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Update Physical'" FullSelectorArgument="&lt;webctrl tag='SPAN' aaname='Update Physical Inv. History' innertext='Update Physical Inv. History' idx='1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SPAN' aaname='Update Physical Inv. History' innertext='Update Physical Inv. History' type='' class='ps_box-value' check:text='Update Physical Inv. History' /&gt;" Guid="93b815cb-1886-4fb2-a609-e4cfa776605d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMgAAAAUCAYAAADIpHLKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPeSURBVGhD7ZY7ThxBEIZ9pj0MiMCJQ4TEHZBINjfSZhsRkEHi0Ckn4BC+xLi7p6u6nj0PZrFGruCTmOnu6nr8/7Df3v98DEEQ2IRBgqADGuTt968gCCphkCDoYBjkNNweDsPhcDc8yQPnu/Q+rd08Ds9ybQkQ5/5kr1+C18fhqtRlQPJ4Pl6Xd1fHF35+SyCXz/aR8HQ/1nJ77q9ftC6C38eX4eGG5zqV+79kRwbJjb0eHl6ttRn0DJKpuYRBtuHiBsk93LB/HjsxCOS0gUFk7pBLrfdLDHIB9myQxWylwxl8yiCtCScsenwWTUER1riGQWCAbF9Zg3wIcI7FnRi++9Xm5qODhb8LcKcZB4ZODCxyY2vdGMZ+eoZA611qEFon6z3kZMxoyYdqiUF07rIXCWfmGTynesQ1jPcc277vP+o72jdS+yYGscDGGAUhtWg3Tll3DOLE1QOpeAbBOGO9ONj0c47GLe9KbMMMMrZbc+2pysUQRAHuMHrA1tcbxGLcY+gA6gKxdujFB2yDeL2oeRm9LefcnusesbWfuiaaz0YGaXvlO0wKEyAN8Bot7mk5QbEtRhNEJ++M8QVm1Fy6NYk9UmzwPCkk11D6TozJ0PVzkWlgXeZM75SzkjGn7qC0+D52XKitCVuh9GFryqunnctI3fDnTQzCh0jF7BTrCQiFUnENAs8WTmM7BqH542BpbjJfJnCrRiM/Gk8YpG8GChFCZa54YV0ZZE6d5bmjCwO/plaDlzvmhjj6UfoQueHMx/eyBwC7X/SgYxBDaCIxuwn0/DyDqDhuAyAOPFsYeWeEKNV6xaxJ5Mu+cudeXJlnzW2xQSAOCGBaZBLPIPPqTPeqtT5+TfNzhxgI3O3qY55BVI9IbXKPYZBWAB86eV8TbQWQxOAykZRuOryT4idx8X44A3t0kyfZ1CB6eL64R5hAZS6iZ3k/xk930r/HeM14UyID2P3peV2dzsfHwIxf0LObyl0KXc9SazMjteffIz9kbQ6GQdICDszCELIBNqYXqyROipNYDcjkc15czwAbG6QNLcOF4/el7usNWFCG2enhXJGtNQirk/QOa6R7CWb8wpRBpFgJcBfr/VSP2mx6PYK1AqnJNkhGJDFC/lMkaBPoBaopLPkUQw5CiQ2a6JgRBiWb0hO/EqXNbOEksGYrpjEwHIyZizYJHaQaoMipN3y6DnWtqZPuxXmIvXJdaWHSIHwP0ukV3qE0y/Xa7RE5S9d9g8zAb8L/gSWcYKegQbipwiBrwYbyn1fBPoGPnfyPGAZZATYz4f2kCXYC/Vlm/FRWBgmCQBMGCQKXj+Ev7CSO1dUC1d4AAAAASUVORK5CYII=" InformativeScreenshot="22f343fe48bcca4b435e1ffac3fa87cd.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Update Physical Inv. History' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
-                        <uix:TargetAnchorable.Anchors>
-                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                            <uix:Target DesignTimeRectangle="8, 605, 286, 51" FriendlyName="'Step LabelUpdate'" FullSelectorArgument="&lt;webctrl aria-role='link' tabindex='0' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='link' tabindex='0' tag='DIV' type='' class='ps_box-group psc_layout   ps_ag-step-button psc_visited psc_selected' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAASIAAAA3CAYAAACo0kcqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUkSURBVHhe7dexbtxGEMbxPJPqPIcNF2kCuDEM+B0MOIWKdBGgyqpcuHOalGnzBHmIPIE6huRxlrOzM0ve5XRrbv4EfrDvSC53lzOfpB/kGDg4ODhufPzy68P87xJDBBEHB8ftjyKIfvz8dgCAWyKIADQXBtFf//wNAC+KIALQHEEEoDmCCEBzBBGA5ggiAM0RRACaI4gANEcQAWiOIALQHEEEoDmCCEBzBBGA5ggiAM0RRACaI4gANPfdB9Hvf/4BYOH1SA8IIuBAvB7pwQGC6HF4d3c33N29Hx7si3l6P34/nnvzafhiz51Dxvnw6J9/Cd8+Da/mdTnUPL7cv56/e3X/Nb//mmQu/3UflYcPp7W8e6qff9F1KfE+fh0+vsnnujX3lrwe6QFBNLkoiKYCfj18/Oad26EWRJNlLgTRdbx4EE17eMX9i3g90gOCaHJ2EMmcrhBEdu4yl2W9NwmiF3DkIDrbtepwB69HetBVEK3F9piK6/TZFF9q9mVcJ4ikUbLr5nMyH0Xuy8bdaLLwt5A85HQDyf9n8kx3HGkuFZRmbtm56hjO9foeRa/33CDS68z2XubkvKNzfiCcE0Tl3O1ejIJ3Pkn3FXuU13B6zv163U8/L9/pfVNr93qkB10GkScVoFM4yVJc4Tjz+SCIgnHLwl9EQZTGOa03NdD4Z6Aed/5uHtsJHTt2uOZlT4u5OI03k2c4e5CdvzyIPKdrnDqQdUkoVNTGF34QRXuxzMvZ2/m+cM/LPcrO/VauSc/H65EedBpE67X2u/Ty04tWhRYVtHnOOicpqnWMtfEq8544v1FklrlU12SusU0tnzcbNgyu8plpzEy5/ryZS3Lezlk/074rO+bWM7R1/Jg/rqxtDZBCUR9+TUXrWe+b2LrJP3s90oMugyhvFh0aQVFFjZoachEGkXz2BAVcCSI9/9RAem52vlmQeGt05qfHM0FUDx1NNdxib0jI+SKI9qxz/lypC0e8pnUN0dzT3JKgfor6MHNL7/z0vd0DkT3f7IHXIz04UBA5DW0KwC82ff++ICrGCQtNxpHPHmfeE9P8xfmFuyYz3+yn9lNtXDvPZW5nB5GMI4223cxWFET71jk+tzhXF69p/9xljESeHdbHviAq9kitzV7j9UgPDhBEa6HkzaW+XwpiLRRVAPJSzcsvi1u+syGjxk3Pl3vkmrKYN101iMomiUPkJAsCOxezZ9P1afzxmfr/p/HWgNtqZpE9f/x82TqDkHe448/Kd7c1dxso5bssa3Niay9+jv2Bsb4Hr0d6cIAgGl9AagyPExiOVIC1seYCUUVkeYU2me6Lxo2C5spBtDbHJG/QeF+W62qNZMxNU9nDvc18aRBl61R7l9aor1Xc8WdbQWRDQZFnZXu/tUfru6ntkZybqTV5PdKDYwTRxLzsE/Wbz0gXm36RRfFlRTKOYQu+aGop1iD0pCFs8dVCpmh+3+4GHaU1e2M6jZEawJ1LGUa6YYpGMXOqNZk+L+u6ZJ362vQ+zLX2fFELm0GUX5NU9io9o6jZvF6re6Tu1ee9HunBcYJoh7jY/h+8BsVBpSDKw8vrkR4QRL1IhZv/WYZjkh8q9jc8r0d6QBB1IBXtKPpTCAeh/5xz/sT2eqQH330QAegfQQSgOYIIQHMEEYDmCCIAzRFEAJojiAA0RxABaI4gAtAcQQSgOYIIQHMEEYDmCCIAzRFEAJojiAA0txlEAHArBBGA5oogmr4AgFvLguj5+XkAgFs6BdEw/AuZcXNBsGCCmwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
-                          </scg:List>
-                        </uix:TargetAnchorable.Anchors>
-                      </uix:TargetAnchorable>
-                    </uix:NClick.Target>
-                  </uix:NClick>
                 </Sequence>
               </TryCatch.Try>
               <TryCatch.Catches>
-                <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="564,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="466,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -862,7 +957,7 @@
                     </Sequence>
                   </ActivityAction>
                 </Catch>
-                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="564,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="466,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
