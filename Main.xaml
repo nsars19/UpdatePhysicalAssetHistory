@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>891,1086</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>875,1086</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="114">
@@ -148,7 +148,7 @@
         <av:Point x:Key="ShapeLocation">100,52.5</av:Point>
         <x:Double x:Key="StateContainerWidth">751</x:Double>
         <x:Double x:Key="StateContainerHeight">888.0799999999999</x:Double>
-        <av:PointCollection x:Key="ConnectorLocation">160,86.83333333333334 190,86.83333333333334 190,84.35 253,84.35</av:PointCollection>
+        <av:PointCollection x:Key="ConnectorLocation">160,86.25 190,86.25 190,84.35 253,84.35</av:PointCollection>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
@@ -767,7 +767,7 @@
                                             <OutArgument x:TypeArguments="x:String">[EmailToField]</OutArgument>
                                           </ui:AssignOperation.To>
                                           <ui:AssignOperation.Value>
-                                            <InArgument x:TypeArguments="x:String">[Config("FinancePhysicalAssets_EmailToField").ToString]</InArgument>
+                                            <InArgument x:TypeArguments="x:String">[Config("FinancePhysicalAssetHistory_EmailToField").ToString]</InArgument>
                                           </ui:AssignOperation.Value>
                                         </ui:AssignOperation>
                                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -934,14 +934,14 @@
                                         </Assign.Value>
                                       </Assign>
                                     </Sequence>
-                                    <Sequence DisplayName="Add any exception messages to the email body" sap:VirtualizedContainerService.HintSize="400,90" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                                    <Sequence DisplayName="Add any exception messages to the email body" sap:VirtualizedContainerService.HintSize="400,740" sap2010:WorkflowViewState.IdRef="Sequence_61">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <If sap2010:Annotation.AnnotationText="Add application exception message to email body if present." Condition="[ExceptionMessage.Length &gt; 0]" DisplayName="If Exception Message is present" sap:VirtualizedContainerService.HintSize="338,118" sap2010:WorkflowViewState.IdRef="If_17">
+                                      <If sap2010:Annotation.AnnotationText="Add application exception message to email body if present." Condition="[ExceptionMessage.Length &gt; 0]" DisplayName="If Exception Message is present" sap:VirtualizedContainerService.HintSize="344,405" sap2010:WorkflowViewState.IdRef="If_17">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -950,7 +950,7 @@
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                         <If.Then>
-                                          <Assign DisplayName="Add exception message to email message" sap:VirtualizedContainerService.HintSize="262,74" sap2010:WorkflowViewState.IdRef="Assign_37">
+                                          <Assign DisplayName="Add exception message to end-process email message" sap:VirtualizedContainerService.HintSize="262,74" sap2010:WorkflowViewState.IdRef="Assign_37">
                                             <Assign.To>
                                               <OutArgument x:TypeArguments="x:String">[EmailMessage]</OutArgument>
                                             </Assign.To>
@@ -963,7 +963,7 @@ ExceptionMessage + Environment.NewLine]</InArgument>
                                           </Assign>
                                         </If.Then>
                                         <If.Else>
-                                          <Assign DisplayName="Add 'None' to exception message section in email message" sap:VirtualizedContainerService.HintSize="262,74" sap2010:WorkflowViewState.IdRef="Assign_38">
+                                          <Assign DisplayName="Add 'None' to exception message section in end-process email message" sap:VirtualizedContainerService.HintSize="262,74" sap2010:WorkflowViewState.IdRef="Assign_38">
                                             <Assign.To>
                                               <OutArgument x:TypeArguments="x:String">[EmailMessage]</OutArgument>
                                             </Assign.To>
