@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1437,2093</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1398,1452</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>NavigateToPSPage_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -90,7 +90,7 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="NavigateToPSPage" sap:VirtualizedContainerService.HintSize="534,2028" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="NavigateToPSPage" sap:VirtualizedContainerService.HintSize="502,1387" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ScreenshotFilepath" />
     </Sequence.Variables>
@@ -99,8 +99,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - Start NavigateToPSPage" sap:VirtualizedContainerService.HintSize="472,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Beginning NavigateToPSPage Workflow&quot;]" />
-    <TryCatch DisplayName="Try Catch - Navigate to PS Page" sap:VirtualizedContainerService.HintSize="472,1624" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:LogMessage DisplayName="Log Message - Start NavigateToPSPage" sap:VirtualizedContainerService.HintSize="440,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Beginning NavigateToPSPage Workflow&quot;]" />
+    <TryCatch DisplayName="Try Catch - Navigate to PS Page" sap:VirtualizedContainerService.HintSize="440,983" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
         <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Browser Chrome: Homepage" sap:VirtualizedContainerService.HintSize="434,1387" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="a1535cca-8832-41a9-80e8-0aaf71e06bde" Version="V2" WindowResize="Maximize">
           <uix:NApplicationCard.Body>
@@ -133,7 +133,7 @@
                       <uix:VerifyExecutionOptions.Target>
                         <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/MANAGE_ASSETS.BASIC.GBL?NavColl=true&amp;ICAGTarget=start" DesignTimeRectangle="316, 153, 2244, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Asset Basic Information'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='H1' aaname='Asset Basic Information' innertext='Asset Basic Information' visibleinnertext='Asset Basic Information' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='H1' aaname='Asset Basic Information' innertext='Asset Basic Information' visibleinnertext='Asset Basic Information' type='' class='PSSRCHTITLE' check:text='Asset Basic Information' /&gt;" Guid="39932ec9-0edc-410d-922d-898191dd31da" ImageBase64="iVBORw0KGgoAAAANSUhEUgAACMgAAAAUCAYAAAByZ5OPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAR6SURBVHhe7d1NbtRKFIBRtva2wpAlsIhIiDkryCQDhiwhYsQWQGITfu2Oq1x/13aHjtJqnSOVRLpj+7rM8JPzYQIAAAAAAAAAgDsmkAEAAAAAAAAA4K4JZAAAAAAAAAAAuGsCGQAAAAAAAAAA7loQyPyaHj5+mf47rU/f/y6f3Zp1xtG67tzpWo/Tz+WTS/38+rq50nHn9fXX8ukN+/1j+jTP+vnH9Gf5CAAAAAAAAADgPY0DmefHNcp4x9BhjkMenpcfOtuBzLziYy/1ToFM+RzmdaOBTPWcBDIAAAAAAAAAwI0ZBDJ/p6fPc5DxOD0sUcf1QpOj0gxHApk+Wvnz/dvNBSX/FMjc7JtjjjwnAAAAAAAAAID31Qcy6Q0gc5RR/rtR/emfebVvDGnffvLx2/T0e/nubI0rXlYKXdrPT2v4NpL9QKaMUbp52+M25x1fqz3nViTSBjLp54fn5n6Xvc6RT17rPN131fNZZ33Kv3eaO93faS+firlf5ilnaJ5Tty/pPoPnFLxBZnPm8pjqeu3/GQAAAAAAAACAy3WBTAoZ6giiDhX62GRZKXoYRBUvayOCyd8H4cX5uFIKQYJVHNPHJss6PG8fyER7EEUyUSAzWvM5okAmPC7f72BfuvBkZ6VzpXClWxvPaRDI7M4cXue0ivMAAAAAAAAAALxGE8gM3pSyhBWjt7GEb0xJMUb1ZpNC+r6IH1IQ0r7RJLzGXiAzr6PX35u33ZccdBTh0M45wkAm78F6z3mv23MWIcm6L+s+vHy2/lw+s3yuPHMRuHShSvH8K+nc/TnyPG0gc2Tm0e/keaNZAAAAAAAAAACOqQOZHCUMVhGzjH5vjR9mawCRVxGOhG90mdf59y4JZAYBRRRXtHPne9qet7tWOk8Qw4xEgUwZsdSR0El7neC6eT/Pn6dZ67f+5GOL59jPEO1puz8XBDJHZh6GOdEsAAAAAAAAAACXqQKZ/FaTYHWxSoof0iojmrNxWPHmgUz+rr5eF54cnLe7VhB9bIkCmfL+rhvINPsyuOd+hubYNnZp9vXqgUz1PIL7AAAAAAAAAAC4UBHIbAQJu0FIG070qkBkEGu0RgFJ7cC85+/62XKcceD6L7FKc638xpPifnfuqT7f+P52A5l83VHUkj4L9mUwXz9DfWw78+i+u3O0scuRmdtjzoL7AAAAAAAAAAC4UA5k6reQtFKsMIcR61tDurUEDvlc3UphRXyOFFGk8OK8htHJGlmE63wv15i3jzWq+YqVY5JGG5t0YcnJbiBzEl133aMgLHlFILO/L80887kHscvuzAIZAAAAAAAAAOANLYHM/p80SpFDG3isKwgyilWfuw9Xqu+r40eRxE4gU4Y+xVtM6shnDT225x3HGu0eRHHMLNq/8p6PBDKzLlypvr9eINM+o3mucMZ03DB22ZlZIAMAAAAAAAAAvKHiTywBAAAAAAAAAMD9EcgAAAAAAAAAAHDXBDIAAAAAAAAAANw1gQwAAAAAAAAAAHdNIAMAAAAAAAAAwB2bpv8BZLKrwMC8pdYAAAAASUVORK5CYII=" InformativeScreenshot="ac126d8baf3826f645c864a15393b20b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Basic Add' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
-                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                               <uix:Target DesignTimeRectangle="42, 141, 210, 16" FriendlyName="'Step LabelAsset'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentname='win0' tag='DIV' innertext=' Step LabelAsset Management ' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentname='win0' tag='DIV' innertext=' Step LabelAsset Management ' class='ps_box-group psc_layout ps_ag-step-link-wrapper' aaname='' check:text='Step LabelAsset Management' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPEAAAAYCAYAAAArgBtDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAR8SURBVHhe7ZtLaxRBEID3P+nFg4qoAwqCoBdRD+JVL54GPOjFF6KorAoqKB5EicpohCQqwYhKlMUHwSfE7O4fKadnprq7qmt2Ztfd7Ebr8MGmu6f6VV/3bEIa3W4XFEVZu6jEirLGIRK3W/eh/SCC5XsRLN3dAR9u7YKF67th9vIemLm8tyfT53fC8o/PJLiiKKOHSPzt+blMYs7K/e3w9c4W+HB9E8xf2ACPT66DRyfWE+auHYD305dIcEVRRg+R+OvsaVFizvtrGwOJZ5v7YDE5T4IrijJ6BpL4483NKrGiTAj0dXrulCgt59ON4UqcxA1oNFKiJrSE+knAjlEYZ6sZubpGDIlXpyijhko8O7jEc1f3w+LTCyR4PRKIrQARNFtSm1UgiaERJ3JdCpGYjZPWqcT9YNYuTuQ6pR5DvYl/LS2S4HXAWyyOU4mMBD1EGhX2Jq0hcRQV47WJ5x9CBpW4Hi1oRvmaqcR/x1AkfnJmK7y4cZgErgdupEl8/zNr12pCRERhG19Vn0JfeV09Ly97G0CJg8PG3ODZz3Ehsxs/vaFpnR2zeTXHGBmsf1KXQ+fmHyImPv7sryM7aPyvA3btYmj6a1HMz58D7ddJmCP1l5axvclj8GdTJvir1KQzFInN34jnbx8lgWuBG1wkDAoVNVthm4Ai2avqvbgck1B9S5wUCVokHT5vy4tkLuvTyl867hRM6NI2KAyT05C+KeTP9GhjqOxDAmMKEpL6kj4zTBuVeJiMVWInBpZRQbIyTLKyTa6qtwnlycmescLVeJ2OE0xAE8//jP1gIjPwRsVxevLY+dtbtyQGn4vQ3h0eeZk0N7Luwjjc7YtxS/r11hz7yQ9gbO8dyLYf3Acnstt/ZRDGKLHb6BDcaEPVqV1R7yVpSHmic/zEx/b0Vsb5MAH563Agsd++JEawVvn6UHHkGE7IkOw5YRzheviHlVcvkT2DY5D2USUeNuOTmCc3JxAqlJVufkn9CCQOxk4Sl8a0gvHbC8dFDiQmcdCGyjFqiV3cQSV2MVXi0TE2iYkUpE5KAEqVdLSeJr7U3gpWV2IbUyoz4w77tGPqQ2Ls08pkhSvi2sMkFBDLqtZqEImDAymAzkOMkZaV54DSD+ORWEgcH5K8/NbzyDa/qj6N5xKbgYlNYsiy04Rzt4hr7yeuX8/oQ+LScQd9etT9xRbGGETiHvMLD7Q8Zi+JM0oPBKWKsUhceTvwk94mmsMlWI36lEAI0jdNdOlm4LeGjWeTjyUuGZNJXJbENSTmspg5hYL5YzfPSQLR+fkiDSaxX+Zw6yaNQYhBDk+/rdIPTOIzorScj6nED1N5kSdnt8Gru8dIYGUVsBJIYqgU/wtE4uV3d0RpOfwmNnx5/YAEVlYDfsN69Ph+r/xbEIk7v7/DytQuUVyf71MHs392QJbeacKMDeGrhAr8f0Ekzlj5Bd1Pj6CzcBba04dEiTsvj9NnFEUZG6HEnJWf0PnyDDpvr0B75gi0p3ZC581Fua2iKKtOtcSKokw0KrGirGm68AfoFhRxwEmp3QAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
                             </scg:List>
                           </uix:TargetAnchorable.Anchors>
@@ -178,10 +178,10 @@
         </uix:NApplicationCard>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="438,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,811" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -224,6 +224,6 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:LogMessage DisplayName="Log Message - End NavigateToPSPage" sap:VirtualizedContainerService.HintSize="472,101" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Finished NavigateToPSPage Workflow&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - End NavigateToPSPage" sap:VirtualizedContainerService.HintSize="440,101" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Finished NavigateToPSPage Workflow&quot;]" />
   </Sequence>
 </Activity>
