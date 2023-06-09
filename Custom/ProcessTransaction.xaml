@@ -289,7 +289,7 @@
         </Assign>
       </Sequence>
     </Sequence>
-    <If Condition="[(new System.Random).Next(4) = 3]" sap:VirtualizedContainerService.HintSize="596,605" sap2010:WorkflowViewState.IdRef="If_10">
+    <If Condition="[(new System.Random).Next(3) = 2]" sap:VirtualizedContainerService.HintSize="596,605" sap2010:WorkflowViewState.IdRef="If_10">
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="400,219" sap2010:WorkflowViewState.IdRef="Sequence_47">
           <sap:WorkflowViewStateService.ViewState>
@@ -297,7 +297,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Throw Exception="[new Exception(&quot;I don't know what to do when the random number is 3!!#!@#!!!!@#!@1&quot;)]" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="Throw_6" />
+          <Throw Exception="[new Exception(&quot;I don't know what to do when the random number is 2!!#!@#!!!!@#!@1&quot;)]" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="Throw_6" />
         </Sequence>
       </If.Then>
       <If.Else>
@@ -307,7 +307,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_40" Message="[&quot;random number isn't 3... we're safe for now.&quot;]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_40" Message="[&quot;random number isn't 2... we're safe for now.&quot;]" />
         </Sequence>
       </If.Else>
     </If>

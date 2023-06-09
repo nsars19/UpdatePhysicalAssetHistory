@@ -118,7 +118,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log message (close applications)" sap:VirtualizedContainerService.HintSize="434,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Closing applications...&quot;]" />
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Log out of PeopleSoft" sap:VirtualizedContainerService.HintSize="434,722" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="14868459-71d0-4632-8eac-fa5d0a20056c" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Log out of PeopleSoft" sap:VirtualizedContainerService.HintSize="434,722" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="14868459-71d0-4632-8eac-fa5d0a20056c" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
