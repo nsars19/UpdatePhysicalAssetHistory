@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>648,2552</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1571,3857</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -117,7 +117,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="658,2487" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="1236,3792" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="BU" />
       <Variable x:TypeArguments="x:String" Name="ASSET" />
@@ -133,8 +133,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - ProcessTransaction start" sap:VirtualizedContainerService.HintSize="596,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting ProcessTransaction&quot;]" />
-    <ui:MultipleAssign DisplayName="Multiple Assign - QueueItemVariables" sap:VirtualizedContainerService.HintSize="596,234" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:LogMessage DisplayName="Log Message - ProcessTransaction start" sap:VirtualizedContainerService.HintSize="1174,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting ProcessTransaction&quot;]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign - QueueItemVariables" sap:VirtualizedContainerService.HintSize="1174,234" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -180,7 +180,7 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <Sequence sap2010:Annotation.AnnotationText="Validates that the date is in the format MM/DD/YYYY, and formats the date to match PeopleSoft's date string if it is. ie. Turns transaction item date 5/8/2022 to 05/08/2022, which is the format PeopleSoft uses. Throws a Business Rule Exception otherwise." DisplayName="Date validation &amp; formatting" sap:VirtualizedContainerService.HintSize="596,162" sap2010:WorkflowViewState.IdRef="Sequence_40">
+    <Sequence sap2010:Annotation.AnnotationText="Validates that the date is in the format MM/DD/YYYY, and formats the date to match PeopleSoft's date string if it is. ie. Turns transaction item date 5/8/2022 to 05/08/2022, which is the format PeopleSoft uses. Throws a Business Rule Exception otherwise." DisplayName="Date validation &amp; formatting" sap:VirtualizedContainerService.HintSize="1174,162" sap2010:WorkflowViewState.IdRef="Sequence_40">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -288,7 +288,7 @@
         </Assign>
       </Sequence>
     </Sequence>
-    <If sap2010:Annotation.AnnotationText="Used to determine whether or not the name needs to be formatted. Names will contain spaces only when they are not formatted properly, as any leading or trailing spaces are trimmed before being added to the queue." Condition="[PERFORMED.Contains(&quot; &quot;)]" DisplayName="If name contains a space" sap:VirtualizedContainerService.HintSize="596,208" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap2010:Annotation.AnnotationText="Used to determine whether or not the name needs to be formatted. Names will contain spaces only when they are not formatted properly, as any leading or trailing spaces are trimmed before being added to the queue." Condition="[PERFORMED.Contains(&quot; &quot;)]" DisplayName="If name contains a space" sap:VirtualizedContainerService.HintSize="1174,208" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -324,36 +324,36 @@
         </Assign>
       </If.Else>
     </If>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="ProcessTransaction - Use Browser Chrome: Update Physical Inv. History" sap:VirtualizedContainerService.HintSize="596,1500" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OutUiElement="[PS]" ScopeGuid="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="ProcessTransaction - Use Browser Chrome: Update Physical Inv. History" sap:VirtualizedContainerService.HintSize="1174,2805" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OutUiElement="[PS]" ScopeGuid="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="ProcessTransaction UseBrowser Do" sap:VirtualizedContainerService.HintSize="562,1234" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="ProcessTransaction UseBrowser Do" sap:VirtualizedContainerService.HintSize="1140,2579" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <TryCatch DisplayName="Try Catch for ProcessTransaction" sap:VirtualizedContainerService.HintSize="500,1110" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <TryCatch DisplayName="Try Catch for ProcessTransaction" sap:VirtualizedContainerService.HintSize="1078,2455" sap2010:WorkflowViewState.IdRef="TryCatch_1">
               <TryCatch.Try>
-                <Sequence DisplayName="ProcessTransaction Try block sequence" sap:VirtualizedContainerService.HintSize="462,851" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <Sequence DisplayName="ProcessTransaction Try block sequence" sap:VirtualizedContainerService.HintSize="1040,2196" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="400,61" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="978,61" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                     <ui:CommentOut.Body>
-                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="916,962" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="916,882" sap2010:WorkflowViewState.IdRef="Sequence_14">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:LogMessage DisplayName="Log Message - Check for search button" sap:VirtualizedContainerService.HintSize="854,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Checking for search button&quot;]" />
-                        <uix:NCheckState sap2010:Annotation.AnnotationText="Check if search button appears. If it doesn't throw new BRE" DisplayName="Check App State 'Search'" sap:VirtualizedContainerService.HintSize="854,699" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
+                        <uix:NCheckState sap2010:Annotation.AnnotationText="Check if search button appears. If it doesn't throw new BRE" DisplayName="Check App State 'Search'" sap:VirtualizedContainerService.HintSize="854,619" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
                           <uix:NCheckState.IfExists>
                             <Sequence DisplayName="Search button appears" sap:VirtualizedContainerService.HintSize="400,225" sap2010:WorkflowViewState.IdRef="Sequence_3">
                               <sap:WorkflowViewStateService.ViewState>
@@ -401,7 +401,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CommentOut>
-                  <Sequence sap2010:Annotation.AnnotationText="Reload at the start of a transaction to put the form in a clean state.&#xD;&#xA;&#xD;&#xA;When exceptions are thrown in a transaction, the following transaction will pick up at the page where the exception was thrown. This prevents that." DisplayName="Reload Physical Inv. Page" sap:VirtualizedContainerService.HintSize="400,177" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                  <Sequence sap2010:Annotation.AnnotationText="Reload at the start of a transaction to put the form in a clean state.&#xA;&#xA;When exceptions are thrown in a transaction, the following transaction will pick up at the page where the exception was thrown. This prevents that." DisplayName="Reload Physical Inv. Page" sap:VirtualizedContainerService.HintSize="978,177" sap2010:WorkflowViewState.IdRef="Sequence_46">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -422,7 +422,7 @@
                       </uix:NClick.Target>
                     </uix:NClick>
                   </Sequence>
-                  <Sequence sap2010:Annotation.AnnotationText="Fill in the form using transaction item data" DisplayName="Add transaction item details" sap:VirtualizedContainerService.HintSize="400,121" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                  <Sequence sap2010:Annotation.AnnotationText="Fill in the form using transaction item data" DisplayName="Add transaction item details" sap:VirtualizedContainerService.HintSize="978,121" sap2010:WorkflowViewState.IdRef="Sequence_22">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -435,7 +435,7 @@
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/UMASS_CUSTOM.UM_PI_ASSET_HIST1.GBL?NavColl=true&amp;ICAGTarget=start" DesignTimeRectangle="394, 354, 95, 14" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Advanced Search'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl css-selector='body&amp;gt;form&amp;gt;div' parentid='UM_PI_ASSET_HIST1' parentname='win0' tag='DIV' idx='5' /&gt;&lt;webctrl aaname=' ' css-selector='body&amp;gt;form&amp;gt;div&amp;gt;div' parentid='win0divPAGECONTAINER' parentname='win0' tag='DIV' idx='3' /&gt;&lt;webctrl name='#ICAdvSearch' tag='A' aaname='Advanced Search' class='PSHYPERLINK' innertext='Advanced Search' parentclass='ps_pagecontainer' css-selector='body&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;a' parentname='win0' visibleinnertext='Advanced Search' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl parentid='UM_PI_ASSET_HIST1' parentname='win0' tag='DIV' /&gt;&lt;webctrl aaname=' ' parentid='win0divPAGECONTAINER' parentname='win0' tag='DIV' /&gt;&lt;webctrl name='#ICAdvSearch' tag='A' aaname='Advanced Search' class='PSHYPERLINK' innertext='Advanced Search' parentclass='ps_pagecontainer' type='' parentname='win0' visibleinnertext='Advanced Search' check:text='Advanced Search' /&gt;" Guid="ee79c85e-8a66-4ae2-a6e7-a3cee4260b93" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGMAAAASCAYAAABPRWDxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJISURBVFhH7VUxjgIxDOR/FPxlP7H1SdS0NLSU1PRIvAHEJ3KxYye24yx7J6TLSRkp0iVx7PGMl9uEgW4wzOgIw4yOMMzoCK4Z1/1X2EyX8KC9i9spbLancKVtT3icD23+z0vYbWN/vN71+Slg3WW9ajPg0XQK83QIxyedefiPZpAR8432EasG7xP4jRnQyO78Sg3t73RKEFM179mMVzhOdYOQA4B5eAq3xWCMiTnylCpB7mHOb0QDon41CDgccH6I3BpmeAOEOcXg5TxxqRypz+qO3u/wjnM7/MmMY9ajHnZjBhTkIEgoiacCLDJOFN1r4yCOcpjm8Q3FyfcscjJUm1typ/p8ju+VIPq9a0YWqRYCoYyhPJKv6pHqqdqABn+KU/oZjtoMeCAC4EEugsmEOXIvRYe/XSG0abo50YCtw7BTbevLmgscAK2vFc9X5bF8hbkt/jbOya3M0CRpsWBLYoivAURm9/N0Ofm8OGzO1mHguclFNdeL6EDUc/tnLtivvnOHp8Xfi2uboX8GEorIVTKzT+Leo6jFfSsS7t+ZYeswlgS2d41YqF9qMkqPkp9G4reKb4u/PV80Ay6rJJKEJoQ/MzY5TIwVP++T2W/NMENRcjjnub68S7k8M5IgZVgAKo+5xx4xj+6de3XNaPH/iRlY2JmKmmyMi2t3vsSiNYkiMCCdpc86xgoCbTMiRB1luDrXouZhiGuO3OT/PgWVA5bsIULkUXfyPOqU+VuRAR5/G7dkxsDfY5jREYYZHWGY0RGGGd0ghG9mqJdCo60HqQAAAABJRU5ErkJggg==" InformativeScreenshot="405c2b5ae22c1c506afaef93a9b0f50a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Update Physical Inv. History' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
-                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="3">
                               <uix:Target DesignTimeRectangle="316, 315, 2244, 56" ElementType="Button" FriendlyName="'Search Advanced Search'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl aaname=' ' css-selector='body&amp;gt;form&amp;gt;div&amp;gt;div' parentname='win0' tag='DIV' innertext=' Advanced Search ' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl aaname=' ' type='' parentname='win0' tag='DIV' innertext=' Advanced Search ' class='' check:text='Search Advanced Search' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector" />
                               <uix:Target DesignTimeRectangle="320, 293, 82, 16" ElementType="Text" FriendlyName="'Search by'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl class='PSPAGECONTAINER' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='SPAN' aaname='Search by:   ' class='PSSRCHSUBTITLE' innertext='Search by:   ' parentclass='PSPAGECONTAINER' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl class='PSPAGECONTAINER' tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' aaname='Search by:   ' class='PSSRCHSUBTITLE' innertext='Search by:   ' parentclass='PSPAGECONTAINER' check:text='Search by:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFYAAAAUCAYAAAAXxsqQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH3SURBVFhH7ZZBjsIwDEXnalyFJQfogkMgjdhzAjYsWHIExIorgMQlMoljt3btpG2YgobJl7Jokzr2s+P0y1XNogp2JlWwM6hpmgr2txWgBmmw571bLL/F2Jxx7k26bL0f2ys+Det+3LnF+uTu+PxKmWDBoeXeXfAZdDu5lYe7Oj7wxev1x8E+3GFtA3yno0EfAXZcALi2bRd2lfN20tm9us1y5w5Hajn0bd+mX3ODCQR7kvMZPwnsIXxH61vQdpw8eVMTyWX3WNFfu8CkAhhZ2bKFxHnRl9FufBfnZUVhsOwdtwmBCpvaB674LZ+XMKW/QYbPhUpfXqpywmBOBEjqmMVv0n2YO25AgQpPJRLB9vbMVRVVrPCR74EnqgUJieegy5UB2xNVMTpK1WANCVYniIMV1TEQmAVxEKya4/vKCs7ZmqrxYIMg8Jhtq3qkYgAAs3VWV+x7wXq1exr+PCENlsFTYsdI96eeLEji6BmBjGkFU8HmWgEo+OGf4RLNxDNRRsXS0dWbyCAiGBEUB6cShOtzYHtHE8RAFIH1e6QuLxLYCL4l7JQo2QrIKT70pdTBosFB9W1szjwwC2wQJZZGl5wisL5ixe+WtRaKQPuSsz2kaT32U2W1rSdVwXqFykz/Ipbpf4PFOyH/d1OmWrEzqYKdUU3TuB9p2TU8qJipyAAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
                               <uix:Target DesignTimeRectangle="316, 153, 2244, 16" ElementType="Text" FriendlyName="'Update Physical'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='H1' aaname='Update Physical Inv. History' class='PSSRCHTITLE' innertext='Update Physical Inv. History' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='H1' aaname='Update Physical Inv. History' class='PSSRCHTITLE' innertext='Update Physical Inv. History' type='' check:text='Update Physical Inv. History' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAACMgAAAAUCAYAAAByZ5OPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUaSURBVHhe7d07bttIAIDhXG2vkjJHcLt9gCB9TpAmhbvkCIYrXyEBcgktSXGG8yQpWQ6WyvcBA1iv4cyI5Q/r3QkAAAAAAAAAAO6YQAYAAAAAAAAAgLsmkAEAAAAAAAAA4K4JZAAAAAAAAAAAuGtJIPNy+vj+0+mf919Pz/Mz0dPX4fnhtYcfp1/zU1cJ83x+mZ/4A37+OH2Y9tUYyTp+PX6Znvvw+Ht+5g2Etbz2HBPPn897+fg0P1EIr7/pvhL9c/x9+vaQr3Vr7QAAAAAAAAAAt3CAQGYMK76cvv2cH15qLZAZx7wWgcxtvHkgM57hDc8PAAAAAAAAALh///NAJqzpBoFMufawlnm/fySQeQNHDmQudqv7EAAAAAAAAAD4q1wVyCwRxEuMHs6PiygiRijzvI1AJgQc2fumV8J6khE+l827EX90/2tLHt+kYUf4exrhms15QvSRBDzF2rLXVudovH8UPpOMdL+XBjLpPrOzD2tqfEeXhEqXBDL12suzGEbnOx9H/Fx1Rvk9HK/zuLzv4d/5ufTcmnsHAAAAAAAAAI7uVYFMa8QwohE0xDEHCN15ptc7gUxn3jrImPUCmTjPeb8x7Hio13SeuxHDlHN39zyfabWWRhAyjXCNxhlkr18fyLTG+T2N+yDsa0c4sjZ/GO1ApncW87oaZzt9rnvm9Rllr32v97R1lgAAAAAAAADAMb0ykFneWz4Xo4QYICQBRC+0KK6zrCnEDsscS8Swsu5R4z+wZGNey+qeiveUsUl4vBmSdIOa+ppxzky9/62oI7xerjm9ZvldlXNuXSO1zN8f7XnD3pawpVLdH+17qref5XOj8r7ZuI8AAAAAAAAAgMN65U8spRFHGrN0YodeQBJDkXl0A5nwuDU6YcVKIJOuP4Yd6drK9WaBS2uPjfWl8xWBzHoMk0pCkHnsjVfC61Ugs2ef0+OV+6Khv6dlD721x7XF0bl/qvujWFv8zs/Pl2cQZNfv3ZsAAAAAAAAAwOE1AplGaFKECe0IIv38vkCmmqcbQIR5wuPWaKx7VEQpPc09VdFEsq+ntXnLdc5ruziQCfOEAGQ7Min1Apl9+xyuW722rr+n/WsPc8QRrt29P/YFMtUZJXvbOkcAAAAAAAAA4LiSQGYJGPLoI3l+DhWWgCEJE0JsUEQJdXQRnivjl2TeeP3wmfCeOrLYdNNApo43+nHLWRaolGspzmwU5x+umf59toQ3W5FJkF1/cN0+O/FRQ3P+Sf3dbUYpRehSf5f1vTkq773+dcqQKbmfAQAAAAAAAIC7kQQygxhstEYjZGmMGEaszTWFC0ncUI5WADGO8XO9eXsBzI0DmSXaGEcejvTPZX7fWuBRjCnmWDnDvZHJtYFMts/k7OIe0/cmmvNPtgKZMlZJRrhWdvZbZ7R8N2tnFF6bRmdPAAAAAAAAAMCx5YHMqIgQziP/zxppBJEGBlUUkcULwxxliFHFJiGi6MQ4IdQoo4i1+KWKUtp2hyODuOfWnI1gI4YZzbXUkUwaclQBR7GmtfhjFF4P+7pmn+l74/dRvDdozj/ZCmRGjWBo5aziNap7Nr9fV88o+WzvDAEAAAAAAACAY6sDmR36EcTfoRWOcFAxkPHzSgAAAAAAAABwrwQyl4pBRf7zShxTiJ16/xEHAAAAAAAAADg+gcwFYkwxDD/Hc3DpzzJt/PwWAAAAAAAAAHBsVwUyAAAAAAAAAABwFAIZAAAAAAAAAADu2On0H62f74WK0iRZAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector" />
@@ -546,24 +546,24 @@
                       </uix:NClick.Target>
                     </uix:NClick>
                   </Sequence>
-                  <Sequence sap2010:Annotation.AnnotationText="Check to see if:&#xD;&#xA;1. The asset does not exist&#xD;&#xA;2. The asset would be a duplicate entry" DisplayName="Business Rule Exception Checks" sap:VirtualizedContainerService.HintSize="400,147" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                  <Sequence sap2010:Annotation.AnnotationText="Check to see if:&#xA;1. The asset does not exist&#xA;2. The asset would be a duplicate entry" DisplayName="Business Rule Exception Checks" sap:VirtualizedContainerService.HintSize="978,1492" sap2010:WorkflowViewState.IdRef="Sequence_23">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence sap2010:Annotation.AnnotationText="Indicated by text appearing on the page saying the asset doesn't exist. This checks for that text element." DisplayName="Check if asset does not exist" sap:VirtualizedContainerService.HintSize="400,132" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                    <Sequence sap2010:Annotation.AnnotationText="Indicated by text appearing on the page saying the asset doesn't exist. This checks for that text element." DisplayName="Check if asset does not exist" sap:VirtualizedContainerService.HintSize="916,884" sap2010:WorkflowViewState.IdRef="Sequence_24">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message - check if asset does not exist" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[&quot;Checking to see if asset does not exist&quot;]" />
-                      <uix:NCheckState DisplayName="Check App State - check if asset does not exist" sap:VirtualizedContainerService.HintSize="338,61" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
+                      <ui:LogMessage DisplayName="Log Message - check if asset does not exist" sap:VirtualizedContainerService.HintSize="854,101" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[&quot;Checking to see if asset does not exist&quot;]" />
+                      <uix:NCheckState DisplayName="Check App State - check if asset does not exist" sap:VirtualizedContainerService.HintSize="854,588" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
                         <uix:NCheckState.IfExists>
                           <Sequence DisplayName="Asset does not exist" sap:VirtualizedContainerService.HintSize="400,362" sap2010:WorkflowViewState.IdRef="Sequence_10">
                             <sap:WorkflowViewStateService.ViewState>
@@ -572,7 +572,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <ui:LogMessage DisplayName="Log Message - asset doesn't exist" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;Asset: &quot; + ASSET + &quot; does not exist&quot;]" />
-                            <Throw DisplayName="Throw BRE - asset does not exist" Exception="[new BusinessRuleException(&quot;Asset: &quot; + ASSET + &quot; does not exist&quot;)]" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="Throw_4" />
+                            <Throw DisplayName="Throw BRE - asset does not exist" Exception="[new BusinessRuleException(&quot;Asset: &quot; + ASSET + &quot; does not exist in PS &quot; + in_Config(&quot;FinancePhysicalAssetHistory_Environment&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="Throw_4" />
                           </Sequence>
                         </uix:NCheckState.IfExists>
                         <uix:NCheckState.IfNotExists>
@@ -596,13 +596,13 @@
                         </uix:NCheckState.Target>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NCheckState>
                     </Sequence>
-                    <Sequence sap2010:Annotation.AnnotationText="Builds a dictionary at runtime that uses asset entry dates as keys, and any PIIDs (ie. entry types) entered on those dates as a value (value as a string array).&#xD;&#xA;&#xD;&#xA;eg.&#xD;&#xA;{&#xD;&#xA;  &quot;12/17/2018&quot;: [&#xD;&#xA;      &quot;DAR-UPDATE&quot;&#xD;&#xA;  ],&#xD;&#xA;  &quot;4/14/2022&quot;: [&#xD;&#xA;      &quot;ONLINE&quot;&#xD;&#xA;  ],&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;The current transaction item's INVDT is used to select the correct date key within the dictionary to search for the performed entries on that date. If the array contains the transaction item's PIID (ie. entry type) then it is considered a duplicate entry, and a Business Rule Exception is thrown and the current transaction is skipped." DisplayName="Check for duplicate entry" sap:VirtualizedContainerService.HintSize="400,387" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                    <Sequence sap2010:Annotation.AnnotationText="Builds a dictionary at runtime that uses asset entry dates as keys, and any PIIDs (ie. entry types) entered on those dates as a value (value as a string array).&#xA;&#xA;eg.&#xA;{&#xA;  &quot;12/17/2018&quot;: [&#xA;      &quot;DAR-UPDATE&quot;&#xA;  ],&#xA;  &quot;4/14/2022&quot;: [&#xA;      &quot;ONLINE&quot;&#xA;  ],&#xA;}&#xA;&#xA;The current transaction item's INVDT is used to select the correct date key within the dictionary to search for the performed entries on that date. If the array contains the transaction item's PIID (ie. entry type) then it is considered a duplicate entry, and a Business Rule Exception is thrown and the current transaction is skipped." DisplayName="Check for duplicate entry" sap:VirtualizedContainerService.HintSize="916,387" sap2010:WorkflowViewState.IdRef="Sequence_12">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="sd:DataTable" Name="dt_AssetHistory" />
                         <Variable x:TypeArguments="scg:Dictionary(x:String, s:String[])" Name="AssetDict" />
@@ -615,7 +615,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <ui:LogMessage DisplayName="Log Message - Extract asset history" sap:VirtualizedContainerService.HintSize="626,101" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;Extracting asset history&quot;]" />
-                      <uix:NExtractData sap2010:Annotation.AnnotationText="Hacky implementation of selector. This was the only way I could get this activity to return data. While it does return data, there are empty rows &amp; duplicate rows that need to be accounted for when checking for any duplicate entry business exceptions." AppendResults="False" ContinueOnError="True" DataTable="[dt_AssetHistory]" DelayBefore="5" DisplayName="Extract Table Data - Get asset history" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table'&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-0' ReferenceIdx='0' Name='Column-0' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-1' ReferenceIdx='1' Name='Column-1' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-2' ReferenceIdx='2' Name='PIID'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-3' ReferenceIdx='3' Name='Column-3' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-4' ReferenceIdx='4' Name='InventoryDate'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-5' ReferenceIdx='5' Name='Column-5' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-6' ReferenceIdx='6' Name='Column-6' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-7' ReferenceIdx='7' Name='Column-7' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-8' ReferenceIdx='8' Name='Column-8' IsDeleted='true'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;column name='Column-6' attr='text' /&gt;&lt;column name='Column-7' attr='text' /&gt;&lt;column name='Column-8' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="626,253" sap2010:WorkflowViewState.IdRef="NExtractData_1" InteractionMode="Simulate" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
+                      <uix:NExtractData sap2010:Annotation.AnnotationText="Hacky implementation of selector. This was the only way I could get this activity to return data. While it does return data, there are empty rows &amp; duplicate rows that need to be accounted for when checking for any duplicate entry business exceptions." AppendResults="False" ContinueOnError="True" DataTable="[dt_AssetHistory]" DelayBefore="5" DisplayName="Extract Table Data - Get asset history" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-0' ReferenceIdx='0' Name='Column-0' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-1' ReferenceIdx='1' Name='Column-1' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-2' ReferenceIdx='2' Name='PIID'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-3' ReferenceIdx='3' Name='Column-3' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-4' ReferenceIdx='4' Name='InventoryDate'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-5' ReferenceIdx='5' Name='Column-5' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-6' ReferenceIdx='6' Name='Column-6' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-7' ReferenceIdx='7' Name='Column-7' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-8' ReferenceIdx='8' Name='Column-8' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;column name='Column-6' attr='text' /&gt;&lt;column name='Column-7' attr='text' /&gt;&lt;column name='Column-8' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="626,253" sap2010:WorkflowViewState.IdRef="NExtractData_1" InteractionMode="Simulate" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V3">
                         <uix:NExtractData.Target>
                           <uix:TargetAnchorable DesignTimeRectangle="335, 263, 565, 153" DesignTimeScaleFactor="1" FriendlyName="'PI IDInventory'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl id='ACE_$ICField8$0' tableRow='3' tag='TABLE' /&gt;" Guid="de46953d-5ecf-4cc6-aac8-73cab2fbdb66" InformativeScreenshot="b3127f94cdf29c506343bb5172981fdd.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Update Physical Inv. History' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
                         </uix:NExtractData.Target>
@@ -720,7 +720,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:ForEachRow>
-                      <If sap2010:Annotation.AnnotationText="Nested IF statements because Logical AND is not lazily evaluated, and accessing non-present keys in the dictionary throws an error. To prevent the error we would get when logically chaining key-presence checks with array-presence checks we break the conditions into separate blocks.&#xD;&#xA;&#xD;&#xA;ie. instead of: &#xD;&#xA;  if (condition 1 AND condition 2) {&#xD;&#xA;    doSomething();&#xD;&#xA;  }&#xD;&#xA;we do:&#xD;&#xA;  if (condition 1) {&#xD;&#xA;    if (condition 2) {&#xD;&#xA;      doSomething();&#xD;&#xA;    }&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;so much more readable... -_____-" Condition="[AssetDict.ContainsKey(INVDT)]" DisplayName="If entry was made on INVDT" sap:VirtualizedContainerService.HintSize="626,1260" sap2010:WorkflowViewState.IdRef="If_6">
+                      <If sap2010:Annotation.AnnotationText="Nested IF statements because Logical AND is not lazily evaluated, and accessing non-present keys in the dictionary throws an error. To prevent the error we would get when logically chaining key-presence checks with array-presence checks we break the conditions into separate blocks.&#xA;&#xA;ie. instead of: &#xA;  if (condition 1 AND condition 2) {&#xA;    doSomething();&#xA;  }&#xA;we do:&#xA;  if (condition 1) {&#xA;    if (condition 2) {&#xA;      doSomething();&#xA;    }&#xA;  }&#xA;&#xA;so much more readable... -_____-" Condition="[AssetDict.ContainsKey(INVDT)]" DisplayName="If entry was made on INVDT" sap:VirtualizedContainerService.HintSize="626,1260" sap2010:WorkflowViewState.IdRef="If_6">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -753,9 +753,9 @@
                       </If>
                     </Sequence>
                   </Sequence>
-                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="400,61" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="978,61" sap2010:WorkflowViewState.IdRef="CommentOut_7">
                     <ui:CommentOut.Body>
-                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="462,2085" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="462,2117" sap2010:WorkflowViewState.IdRef="Sequence_21">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -926,7 +926,7 @@
                 </Sequence>
               </TryCatch.Try>
               <TryCatch.Catches>
-                <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="466,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="1044,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -954,7 +954,7 @@
                     </Sequence>
                   </ActivityAction>
                 </Catch>
-                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="466,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1044,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
