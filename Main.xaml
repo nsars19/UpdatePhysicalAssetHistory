@@ -476,7 +476,7 @@
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <If Condition="[FilenamesProcessed.Length &lt;&gt; 0]" DisplayName="If filenames processed is not an empty string, add to email body" sap:VirtualizedContainerService.HintSize="344,363" sap2010:WorkflowViewState.IdRef="If_24">
+                      <If Condition="[FilenamesProcessed.Length &gt; 0]" DisplayName="If filenames processed is not an empty string, add to email body" sap:VirtualizedContainerService.HintSize="344,363" sap2010:WorkflowViewState.IdRef="If_24">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -510,7 +510,7 @@ FilenamesProcessed + Environment.NewLine]</InArgument>
                           </Assign>
                         </If.Else>
                       </If>
-                      <If Condition="[FilenamesNotProcessed.Length &lt;&gt; 0]" DisplayName="If filenames not processed is not an empty string, add to email body" sap:VirtualizedContainerService.HintSize="344,363" sap2010:WorkflowViewState.IdRef="If_25">
+                      <If Condition="[FilenamesNotProcessed.Length &gt; 0]" DisplayName="If filenames not processed is not an empty string, add to email body" sap:VirtualizedContainerService.HintSize="344,363" sap2010:WorkflowViewState.IdRef="If_25">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
