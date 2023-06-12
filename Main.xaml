@@ -280,7 +280,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="570,3386" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="144,129" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
               <State.Entry>
                 <Sequence DisplayName="Sequence - End Process" sap:VirtualizedContainerService.HintSize="524,3232" sap2010:WorkflowViewState.IdRef="Sequence_57">
                   <Sequence.Variables>
@@ -692,7 +692,7 @@ QueueProcessCountsErrors(4) + Environment.NewLine]</InArgument>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception, 4) Retry Transaction, 5) End Process&#xD;&#xA;&#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="231,227" sap2010:WorkflowViewState.IdRef="State_3">
+            <State x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception, 4) Retry Transaction, 5) End Process&#xA;&#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="630,2132" sap2010:WorkflowViewState.IdRef="State_3">
               <State.Entry>
                 <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="584,1594" sap2010:WorkflowViewState.IdRef="TryCatch_17">
                   <sap:WorkflowViewStateService.ViewState>
@@ -747,18 +747,13 @@ QueueProcessCountsErrors(4) + Environment.NewLine]</InArgument>
                                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign sap2010:Annotation.AnnotationText="" DisplayName="Clear System Exception" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_58">
+                            <Assign DisplayName="Clear System Exception" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_58">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="s:Exception">[SystemException]</OutArgument>
                               </Assign.To>
                               <Assign.Value>
                                 <InArgument x:TypeArguments="s:Exception">[Nothing]</InArgument>
                               </Assign.Value>
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
                             </Assign>
                             <ui:LogMessage DisplayName="Retrying transaction" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_54" Level="Info" Message="[&quot;Retrying transaction for asset &quot; + TransactionItem.SpecificContent(&quot;ASSET&quot;).ToString]" />
                           </Sequence>
@@ -942,7 +937,6 @@ QueueProcessCountsErrors(4) + Environment.NewLine]</InArgument>
                               <InArgument x:TypeArguments="x:Int32">[CurrentTransactionCount + 1]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <ui:LogMessage DisplayName="Log Message - app exception caught, which transaction count are we on?" sap:VirtualizedContainerService.HintSize="482,101" sap2010:WorkflowViewState.IdRef="LogMessage_55" Level="Info" Message="[&quot;Exception caught for asset &quot; + TransactionItem.SpecificContent(&quot;ASSET&quot;).ToString + &quot; on Transaction #&quot; + CurrentTransactionCount.ToString]" />
                           <Assign DisplayName="Increment Exception Trx Count" sap:VirtualizedContainerService.HintSize="482,70" sap2010:WorkflowViewState.IdRef="Assign_36">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:Int32">[AppExceptionTransactionCount]</OutArgument>
@@ -951,10 +945,13 @@ QueueProcessCountsErrors(4) + Environment.NewLine]</InArgument>
                               <InArgument x:TypeArguments="x:Int32">[AppExceptionTransactionCount + 1]</InArgument>
                             </Assign.Value>
                           </Assign>
+                          <ui:LogMessage DisplayName="Log Message - app exception caught, which transaction count are we on?" sap:VirtualizedContainerService.HintSize="482,101" sap2010:WorkflowViewState.IdRef="LogMessage_55" Level="Info" Message="[&quot;Exception caught for asset &quot; + TransactionItem.SpecificContent(&quot;ASSET&quot;).ToString + &quot; on Transaction #&quot; + CurrentTransactionCount.ToString]" />
                           <If sap2010:Annotation.AnnotationText="We don't want to mark the transaction item as failed on the first failure, as the transaction will be retried. If the transaction count is 2 it means that we are on the second try, and another application exception occurred, and the transaction should be set to failed with application exception." Condition="[CurrentTransactionCount = 2]" DisplayName="If not on first try then set transaction to failed with application exception" sap:VirtualizedContainerService.HintSize="482,628" sap2010:WorkflowViewState.IdRef="If_27">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <If.Then>
@@ -1043,9 +1040,7 @@ QueueProcessCountsErrors(4) + Environment.NewLine]</InArgument>
                   <Transition.To>
                     <x:Reference>__ReferenceID0</x:Reference>
                   </Transition.To>
-                  <Transition.Condition>
-                    <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SystemException IsNot Nothing And CurrentTransactionCount = 1" />
-                  </Transition.Condition>
+                  <Transition.Condition>[SystemException IsNot Nothing And CurrentTransactionCount = 1]</Transition.Condition>
                 </Transition>
                 <Transition sap2010:Annotation.AnnotationText="There is no need for any action in case of successful transaction.&#xA;The process should simply go to next transaction." DisplayName="Success" sap:VirtualizedContainerService.HintSize="450,557" sap2010:WorkflowViewState.IdRef="Transition_5">
                   <sap:WorkflowViewStateService.ViewState>
@@ -1098,9 +1093,7 @@ QueueProcessCountsErrors(4) + Environment.NewLine]</InArgument>
                       </Assign.Value>
                     </Assign>
                   </Transition.Action>
-                  <Transition.Condition>
-                    <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="CurrentTransactionCount = 2 and SystemException IsNot Nothing" />
-                  </Transition.Condition>
+                  <Transition.Condition>[CurrentTransactionCount = 2 and SystemException IsNot Nothing]</Transition.Condition>
                 </Transition>
               </State.Transitions>
             </State>
@@ -1404,21 +1397,11 @@ QueueProcessCountsErrors(4) + Environment.NewLine]</InArgument>
                               <ui:LogMessage DisplayName="Log Message - email read + download finish" sap:VirtualizedContainerService.HintSize="436,101" sap2010:WorkflowViewState.IdRef="LogMessage_43" Level="Info" Message="[&quot;Successfully read email and download Excel file&quot;]" />
                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ReadExcelFilePopulateQueue.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="436,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_35" UnSafe="False" WorkflowFileName="Custom\ReadExcelFilePopulateQueue.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_FolderPath">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;FinancePhysicalAssetHistory_LocalFolderName&quot;).ToString" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_Queue">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;OrchestratorQueueName&quot;).ToString" />
-                                  </InArgument>
-                                  <InOutArgument x:TypeArguments="s:String[]" x:Key="io_QueueCountsErrors">
-                                    <VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="QueueProcessCountsErrors" />
-                                  </InOutArgument>
-                                  <InOutArgument x:TypeArguments="x:String" x:Key="io_FilenamesProcessed">
-                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="FilenamesProcessed" />
-                                  </InOutArgument>
-                                  <InOutArgument x:TypeArguments="x:String" x:Key="io_FilenamesNotProcessed">
-                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="FilenamesNotProcessed" />
-                                  </InOutArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_FolderPath">[Config("FinancePhysicalAssetHistory_LocalFolderName").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_Queue">[Config("OrchestratorQueueName").ToString]</InArgument>
+                                  <InOutArgument x:TypeArguments="s:String[]" x:Key="io_QueueCountsErrors">[QueueProcessCountsErrors]</InOutArgument>
+                                  <InOutArgument x:TypeArguments="x:String" x:Key="io_FilenamesProcessed">[FilenamesProcessed]</InOutArgument>
+                                  <InOutArgument x:TypeArguments="x:String" x:Key="io_FilenamesNotProcessed">[FilenamesNotProcessed]</InOutArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                             </Sequence>
@@ -1526,9 +1509,7 @@ QueueProcessCountsErrors(4) + Environment.NewLine]</InArgument>
           <Transition.To>
             <x:Reference>__ReferenceID2</x:Reference>
           </Transition.To>
-          <Transition.Condition>
-            <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="Convert.ToInt32(ReadEmailCountsErrors(0)) = 0 And SystemException Is Nothing" />
-          </Transition.Condition>
+          <Transition.Condition>[Convert.ToInt32(ReadEmailCountsErrors(0)) = 0 And SystemException Is Nothing]</Transition.Condition>
         </Transition>
       </State.Transitions>
     </State>
@@ -1544,11 +1525,7 @@ QueueProcessCountsErrors(4) + Environment.NewLine]</InArgument>
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Optionally used to include additional information about the transaction item." Name="TransactionField1" />
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Transaction ID used for information and logging purposes. Ideally, the ID should be unique for each transaction. " Name="TransactionID" />
       <Variable x:TypeArguments="sd:DataTable" sap2010:Annotation.AnnotationText="Used in case transactions are stored in a DataTable, for example, after being retrieved from a spreadsheet." Name="dt_TransactionData" />
-      <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="Used to control the number of consecutive system exceptions." Name="ConsecutiveSystemExceptions">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Int32" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="Used to control the number of consecutive system exceptions." Default="0" Name="ConsecutiveSystemExceptions" />
       <Variable x:TypeArguments="x:Boolean" Default="True" Name="FirstRun" />
       <Variable x:TypeArguments="x:String" Default="Finance Physical Asset History" Name="ProcessName" />
       <Variable x:TypeArguments="x:Boolean" Name="StopProcess" />
@@ -1568,11 +1545,7 @@ QueueProcessCountsErrors(4) + Environment.NewLine]</InArgument>
       <Variable x:TypeArguments="x:Int32" Default="0" Name="AppExceptionTransactionCount" />
       <Variable x:TypeArguments="x:Int32" Default="0" Name="BRETransactionCount" />
       <Variable x:TypeArguments="x:Int32" Default="0" Name="TotalTransactionsCount" />
-      <Variable x:TypeArguments="x:Int32" Name="CurrentTransactionCount">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Int32" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="CurrentTransactionCount" />
       <Variable x:TypeArguments="x:String" Name="FilenamesProcessed">
         <Variable.Default>
           <Literal x:TypeArguments="x:String" Value="" />
@@ -1583,11 +1556,7 @@ QueueProcessCountsErrors(4) + Environment.NewLine]</InArgument>
           <Literal x:TypeArguments="x:String" Value="" />
         </Variable.Default>
       </Variable>
-      <Variable x:TypeArguments="x:Int32" Name="FailedTransactionCount">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Int32" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="FailedTransactionCount" />
     </StateMachine.Variables>
   </StateMachine>
 </Activity>
