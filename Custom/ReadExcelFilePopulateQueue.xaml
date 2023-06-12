@@ -566,7 +566,7 @@ Environment.NewLine +
                                                           <OutArgument x:TypeArguments="x:String">[io_UnprocessedFilesMessages]</OutArgument>
                                                         </Assign.To>
                                                         <Assign.Value>
-                                                          <InArgument x:TypeArguments="x:String">[io_UnprocessedFilesMessages + "Sheet " + CurrentSheet.Name + " has no rows"]</InArgument>
+                                                          <InArgument x:TypeArguments="x:String">[io_UnprocessedFilesMessages + "Sheet `" + CurrentSheet.Name + "` has no rows" + Environment.NewLine]</InArgument>
                                                         </Assign.Value>
                                                       </Assign>
                                                     </Sequence>
@@ -604,7 +604,7 @@ Environment.NewLine +
                                                     <OutArgument x:TypeArguments="x:String">[io_UnprocessedFilesMessages]</OutArgument>
                                                   </Assign.To>
                                                   <Assign.Value>
-                                                    <InArgument x:TypeArguments="x:String">[io_UnprocessedFilesMessages + "Sheet " + CurrentSheet.Name + " does not conform to naming convention of `Sheet1`"]</InArgument>
+                                                    <InArgument x:TypeArguments="x:String">[io_UnprocessedFilesMessages + "Sheet `" + CurrentSheet.Name + "` does not conform to naming convention of `Sheet1`" + Environment.NewLine]</InArgument>
                                                   </Assign.Value>
                                                 </Assign>
                                               </Sequence>
