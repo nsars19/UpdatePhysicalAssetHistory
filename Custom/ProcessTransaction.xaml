@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1398,4889</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1398,4874</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -118,7 +118,7 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="756,4824" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="756,4809" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="BU" />
       <Variable x:TypeArguments="x:String" Name="ASSET" />
@@ -129,6 +129,11 @@
       <Variable x:TypeArguments="x:String" Name="ScreenshotFilepath" />
       <Variable x:TypeArguments="ui:UiElement" Name="PS" />
       <Variable x:TypeArguments="x:Int32" Name="randomNumber" />
+      <Variable x:TypeArguments="s:String[]" Name="Fields">
+        <Variable.Default>
+          <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{ &quot;BU&quot;, &quot;ASSET&quot;, &quot;PIID&quot;, &quot;INVDT&quot;, &quot;PERFORMED&quot; }" />
+        </Variable.Default>
+      </Variable>
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -136,59 +141,13 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message - ProcessTransaction start" sap:VirtualizedContainerService.HintSize="694,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting ProcessTransaction&quot;]" />
-    <ui:MultipleAssign DisplayName="Multiple Assign - QueueItemVariables" sap:VirtualizedContainerService.HintSize="694,234" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
-      <ui:MultipleAssign.AssignOperations>
-        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[BU]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("BU").ToString]</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[ASSET]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("ASSET").ToString]</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[PIID]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("PIID").ToString]</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[INVDT]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("INVDT").ToString]</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[PERFORMED]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("PERFORMED").ToString]</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-        </scg:List>
-      </ui:MultipleAssign.AssignOperations>
-    </ui:MultipleAssign>
-    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Checks for present of all required fields in the transaction item. Throws a BRE if any field is not present." DisplayName="Queue Item Field Presence Validation" sap:VirtualizedContainerService.HintSize="694,118" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[{ &quot;BU&quot;, &quot;ASSET&quot;, &quot;PIID&quot;, &quot;INVDT&quot;, &quot;PERFORMED&quot; }]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Check to see if each field is populated, and throw a BRE if not." DisplayName="Validate Field Present in Transaction Item" sap:VirtualizedContainerService.HintSize="452,528" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[Fields]">
       <ui:ForEach.Body>
-        <ActivityAction x:TypeArguments="x:Object">
+        <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="x:Object" Name="Field" />
+            <DelegateInArgument x:TypeArguments="x:String" Name="Field" />
           </ActivityAction.Argument>
-          <If Condition="[in_TransactionItem.SpecificContent(Field.ToString).ToString.Length = 0]" DisplayName="If Field is empty throw BRE" sap:VirtualizedContainerService.HintSize="416,363" sap2010:WorkflowViewState.IdRef="If_11">
+          <If Condition="[String.IsNullOrEmpty(in_TransactionItem.SpecificContent(Field).ToString)]" DisplayName="If Field is empty throw BRE" sap:VirtualizedContainerService.HintSize="416,363" sap2010:WorkflowViewState.IdRef="If_11">
             <If.Then>
               <Throw DisplayName="Throw Empty Field BRE" Exception="[new BusinessRuleException(Field.ToString + &quot; not present&quot;)]" sap:VirtualizedContainerService.HintSize="334,97" sap2010:WorkflowViewState.IdRef="Throw_7" />
             </If.Then>
@@ -197,12 +156,58 @@
       </ui:ForEach.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
+    <ui:MultipleAssign DisplayName="Multiple Assign - QueueItemVariables" sap:VirtualizedContainerService.HintSize="694,234" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[BU]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("BU").ToString.Trim]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[ASSET]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("ASSET").ToString.Trim]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[PIID]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("PIID").ToString.Trim]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[INVDT]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("INVDT").ToString.Trim]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[PERFORMED]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("PERFORMED").ToString.Trim]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
     <Sequence sap2010:Annotation.AnnotationText="Validates that the date is in the format MM/DD/YYYY, and formats the date to match PeopleSoft's date string if it is. ie. Turns transaction item date 5/8/2022 to 05/08/2022, which is the format PeopleSoft uses. Throws a Business Rule Exception otherwise." DisplayName="Date validation &amp; formatting" sap:VirtualizedContainerService.HintSize="694,162" sap2010:WorkflowViewState.IdRef="Sequence_40">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -561,7 +566,7 @@
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/UMASS_CUSTOM.UM_PI_ASSET_HIST1.GBL?NavColl=true&amp;ICAGTarget=start" DesignTimeRectangle="319, 398, 68, 16" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Search'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' aaname='Search' class='PSPUSHBUTTONTBSEARCH' type='button' name='#ICSearch' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' aaname='Search' class='PSPUSHBUTTONTBSEARCH' type='button' name='#ICSearch' check:text='Search' /&gt;" Guid="50912dd4-bbb6-48f0-8179-4839323b5f96" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEgAAAAUCAYAAAAuoXvLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALQSURBVFhH7VhLU9NQFO5/yt8R2LUzdim2urWu4sKK+A80LcjYzrCS0YEkBR+oKSj24bC1adCygE2bjMdzX7k3l+j0wUqz+ObLOd85p/d+ObBIbnw5gtPtB9C1ShkUnG6bML4YQY48/AovM6SALE6OuBWddzOkgHhDDQpHXzHRyVjj2KBodILJkwQL6Pn/SZcb9PMzJr4syE0wDQOMGHfBm6pvUW5Bs2CAuT9t/fSsGHRMEXGePW5Qc4o1N9b82gqadAdNSqu/zthlBrWua56ENOhHG8Wj+bn/BIrGCjT7av4FNc1s8fgbqRHbVYa20u9bxEyhiTkOvXixwDQxp31f1GHOlXVmTc4vWrZyjvlZMchbEHv0kOzQafoWM4trXgVrC+vgE80tY18ZPF5LtcoWPvOZ9JlpvrUs4/46GkL6eF1i3jKazHoWgTTo7CMmPlGOOM8VOyVqUvyGHa7TfAk8Ud97jJdTYmXekJrwHONdaObJNuxyncWmm6yPtLqIvgxikND1+uljxaAPEAYIwn/CrHpvDU3Ag/bw2bmdMI6Ba2ev6QUTWmUzzpsOnxdssi0UcQxeZ4uY1InZCua4X2zQJHiPiUPGwSFCiXVO0200oLKh6a+gQS/I9fwaDFL6fWsJtUfgi/gZxpV6sl+dZ+u/r9UFG2jQEhokdI1nuJ/coOAdhEOEygJ6PlWvs7drixhhr+I24EE7V3VqgrEKHtb5T4lBVfCVOdSgYIdvBp+HOv3/dI9oGHeruKFkvl5HZmC+K/tSWeAvutyg4RsU3jIOOM8c19jlYtyARkfRO1W4qWjNjuhX+26BR4zNP0TDdvjGqL/3MvHnaNqkX6uj89T5av9ssdyg4QFM/IOMNZYb5Lcg9Pcz1lgxyIXJQEEWU5YGfbcx4SBsCAlnMY2pQeSj0PlxHZN7VzFIyan4h3XiCfmYyD+5mtStDBJkccYXI/gNXcF3sI+TrMQAAAAASUVORK5CYII=" InformativeScreenshot="164bb728f4618aedbc6cce44cbfce27f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Update Physical Inv. History' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
-                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                               <uix:Target DesignTimeRectangle="316, 153, 2244, 16" ElementType="Text" FriendlyName="'Update Physical'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='H1' aaname='Update Physical Inv. History' class='PSSRCHTITLE' innertext='Update Physical Inv. History' visibleinnertext='Update Physical Inv. History' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl tag='H1' aaname='Update Physical Inv. History' class='PSSRCHTITLE' innertext='Update Physical Inv. History' visibleinnertext='Update Physical Inv. History' type='' check:text='Update Physical Inv. History' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAACMgAAAAUCAYAAAByZ5OPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUaSURBVHhe7d07bttIAIDhXG2vkjJHcLt9gCB9TpAmhbvkCIYrXyEBcgktSXGG8yQpWQ6WyvcBA1iv4cyI5Q/r3QkAAAAAAAAAAO6YQAYAAAAAAAAAgLsmkAEAAAAAAAAA4K4JZAAAAAAAAAAAuGtJIPNy+vj+0+mf919Pz/Mz0dPX4fnhtYcfp1/zU1cJ83x+mZ/4A37+OH2Y9tUYyTp+PX6Znvvw+Ht+5g2Etbz2HBPPn897+fg0P1EIr7/pvhL9c/x9+vaQr3Vr7QAAAAAAAAAAt3CAQGYMK76cvv2cH15qLZAZx7wWgcxtvHkgM57hDc8PAAAAAAAAALh///NAJqzpBoFMufawlnm/fySQeQNHDmQudqv7EAAAAAAAAAD4q1wVyCwRxEuMHs6PiygiRijzvI1AJgQc2fumV8J6khE+l827EX90/2tLHt+kYUf4exrhms15QvSRBDzF2rLXVudovH8UPpOMdL+XBjLpPrOzD2tqfEeXhEqXBDL12suzGEbnOx9H/Fx1Rvk9HK/zuLzv4d/5ufTcmnsHAAAAAAAAAI7uVYFMa8QwohE0xDEHCN15ptc7gUxn3jrImPUCmTjPeb8x7Hio13SeuxHDlHN39zyfabWWRhAyjXCNxhlkr18fyLTG+T2N+yDsa0c4sjZ/GO1ApncW87oaZzt9rnvm9Rllr32v97R1lgAAAAAAAADAMb0ykFneWz4Xo4QYICQBRC+0KK6zrCnEDsscS8Swsu5R4z+wZGNey+qeiveUsUl4vBmSdIOa+ppxzky9/62oI7xerjm9ZvldlXNuXSO1zN8f7XnD3pawpVLdH+17qref5XOj8r7ZuI8AAAAAAAAAgMN65U8spRFHGrN0YodeQBJDkXl0A5nwuDU6YcVKIJOuP4Yd6drK9WaBS2uPjfWl8xWBzHoMk0pCkHnsjVfC61Ugs2ef0+OV+6Khv6dlD721x7XF0bl/qvujWFv8zs/Pl2cQZNfv3ZsAAAAAAAAAwOE1AplGaFKECe0IIv38vkCmmqcbQIR5wuPWaKx7VEQpPc09VdFEsq+ntXnLdc5ruziQCfOEAGQ7Min1Apl9+xyuW722rr+n/WsPc8QRrt29P/YFMtUZJXvbOkcAAAAAAAAA4LiSQGYJGPLoI3l+DhWWgCEJE0JsUEQJdXQRnivjl2TeeP3wmfCeOrLYdNNApo43+nHLWRaolGspzmwU5x+umf59toQ3W5FJkF1/cN0+O/FRQ3P+Sf3dbUYpRehSf5f1vTkq773+dcqQKbmfAQAAAAAAAIC7kQQygxhstEYjZGmMGEaszTWFC0ncUI5WADGO8XO9eXsBzI0DmSXaGEcejvTPZX7fWuBRjCnmWDnDvZHJtYFMts/k7OIe0/cmmvNPtgKZMlZJRrhWdvZbZ7R8N2tnFF6bRmdPAAAAAAAAAMCx5YHMqIgQziP/zxppBJEGBlUUkcULwxxliFHFJiGi6MQ4IdQoo4i1+KWKUtp2hyODuOfWnI1gI4YZzbXUkUwaclQBR7GmtfhjFF4P+7pmn+l74/dRvDdozj/ZCmRGjWBo5aziNap7Nr9fV88o+WzvDAEAAAAAAACAY6sDmR36EcTfoRWOcFAxkPHzSgAAAAAAAABwrwQyl4pBRf7zShxTiJ16/xEHAAAAAAAAADg+gcwFYkwxDD/Hc3DpzzJt/PwWAAAAAAAAAHBsVwUyAAAAAAAAAABwFAIZAAAAAAAAAADu2On0H62f74WK0iRZAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector" />
                             </scg:List>
                           </uix:TargetAnchorable.Anchors>
@@ -873,7 +878,7 @@
                             <uix:NClick.Target>
                               <uix:TargetAnchorable BrowserURL="https://fs-tst.erp.umasscs.net/psc/fstst92/EMPLOYEE/ERP/c/UMASS_CUSTOM.UM_PI_ASSET_HIST1.GBL?NavColl=true&amp;ICAGTarget=start" DesignTimeRectangle="327, 496, 56, 16" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Save'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl aria-role='presentation' css-selector='body&amp;gt;form&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='INPUT' aaname='Save' class='PSPUSHBUTTONTBSAVE PSPUSHBUTTONTBSAVEA' name='#ICSave' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl aria-role='presentation' tag='TABLE' /&gt;&lt;webctrl tag='INPUT' aaname='Save' class='PSPUSHBUTTONTBSAVE PSPUSHBUTTONTBSAVEA' name='#ICSave' type='button' check:text='Save' /&gt;" Guid="5a9b81d3-3ce2-4cb7-8617-61b714dbd232" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADwAAAAUCAYAAADRA14pAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOuSURBVFhH5ZhLT1NREMf5Tv0SxsREozEuRFZCIq4MoIlPEF3UhRKCrkx8FsIjduMCI8EWCsqrvEt5tSC0t4U+haK0cZyZc84999YK6kIJnOSfuTNn5tz7O3N6oS3bXvsI6+9rYcVdfqhFjMnJl1BGF9/zW0dCxFpG9PlUAArpuUNviZWBC6lZUzXPYlD7PP5HOnt/Qq+R1GsdNN8EziencWKGLQGnvuThhisJ+41jdT4IRbYFsKwvpKQ9gL7ucHIK8okptgr4dluaoU7fGSspGsevDcDS2hYDq3qrHW90gMOh5fTZ5/+11R1OYIcSk2wJOJHZhfr2DEPtNU5c/wSLEljVK8uwVS0QU/GFx1BN0P32vH9pLcDjkN8UIuBNBG7oyDJUqe6SaJy6NQzzn7+IDst6VsID7ioHVLd6pC/i/ru4CXe7pN8FTkv3OS5zrHWGqwIcjWIuP9/CmyZqroJfPbfl+W1+kdXAG2MY8KPGGHgjrYH3GmfqxyC4mpXAor5AFtczXBckSKdtfTHfKzbE1Sv8YDOCXAD3PM73XQVHZTMYnC/ynF6q7+QNcvaJ9XnzqpohJu9XfP9SvgV4VGhzlIHjqW8MTKKjfRNfYNdexOHK0whcfrICF5sWoOLBLJy7NwGBcEYAy3pzLVZHURc7iuateQSM1wo+qK7rwE853jpcQ16TrHNKP93fLg0cH8bACFsCNhJfIYpa39iBtdgOrBg5CEe3YRnfyIvrW3yMgytZhM3CTEgBi/pf2x5wV1JXe4TvrdUbwULIOZ3n9I6A8bocN6n9F/mkctyY/e6rrQV4yBQBC9ivsBbPMUwpEexsKAvTyxLYskY+3oYdqwW/LTYkAdrkPEJ5rPn48HP2PDq2Zo4HgSubwJBr/Y1M4N3YRwx8YkvAEYT9HN+BVeysAlRD+bOyuxpY1CvLn7GGVktcQFa/fod+qwQW+dFX57lbbwKyPvBIvpxqcNPs9U6P8HlTbPP7W93h2CAGB9kSMHV2NZbDoyz+qSgFPIOgBDu5mGZf1SuR72+wHj+EfdVtzgtIFXfBGzrGHlXfzb6jwWXm8/qBh3IjSOfBHVD5+vn38nWHDR8GB9gSMMPiZzYUEX9jSwFPL6dhakkDq/qDbHWHjX4MCtHDh6M5fkEt4QtKAaqh/KmlNMOaHbasodYrtv97Xnc46sVgn2kV1O+quP6gWguw50iIgelL8VawHQMfYDfSe2htLvRW/ACQCftg9OUl8DWfPNQixky4H34AUz/hfdxGla0AAAAASUVORK5CYII=" InformativeScreenshot="6fb1b23991fbf012102f9488575e0b17.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Update Physical Inv. History' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
                                 <uix:TargetAnchorable.Anchors>
-                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
                                     <uix:Target DesignTimeRectangle="327, 178, 232, 21" ElementType="Text" FriendlyName="'Update Physical'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl id='ACE_width' tableRow='1' tag='TABLE' /&gt;&lt;webctrl class='PAPAGETITLE' tableRow='2' tag='SPAN' aaname='Update Physical Inv. History' innertext='Update Physical Inv. History' visibleinnertext='Update Physical Inv. History' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl id='ACE_width' tag='TABLE' /&gt;&lt;webctrl class='PAPAGETITLE' type='' tag='SPAN' aaname='Update Physical Inv. History' innertext='Update Physical Inv. History' visibleinnertext='Update Physical Inv. History' check:text='Update Physical Inv. History' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector" />
                                     <uix:Target DesignTimeRectangle="391, 496, 130, 16" ElementType="Button" FriendlyName="'Return to Search'" FullSelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl aria-role='presentation' css-selector='body&amp;gt;form&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='INPUT' aaname='Return to Search' name='#ICList' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl id='main_target_win0' tag='IFRAME' /&gt;&lt;webctrl aria-role='presentation' tag='TABLE' /&gt;&lt;webctrl class='PSPUSHBUTTONTBRETURN PSPUSHBUTTONTBRETURNA' tag='INPUT' aaname='Return to Search' name='#ICList' type='button' check:text='Return to Search' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIYAAAAUCAYAAABI10XZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAYdSURBVGhD7VpbT1RXFObv9KkPk771P7QPtU2rqOkDkzJtTAoItg8mgE0zaSqIYmrVREXES2WS1ibVahxAvIMKwgyILaYyM6DihRllDrK61tp7n33hDIzYpNGchy/rrOtee+1v9plJpiL/zyW4/2cdTCYqQ4RgLjy6dQgq6GHRmwsRwgdxooJYsjCbChHCB3GCieE9GkHDKMuGjgcChx/AFkQ9PtcdnIbaA1nWyU7+lt9mrbxQvj3SJ8bCo9tovM2SDn1+AXw8LwI8e7EIj/M2JrJFeOeDOOeY+aH+ZulBdn1jPBxC4zBLuhWIEHvP5QNx8spzeFFcZFIIYoi8suT4bohFIhBx0ZwoIz8B8chGSNxZKW61cvX1B5vt/cT7yst7bdm3BSLR3ZAtN75MqW+Mh7fQKECvCr4pPID8PMDjwiLMPHsJU7MChXlNChMqn2DWs/TxdiTGBkiMm/5uPBAaprYF51OcyC1Z/7X01dVnUkTb8XCkjfdYzn7+A72vgdfOGT7LX6bu2vWN8eAGGm+y3HxohklBN8PU7AI07fkVtrZ3wzetx1gn+xy+WhQhVB6Tw6gTKMd2CWKM2fbBpgjEjvRIvQcSUfPTR3FJw0b5Qo/3qjq/iEOluuNijRjH18MN1ushbnyqdZ6Sbv1SfQTnxTqTlp32E2k+KfVl6vTW+3b2qb7IHsU9kD26C7IUz/uQsWjL+XG7IEHrsQ/3a/SxWmkQY9BH7YEc3wreS2BSdF0r+Phq234mRXpqAUbuzUky6FxXX4Kxnbi59Th4035C3Bi9QuehNp0QPh6ciqc49XxeEkPkWD5ew/BJPdZ5nnWuH92Jw1a5CmZ9J87qw0a2c704FNWzg5L7cWbBdUqut7Q33g/Hqb2KmZTq41WgiTFzHQ0DLL/enwEPXyWKFJcnCjA9m2fcyeZhQ0MbPMXXS/2+MSuPpCCG1pfIdJtmvYFY5zkZd1yQpEflnRMEYF0Nx7WrPPSlUR+jNVRcgN67GSJVbXgAUvflcvWFrvs080iKvv09NR237MH7ceqYffXgc2QzDCo/6VH0ues6cUwuIoYb94rSIMY1H5v23ociEmNre4KJoUgxgaQgknxW8yMT4+Pvblh5ZSG9QxxSWuo9dbixOtyYijlmD1gi1nlW+lTuWUhU0YDNPOnjNYyark5rVu3AIUvdh1lf9KHrX5OfUupD24IhetM9l9qPqGn5VF9Oj3zgQT0HxTUds2NWAZ8Yxekr4E1fRVyBL3+6B/PeInzbetwnBpPibgFODeXhk01xJsaaZrx2KG/mqpW/rJ5qxUOqhO6U9vNwqlohy3oXDtL26/yj7EukST8jiJGUflk3QXlIhGoigsp3dR6mWk/mr1Rf6rHDZ+z9cL91MODrIj5zuBIP6Kj0l9hPUn0oDJ36Ip2f8cBVvKuTpHrSnpF6Vq6r+3Pig/QAu74xpi+Dl0Og/GL3X5CRvz7oOwW9PogUvw8VmBQj/e8xMWp+Tok8BZmvUHR09qda5AGafhoeHYLQxTu5S/g5XvpyYsiU602fhm48KIqjHB6I8nFOLQyo+lIfVHqyFofZAhl/fQmr/mUYaCTCtuBhoE45ho+g+lf96v2L/VR3nF7qN/ZT5JrYF+ecZuJZ66lngjE3v2Yj1jTjsL4ghphJ4PwN3fcH2PWNkbuIAZdYVu2cwBtC/PqgXyEb8TvFWnx9ECn27XgXzpx8n8kx/PczK68sObodN7gOukdte6ZjHQ9pgHV56HS1ImI4YBGn7DJ/tAVvAhFT3bEdD8O01yARZH1X52Fuh6yxfmB9p4940o3Xkkkk40Q/fxj+lfZDWAeJpNFnsoYPPGOuw0SS8ap/J47n2HhkSX+vKvWNkeuHYraf5eetY5C+vwDD9zxITXnw9Pki3xAKJjnMvFC+PVLfGJk+8LIX0NjHxKj8YQTWxofh0++H8EvmTVizbRA+QtTsSfFNYZGD8oz8UH8DdcduEKNXICulhOfopl+Ro5SfsFw+IfTb+v/md+yaGFNJ8DI9LIskM1p3Zeh/O/2mnYlBf8qYS+FPnKnzIUJA4e4p8UedJ5P9cP1QNVxo+zBECObCk8mL8C/OUX0/M29NXAAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
                                   </scg:List>
