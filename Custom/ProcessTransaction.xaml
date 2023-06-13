@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1398,4731</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1398,4889</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -58,7 +58,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="57">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="114">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -115,9 +115,10 @@
       <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="756,4666" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="756,4824" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="BU" />
       <Variable x:TypeArguments="x:String" Name="ASSET" />
@@ -181,6 +182,27 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
+    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Checks for present of all required fields in the transaction item. Throws a BRE if any field is not present." DisplayName="Queue Item Field Presence Validation" sap:VirtualizedContainerService.HintSize="694,118" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[{ &quot;BU&quot;, &quot;ASSET&quot;, &quot;PIID&quot;, &quot;INVDT&quot;, &quot;PERFORMED&quot; }]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="Field" />
+          </ActivityAction.Argument>
+          <If Condition="[in_TransactionItem.SpecificContent(Field.ToString).ToString.Length = 0]" DisplayName="If Field is empty throw BRE" sap:VirtualizedContainerService.HintSize="416,363" sap2010:WorkflowViewState.IdRef="If_11">
+            <If.Then>
+              <Throw DisplayName="Throw Empty Field BRE" Exception="[new BusinessRuleException(Field.ToString + &quot; not present&quot;)]" sap:VirtualizedContainerService.HintSize="334,97" sap2010:WorkflowViewState.IdRef="Throw_7" />
+            </If.Then>
+          </If>
+        </ActivityAction>
+      </ui:ForEach.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEach>
     <Sequence sap2010:Annotation.AnnotationText="Validates that the date is in the format MM/DD/YYYY, and formats the date to match PeopleSoft's date string if it is. ie. Turns transaction item date 5/8/2022 to 05/08/2022, which is the format PeopleSoft uses. Throws a Business Rule Exception otherwise." DisplayName="Date validation &amp; formatting" sap:VirtualizedContainerService.HintSize="694,162" sap2010:WorkflowViewState.IdRef="Sequence_40">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
