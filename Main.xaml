@@ -280,7 +280,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="144,129" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="576,4054" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
               <State.Entry>
                 <Sequence DisplayName="Sequence - End Process" sap:VirtualizedContainerService.HintSize="530,3900" sap2010:WorkflowViewState.IdRef="Sequence_57">
                   <Sequence.Variables>
@@ -417,7 +417,7 @@
                         <InArgument x:TypeArguments="x:String">[EmailMessage + Config("FinancePhysicalAssetHistory_EmailSubject").ToString + " ended on " + Environment.MachineName + " for ROBOT user " + Environment.UserName + Environment.NewLine]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <Sequence sap2010:Annotation.AnnotationText="QueueProcessErrorCounts variable&#xA;{&quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;None&quot;, &quot;0&quot;}&#xA;0: Total rows (less header row)&#xA;1: total to attempt to add to queue&#xA;2: total not being added to queue&#xA;3: total add-to-queue errors&#xA;4: any error messages&#xA;5: total files processed&#xA;6: total files skipped&#xA;&#xA;ReadFileCountsErrors variable&#xA;0: Emails read&#xA;1: Files downloaded&#xA;2: Download error count&#xA;3: Error messages" DisplayName="Add counts to email body" sap:VirtualizedContainerService.HintSize="406,661" sap2010:WorkflowViewState.IdRef="Sequence_62">
+                    <Sequence sap2010:Annotation.AnnotationText="ReadFileCountsErrors variable&#xA;{ &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;None&quot;, &quot;0&quot;, &quot;0&quot; }&#xA;0: Total rows (less header row)&#xA;1: total to attempt to add to queue&#xA;2: total not being added to queue&#xA;3: total add-to-queue errors&#xA;4: any error messages&#xA;5: total files processed&#xA;6: total files skipped&#xA;&#xA;ReadEmailCountsErrors variable&#xA;0: Emails read&#xA;1: Files downloaded&#xA;2: Download error count&#xA;3: Error messages" DisplayName="Add counts to email body" sap:VirtualizedContainerService.HintSize="406,661" sap2010:WorkflowViewState.IdRef="Sequence_62">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -446,12 +446,12 @@
                           <InArgument x:TypeArguments="x:String" xml:space="preserve">[EmailMessage + Environment.NewLine +
 "Add to Queue Counts" + Environment.NewLine +
 "------------------------" + Environment.NewLine +
-"Rows in sheet(s): " + QueueProcessCountsErrors(0) + Environment.NewLine +
-"Rows being added to queue: " + QueueProcessCountsErrors(1) + Environment.NewLine +
-"Rows not being added to queue: " + QueueProcessCountsErrors(2) + Environment.NewLine +
-"Add to queue errors: " + QueueProcessCountsErrors(3) + Environment.NewLine +
-"Files processed: " + QueueProcessCountsErrors(5) + Environment.NewLine +
-"Files skipped: " + QueueProcessCountsErrors(6) + Environment.NewLine]</InArgument>
+"Rows in sheet(s): " + ReadFileCountsErrors(0) + Environment.NewLine +
+"Rows being added to queue: " + ReadFileCountsErrors(1) + Environment.NewLine +
+"Rows not being added to queue: " + ReadFileCountsErrors(2) + Environment.NewLine +
+"Add to queue errors: " + ReadFileCountsErrors(3) + Environment.NewLine +
+"Files processed: " + ReadFileCountsErrors(5) + Environment.NewLine +
+"Files skipped: " + ReadFileCountsErrors(6) + Environment.NewLine]</InArgument>
                         </Assign.Value>
                       </Assign>
                       <Assign DisplayName="Add Email Read counts" sap:VirtualizedContainerService.HintSize="338,74" sap2010:WorkflowViewState.IdRef="Assign_52">
@@ -681,7 +681,7 @@ ReadEmailCountsErrors(3) + Environment.NewLine]</InArgument>
                           <InArgument x:TypeArguments="x:String" xml:space="preserve">[EmailMessage + Environment.NewLine +
 "Queue Process Exceptions" + Environment.NewLine +
 "----------------------------" + Environment.NewLine +
-QueueProcessCountsErrors(4) + Environment.NewLine]</InArgument>
+ReadFileCountsErrors(4) + Environment.NewLine]</InArgument>
                         </Assign.Value>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1088,7 +1088,7 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                   <Transition.To>
                     <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Read configuration file and initialize applications used in the process." DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="254,113" sap2010:WorkflowViewState.IdRef="State_2">
                       <State.Entry>
-                        <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="440,615" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                        <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="533,951" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1223,7 +1223,7 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                             </Sequence>
                           </TryCatch.Try>
                           <TryCatch.Catches>
-                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,443" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="499,779" sap2010:WorkflowViewState.IdRef="Catch`1_3">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1234,13 +1234,19 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                                 <ActivityAction.Argument>
                                   <DelegateInArgument x:TypeArguments="s:Exception" Name="Exception" />
                                 </ActivityAction.Argument>
-                                <Sequence DisplayName="Initialization Catch" sap:VirtualizedContainerService.HintSize="400,374" sap2010:WorkflowViewState.IdRef="Sequence_79">
+                                <Sequence DisplayName="Initialization Catch" sap:VirtualizedContainerService.HintSize="493,710" sap2010:WorkflowViewState.IdRef="Sequence_79">
+                                  <Sequence.Variables>
+                                    <Variable x:TypeArguments="x:String" Name="FilesReadCount" />
+                                    <Variable x:TypeArguments="x:String" Name="QueueAddedCount" />
+                                    <Variable x:TypeArguments="x:String" Name="ProcessedFilesErrorCount" />
+                                    <Variable x:TypeArguments="x:String" Name="InitErrors" />
+                                  </Sequence.Variables>
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Assign sap2010:Annotation.AnnotationText="Failures during the initialization are considered system exceptions and lead to the End Process state, thus finalizing the execution." DisplayName="Assign SystemException" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Assign_21">
+                                  <Assign sap2010:Annotation.AnnotationText="Failures during the initialization are considered system exceptions and lead to the End Process state, thus finalizing the execution." DisplayName="Assign SystemException" sap:VirtualizedContainerService.HintSize="431,142" sap2010:WorkflowViewState.IdRef="Assign_21">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="s:Exception">[SystemException]</OutArgument>
                                     </Assign.To>
@@ -1253,7 +1259,69 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                   </Assign>
-                                  <Assign DisplayName="Add to System Exception Message" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_74">
+                                  <ui:MultipleAssign DisplayName="Multiple Assign counts and errors in intialization" sap:VirtualizedContainerService.HintSize="431,296" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                                    <ui:MultipleAssign.AssignOperations>
+                                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">[EmailReadCount]</OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">[ReadEmailCountsErrors(0)]</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">[FilesDownloadedCount]</OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">[ReadEmailCountsErrors(1)]</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">[DownloadErrorCount]</OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">[ReadEmailCountsErrors(2)]</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">[FilesReadCount]</OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">[ReadFileCountsErrors(5)]</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">[QueueAddedCount]</OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">[ReadFileCountsErrors(1)]</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">[ProcessedFilesErrorCount]</OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">[ReadFileCountsErrors(6)]</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">[InitErrors]</OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">[Exception.Message + " Exception source " + Exception.Source]</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                      </scg:List>
+                                    </ui:MultipleAssign.AssignOperations>
+                                  </ui:MultipleAssign>
+                                  <Assign DisplayName="Add to System Exception Message" sap:VirtualizedContainerService.HintSize="431,70" sap2010:WorkflowViewState.IdRef="Assign_74">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:String">[ExceptionMessage]</OutArgument>
                                     </Assign.To>
@@ -1281,7 +1349,7 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                         <Transition DisplayName="System Exception (failed initialization)" sap:VirtualizedContainerService.HintSize="450,515" sap2010:WorkflowViewState.IdRef="Transition_3">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <av:PointCollection x:Key="ConnectorLocation">380,146.5 380,176.5 102.8,176.5 102.8,235.5</av:PointCollection>
+                              <av:PointCollection x:Key="ConnectorLocation">380,146.5 380,199.04 102.8,199.04 102.8,235.5</av:PointCollection>
                               <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
                               <x:Int32 x:Key="DestConnectionPointIndex">34</x:Int32>
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1358,12 +1426,24 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                                               <ui:LogMessage DisplayName="Log Message Email read count" sap:VirtualizedContainerService.HintSize="367,101" sap2010:WorkflowViewState.IdRef="LogMessage_57" Level="Info" Message="[&quot;Email read count &quot; + ReadEmailCountsErrors(0) + &quot; files downloaded count &quot; + ReadEmailCountsErrors(1).ToString]" />
                                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ReadExcelFilePopulateQueue.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="367,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_35" UnSafe="False" WorkflowFileName="Custom\ReadExcelFilePopulateQueue.xaml">
                                                 <ui:InvokeWorkflowFile.Arguments>
-                                                  <InArgument x:TypeArguments="x:String" x:Key="in_FolderPath">[Config("FinancePhysicalAssetHistory_LocalFolderName").ToString]</InArgument>
-                                                  <InArgument x:TypeArguments="x:String" x:Key="in_Queue">[Config("OrchestratorQueueName").ToString]</InArgument>
-                                                  <InOutArgument x:TypeArguments="s:String[]" x:Key="io_QueueCountsErrors">[QueueProcessCountsErrors]</InOutArgument>
-                                                  <InOutArgument x:TypeArguments="x:String" x:Key="io_FilenamesProcessed">[FilenamesProcessed]</InOutArgument>
-                                                  <InOutArgument x:TypeArguments="x:String" x:Key="io_FilenamesNotProcessed">[FilenamesNotProcessed]</InOutArgument>
-                                                  <InOutArgument x:TypeArguments="x:String" x:Key="io_UnprocessedFilesMessages">[UnprocessedFilesMessages]</InOutArgument>
+                                                  <InArgument x:TypeArguments="x:String" x:Key="in_FolderPath">
+                                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;FinancePhysicalAssetHistory_LocalFolderName&quot;).ToString" />
+                                                  </InArgument>
+                                                  <InArgument x:TypeArguments="x:String" x:Key="in_Queue">
+                                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;OrchestratorQueueName&quot;).ToString" />
+                                                  </InArgument>
+                                                  <InOutArgument x:TypeArguments="x:String" x:Key="io_FilenamesProcessed">
+                                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="FilenamesProcessed" />
+                                                  </InOutArgument>
+                                                  <InOutArgument x:TypeArguments="x:String" x:Key="io_FilenamesNotProcessed">
+                                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="FilenamesNotProcessed" />
+                                                  </InOutArgument>
+                                                  <InOutArgument x:TypeArguments="x:String" x:Key="io_UnprocessedFilesMessages">
+                                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="UnprocessedFilesMessages" />
+                                                  </InOutArgument>
+                                                  <InOutArgument x:TypeArguments="s:String[]" x:Key="io_CountsErrors">
+                                                    <VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="ReadFileCountsErrors" />
+                                                  </InOutArgument>
                                                 </ui:InvokeWorkflowFile.Arguments>
                                               </ui:InvokeWorkflowFile>
                                             </Sequence>
@@ -1475,7 +1555,7 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                         <Transition DisplayName="No Emails Read" sap:VirtualizedContainerService.HintSize="527,515" sap2010:WorkflowViewState.IdRef="Transition_15">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <av:PointCollection x:Key="ConnectorLocation">329.20000000000005,146.5 329.20000000000005,176.5 74,176.5 74,235.5</av:PointCollection>
+                              <av:PointCollection x:Key="ConnectorLocation">329.20000000000005,146.5 329.20000000000005,173.04 74,173.04 74,235.5</av:PointCollection>
                               <x:Int32 x:Key="SrcConnectionPointIndex">23</x:Int32>
                               <x:Int32 x:Key="DestConnectionPointIndex">18</x:Int32>
                             </scg:Dictionary>
@@ -1525,7 +1605,7 @@ Environment.NewLine + Environment.NewLine]</InArgument>
       <Variable x:TypeArguments="x:Boolean" Default="True" Name="FirstRun" />
       <Variable x:TypeArguments="x:Boolean" Name="StopProcess" />
       <Variable x:TypeArguments="s:String[]" Default="[{&quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;None&quot;}]" Name="ReadEmailCountsErrors" />
-      <Variable x:TypeArguments="s:String[]" Default="[{&quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;None&quot;, &quot;0&quot;, &quot;0&quot;}]" Name="QueueProcessCountsErrors" />
+      <Variable x:TypeArguments="s:String[]" Default="[{&quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;None&quot;, &quot;0&quot;, &quot;0&quot;}]" Name="ReadFileCountsErrors" />
       <Variable x:TypeArguments="x:String" Name="ExceptionMessage">
         <Variable.Default>
           <Literal x:TypeArguments="x:String" Value="" />
@@ -1560,6 +1640,9 @@ Environment.NewLine + Environment.NewLine]</InArgument>
           <Literal x:TypeArguments="x:String" Value="" />
         </Variable.Default>
       </Variable>
+      <Variable x:TypeArguments="x:String" Name="DownloadErrorCount" />
+      <Variable x:TypeArguments="x:String" Name="FilesDownloadedCount" />
+      <Variable x:TypeArguments="x:String" Name="EmailReadCount" />
     </StateMachine.Variables>
   </StateMachine>
 </Activity>
