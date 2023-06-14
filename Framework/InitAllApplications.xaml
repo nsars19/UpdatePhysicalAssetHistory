@@ -174,10 +174,18 @@
       <TryCatch.Try>
         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Navigate to start point" DisplayName="NavigateToPSPage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,153" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Custom\NavigateToPSPage.xaml">
           <ui:InvokeWorkflowFile.Arguments>
-            <InArgument x:TypeArguments="x:String" x:Key="in_LandingPageURL">[in_Config("FinancePhysicalAssetHistory_LandingPageURL").ToString]</InArgument>
-            <InOutArgument x:TypeArguments="s:Exception" x:Key="io_SystemException">[io_SystemException]</InOutArgument>
-            <InOutArgument x:TypeArguments="x:String" x:Key="io_ExceptionMessage">[io_ExceptionMessage]</InOutArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_ScreenshotsFolder">[in_ScreenshotsPath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_LandingPageURL">
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;FinancePhysicalAssetHistory_LandingPageURL&quot;).ToString" />
+            </InArgument>
+            <InOutArgument x:TypeArguments="s:Exception" x:Key="io_SystemException">
+              <VisualBasicReference x:TypeArguments="s:Exception" ExpressionText="io_SystemException" />
+            </InOutArgument>
+            <InOutArgument x:TypeArguments="x:String" x:Key="io_ExceptionMessage">
+              <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_ExceptionMessage" />
+            </InOutArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_ScreenshotsFolder">
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ScreenshotsPath" />
+            </InArgument>
           </ui:InvokeWorkflowFile.Arguments>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -210,10 +218,18 @@
               <ui:LogMessage DisplayName="Log Message - retrying navigate sequence" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Retrying NavigateToPSPage workflow&quot;]" />
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Navigate to start point" DisplayName="Retry NavigateToPSPage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="338,153" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Custom\NavigateToPSPage.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_LandingPageURL">[in_Config("FinancePhysicalAssetHistory_LandingPageURL").ToString]</InArgument>
-                  <InOutArgument x:TypeArguments="s:Exception" x:Key="io_SystemException">[io_SystemException]</InOutArgument>
-                  <InOutArgument x:TypeArguments="x:String" x:Key="io_ExceptionMessage">[io_ExceptionMessage]</InOutArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_ScreenshotsFolder">[in_ScreenshotsPath]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_LandingPageURL">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;FinancePhysicalAssetHistory_LandingPageURL&quot;).ToString" />
+                  </InArgument>
+                  <InOutArgument x:TypeArguments="s:Exception" x:Key="io_SystemException">
+                    <VisualBasicReference x:TypeArguments="s:Exception" ExpressionText="io_SystemException" />
+                  </InOutArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_ExceptionMessage">
+                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_ExceptionMessage" />
+                  </InOutArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_ScreenshotsFolder">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ScreenshotsPath" />
+                  </InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">

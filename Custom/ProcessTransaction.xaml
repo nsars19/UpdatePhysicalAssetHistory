@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1398,4874</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1398,4607</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -58,7 +58,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="114">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="65">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -116,9 +116,16 @@
       <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="756,4809" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="756,4542" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="BU" />
       <Variable x:TypeArguments="x:String" Name="ASSET" />
@@ -128,12 +135,7 @@
       <Variable x:TypeArguments="x:String" Name="PerformedByFormatted" />
       <Variable x:TypeArguments="x:String" Name="ScreenshotFilepath" />
       <Variable x:TypeArguments="ui:UiElement" Name="PS" />
-      <Variable x:TypeArguments="x:Int32" Name="randomNumber" />
-      <Variable x:TypeArguments="s:String[]" Name="Fields">
-        <Variable.Default>
-          <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{ &quot;BU&quot;, &quot;ASSET&quot;, &quot;PIID&quot;, &quot;INVDT&quot;, &quot;PERFORMED&quot; }" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="s:String[]" Default="[{ &quot;BU&quot;, &quot;ASSET&quot;, &quot;PIID&quot;, &quot;INVDT&quot;, &quot;PERFORMED&quot; }]" Name="Fields" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -141,15 +143,47 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message - ProcessTransaction start" sap:VirtualizedContainerService.HintSize="694,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting ProcessTransaction&quot;]" />
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Check to see if each field is populated, and throw a BRE if not." DisplayName="Validate Field Present in Transaction Item" sap:VirtualizedContainerService.HintSize="452,528" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[Fields]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Check to see if each field is populated, and throw a BRE if not." DisplayName="Validate Field Present in Transaction Item" sap:VirtualizedContainerService.HintSize="694,103" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[Fields]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="Field" />
           </ActivityAction.Argument>
-          <If Condition="[String.IsNullOrEmpty(in_TransactionItem.SpecificContent(Field).ToString)]" DisplayName="If Field is empty throw BRE" sap:VirtualizedContainerService.HintSize="416,363" sap2010:WorkflowViewState.IdRef="If_11">
+          <If Condition="[in_TransactionItem.SpecificContent.ContainsKey(Field) AndAlso &#xD;&#xA;in_TransactionItem.SpecificContent.Any(&#xD;&#xA;&#x9;Function(x) x.Key = Field AndAlso x.Value Is Nothing&#xD;&#xA;)]" DisplayName="If Field is empty throw BRE" sap:VirtualizedContainerService.HintSize="488,885" sap2010:WorkflowViewState.IdRef="If_11">
             <If.Then>
-              <Throw DisplayName="Throw Empty Field BRE" Exception="[new BusinessRuleException(Field.ToString + &quot; not present&quot;)]" sap:VirtualizedContainerService.HintSize="334,97" sap2010:WorkflowViewState.IdRef="Throw_7" />
+              <Sequence DisplayName="Bad Entry BRE Sequence" sap:VirtualizedContainerService.HintSize="406,622" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Name="BadAsset" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If Condition="[in_TransactionItem.SpecificContent.ContainsKey(&quot;ASSET&quot;) AndAlso &#xD;&#xA;in_TransactionItem.SpecificContent(&quot;ASSET&quot;) IsNot Nothing]" DisplayName="If ASSET value is present assign it to a variable" sap:VirtualizedContainerService.HintSize="344,363" sap2010:WorkflowViewState.IdRef="If_12">
+                  <If.Then>
+                    <Assign DisplayName="Assign asset value to BadAsset" sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_10">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[BadAsset]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("ASSET").ToString]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                  <If.Else>
+                    <Assign DisplayName="Assign 'Asset is empty' to BadAsset" sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_11">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[BadAsset]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">Asset value is empty</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Else>
+                </If>
+                <Throw DisplayName="Throw Empty Field BRE" Exception="[new BusinessRuleException(Field.ToString + &quot; not present for asset &quot; + BadAsset)]" sap:VirtualizedContainerService.HintSize="344,97" sap2010:WorkflowViewState.IdRef="Throw_7" />
+              </Sequence>
             </If.Then>
           </If>
         </ActivityAction>
@@ -316,35 +350,52 @@
         </Assign>
       </Sequence>
     </Sequence>
-    <If sap2010:Annotation.AnnotationText="Provides a (1/x)^2 chance of a transaction failing twice, where x is the integer provided to the Next() method&#xA;&#xA;Table providing probabilities for a failed transaction with defined values for x:&#xA;&#xA;x        prob&#xA;1     1.0000&#xA;2       .2500&#xA;3       .1110&#xA;4       .0625&#xA;5       .0400&#xA;6       .0278" Condition="[(new System.Random).Next(5) = 2]" DisplayName="Random Error Generator used for testing" sap:VirtualizedContainerService.HintSize="694,328" sap2010:WorkflowViewState.IdRef="If_10">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="694,61" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,450" sap2010:WorkflowViewState.IdRef="Sequence_54">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If sap2010:Annotation.AnnotationText="Provides a (1/x)^2 chance of a transaction failing twice, where x is the integer provided to the Next() method&#xA;&#xA;Table providing probabilities for a failed transaction with defined values for x:&#xA;&#xA;x        prob&#xA;1     1.0000&#xA;2       .2500&#xA;3       .1110&#xA;4       .0625&#xA;5       .0400&#xA;6       .0278" Condition="[(new System.Random).Next(5) = 2]" DisplayName="Random Error Generator used for testing" sap:VirtualizedContainerService.HintSize="338,328" sap2010:WorkflowViewState.IdRef="If_10">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="400,219" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Throw Exception="[new Exception(&quot;I don't know what to do when the random number is 2!!#!@#!!!!@#!@1&quot;)]" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="Throw_6" />
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence sap:VirtualizedContainerService.HintSize="400,223" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_40" Message="[&quot;random number isn't 2... we're safe for now.&quot;]" />
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </ui:CommentOut.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="400,219" sap2010:WorkflowViewState.IdRef="Sequence_47">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <Throw Exception="[new Exception(&quot;I don't know what to do when the random number is 2!!#!@#!!!!@#!@1&quot;)]" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="Throw_6" />
-        </Sequence>
-      </If.Then>
-      <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="400,223" sap2010:WorkflowViewState.IdRef="Sequence_48">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_40" Message="[&quot;random number isn't 2... we're safe for now.&quot;]" />
-        </Sequence>
-      </If.Else>
-    </If>
+    </ui:CommentOut>
     <If sap2010:Annotation.AnnotationText="Used to determine whether or not the name needs to be formatted. Names will contain spaces only when they are not formatted properly, as any leading or trailing spaces are trimmed before being added to the queue." Condition="[PERFORMED.Contains(&quot; &quot;)]" DisplayName="If name contains a space" sap:VirtualizedContainerService.HintSize="694,208" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
