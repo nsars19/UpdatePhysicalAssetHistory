@@ -6,11 +6,12 @@
     <x:Property Name="io_FilenamesNotProcessed" Type="InOutArgument(x:String)" />
     <x:Property Name="io_UnprocessedFilesMessages" Type="InOutArgument(x:String)" />
     <x:Property Name="io_CountsErrors" Type="InOutArgument(s:String[])" />
+    <x:Property Name="io_QueueCounts" Type="InOutArgument(s:String[])" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1398,8119</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1398,6020</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ReadExcelFilePopulateQueue_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -118,7 +119,7 @@
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Reads an excel file and populates a queue using the rows from within that file.&#xA;&#xA;Process returns a string array (that is passed in as an argument) containing counts of any errors and files processed, as well as any error messages. Exact format is as follow:&#xA;&#xA;Numbers represent index of array.&#xA;0: total rows of file less header row&#xA;1: total to attempt to add to queue&#xA;2: total not being added to queue&#xA;3: total add-to-queue errors&#xA;4: any error messages&#xA;5: total files processed" DisplayName="ReadExcelFilePopulateQueue" sap:VirtualizedContainerService.HintSize="1255,8054" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Reads an excel file and populates a queue using the rows from within that file.&#xA;&#xA;Process returns a string array (that is passed in as an argument) containing counts of any errors and files processed, as well as any error messages. Exact format is as follow:" DisplayName="ReadExcelFilePopulateQueue" sap:VirtualizedContainerService.HintSize="1193,5955" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Default="0" Name="FilesProcessedCount" />
       <Variable x:TypeArguments="x:Int32" Name="FilesSkippedCount" />
@@ -130,8 +131,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - ReadExcelFilePopulateQueue start" sap:VirtualizedContainerService.HintSize="1193,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting ReadExcelFilePopulateQueue workflow&quot;]" />
-    <ui:ForEachFileX DisplayName="For Each File in Folder Path" Filter="*.xlsx" Folder="[in_FolderPath]" sap:VirtualizedContainerService.HintSize="1193,6971" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+    <ui:LogMessage DisplayName="Log Message - ReadExcelFilePopulateQueue start" sap:VirtualizedContainerService.HintSize="1131,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting ReadExcelFilePopulateQueue workflow&quot;]" />
+    <ui:ForEachFileX DisplayName="For Each File in Folder Path" Filter="*.xlsx" Folder="[in_FolderPath]" sap:VirtualizedContainerService.HintSize="1131,4992" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
       <ui:ForEachFileX.Body>
         <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
           <ActivityAction.Argument1>
@@ -140,7 +141,7 @@
           <ActivityAction.Argument2>
             <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
           </ActivityAction.Argument2>
-          <TryCatch DisplayName="Try Catch for each file - process file" sap:VirtualizedContainerService.HintSize="1159,6712" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+          <TryCatch DisplayName="Try Catch for each file - process file" sap:VirtualizedContainerService.HintSize="1097,4733" sap2010:WorkflowViewState.IdRef="TryCatch_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -148,41 +149,41 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <TryCatch.Try>
-              <Sequence DisplayName="Populate Queue process Try block" sap:VirtualizedContainerService.HintSize="1121,6475" sap2010:WorkflowViewState.IdRef="Sequence_26">
+              <Sequence DisplayName="Populate Queue process Try block" sap:VirtualizedContainerService.HintSize="1059,4496" sap2010:WorkflowViewState.IdRef="Sequence_26">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope for Each File" sap:VirtualizedContainerService.HintSize="1059,6191" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
+                <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope for Each File" sap:VirtualizedContainerService.HintSize="997,4102" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
                   <ueab:ExcelProcessScopeX.Body>
                     <ActivityAction x:TypeArguments="ui:IExcelProcess">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Do in Excel Scope for Each File" sap:VirtualizedContainerService.HintSize="1025,6095" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                      <Sequence DisplayName="Do in Excel Scope for Each File" sap:VirtualizedContainerService.HintSize="963,4006" sap2010:WorkflowViewState.IdRef="Sequence_14">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" AutoSave="False" DisplayName="Use Excel File in Excel Scope for Each File" sap:VirtualizedContainerService.HintSize="963,5973" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" WorkbookPath="[CurrentFile.FullName]">
+                        <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" AutoSave="False" DisplayName="Use Excel File in Excel Scope for Each File" sap:VirtualizedContainerService.HintSize="901,3884" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" WorkbookPath="[CurrentFile.FullName]">
                           <ueab:ExcelApplicationCard.Body>
                             <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="Process sheet rows to add to queue" sap:VirtualizedContainerService.HintSize="929,5695" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                              <Sequence DisplayName="Process sheet rows to add to queue" sap:VirtualizedContainerService.HintSize="867,3606" sap2010:WorkflowViewState.IdRef="Sequence_4">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:LogMessage DisplayName="Log Message - Reading current file" sap:VirtualizedContainerService.HintSize="867,101" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;reading excel file &quot; + CurrentFile.Name]" />
-                                <ueab:ForEachSheetX DisplayName="For Each Excel Sheet within the Excel file" sap:VirtualizedContainerService.HintSize="867,5432" sap2010:WorkflowViewState.IdRef="ForEachSheetX_2" Workbook="[Excel]">
+                                <ui:LogMessage DisplayName="Log Message - Reading current file" sap:VirtualizedContainerService.HintSize="805,101" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;reading excel file &quot; + CurrentFile.Name]" />
+                                <ueab:ForEachSheetX DisplayName="For Each Excel Sheet within the Excel file" sap:VirtualizedContainerService.HintSize="805,3343" sap2010:WorkflowViewState.IdRef="ForEachSheetX_2" Workbook="[Excel]">
                                   <ueab:ForEachSheetX.Body>
                                     <ActivityAction x:TypeArguments="ue:WorksheetQuickHandle, x:Int32">
                                       <ActivityAction.Argument1>
@@ -191,7 +192,7 @@
                                       <ActivityAction.Argument2>
                                         <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                                       </ActivityAction.Argument2>
-                                      <Sequence DisplayName="Process only the first sheet" sap:VirtualizedContainerService.HintSize="833,5267" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                      <Sequence DisplayName="Process only the first sheet" sap:VirtualizedContainerService.HintSize="771,3178" sap2010:WorkflowViewState.IdRef="Sequence_6">
                                         <Sequence.Variables>
                                           <Variable x:TypeArguments="sd:DataTable" Name="dt_Sheet" />
                                           <Variable x:TypeArguments="sd:DataTable" Name="dt_BulkAddErrors" />
@@ -202,10 +203,10 @@
                                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:LogMessage DisplayName="Log Message - reading current sheet" sap:VirtualizedContainerService.HintSize="771,101" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;reading sheet &quot; + CurrentSheet.Name]" />
-                                        <ui:BuildDataTable DataTable="[dt_Sheet]" DisplayName="Build Data Table for adding to queue" sap:VirtualizedContainerService.HintSize="771,69" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;BU&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ASSET&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PIID&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;INVDT&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PERFORMED&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Reference&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-                                        <ui:LogMessage DisplayName="Log Message - Building data table" sap:VirtualizedContainerService.HintSize="771,101" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;Building data table for add to queue&quot;]" />
-                                        <If Condition="[CurrentSheet.RowCount &gt; 0]" DisplayName="If Current Sheet has more than 0 rows" sap:VirtualizedContainerService.HintSize="771,4682" sap2010:WorkflowViewState.IdRef="If_6">
+                                        <ui:LogMessage DisplayName="Log Message - reading current sheet" sap:VirtualizedContainerService.HintSize="709,101" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;reading sheet &quot; + CurrentSheet.Name]" />
+                                        <ui:BuildDataTable DataTable="[dt_Sheet]" DisplayName="Build Data Table for adding to queue" sap:VirtualizedContainerService.HintSize="709,69" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;BU&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ASSET&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PIID&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;INVDT&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PERFORMED&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Reference&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+                                        <ui:LogMessage DisplayName="Log Message - Building data table" sap:VirtualizedContainerService.HintSize="709,101" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;Building data table for add to queue&quot;]" />
+                                        <If Condition="[CurrentSheet.RowCount &gt; 0]" DisplayName="If Current Sheet has more than 0 rows" sap:VirtualizedContainerService.HintSize="709,2593" sap2010:WorkflowViewState.IdRef="If_6">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -213,13 +214,14 @@
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
                                           <If.Then>
-                                            <Sequence DisplayName="Sheet has rows present - process them" sap:VirtualizedContainerService.HintSize="689,3966" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                            <Sequence DisplayName="Sheet has rows present - process them" sap:VirtualizedContainerService.HintSize="627,1877" sap2010:WorkflowViewState.IdRef="Sequence_29">
                                               <Sequence.Variables>
                                                 <Variable x:TypeArguments="x:String" Name="BU" />
                                                 <Variable x:TypeArguments="x:String" Name="ASSET" />
                                                 <Variable x:TypeArguments="x:String" Name="PIID" />
                                                 <Variable x:TypeArguments="x:String" Name="INVDT" />
                                                 <Variable x:TypeArguments="x:String" Name="PERFORMED" />
+                                                <Variable x:TypeArguments="x:String" Name="Reference" />
                                               </Sequence.Variables>
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -227,10 +229,10 @@
                                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <ui:LogMessage DisplayName="Log Message - total rows" sap:VirtualizedContainerService.HintSize="627,101" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info" Message="[&quot;Current sheet has &quot; + (CurrentSheet.RowCount - 1).ToString + &quot; rows&quot;]" />
-                                              <Assign sap2010:Annotation.AnnotationText="First item in array is the total amount of rows in each of the Excel files, minus the first header row. This corresponds to the total possible rows that can be added to the queue." DisplayName="Assign total rows" sap:VirtualizedContainerService.HintSize="627,157" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                              <ui:LogMessage DisplayName="Log Message - total rows" sap:VirtualizedContainerService.HintSize="565,101" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info" Message="[&quot;Current sheet has &quot; + (CurrentSheet.RowCount - 1).ToString + &quot; rows&quot;]" />
+                                              <Assign sap2010:Annotation.AnnotationText="First item in array is the total amount of rows in each of the Excel files, minus the first header row. This corresponds to the total possible rows that can be added to the queue." DisplayName="Assign total rows" sap:VirtualizedContainerService.HintSize="565,157" sap2010:WorkflowViewState.IdRef="Assign_3">
                                                 <Assign.To>
-                                                  <OutArgument x:TypeArguments="x:String">[io_CountsErrors(0)]</OutArgument>
+                                                  <OutArgument x:TypeArguments="x:String">[io_QueueCounts(0)]</OutArgument>
                                                 </Assign.To>
                                                 <Assign.Value>
                                                   <InArgument x:TypeArguments="x:String">[(Convert.ToInt32(io_CountsErrors(0)) + (CurrentSheet.RowCount - 1)).ToString]</InArgument>
@@ -241,7 +243,7 @@
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
                                               </Assign>
-                                              <ueab:ExcelForEachRowX DisplayName="For Each Excel Row within sheet1" EmptyRowBehavior="Stop" HasHeaders="True" sap:VirtualizedContainerService.HintSize="627,1172" sap2010:WorkflowViewState.IdRef="ExcelForEachRowX_2" Range="[CurrentSheet]" SaveAfterEachRow="False">
+                                              <ueab:ExcelForEachRowX DisplayName="For Each Excel Row within sheet1" EmptyRowBehavior="Stop" HasHeaders="True" sap:VirtualizedContainerService.HintSize="565,1197" sap2010:WorkflowViewState.IdRef="ExcelForEachRowX_2" Range="[CurrentSheet]" SaveAfterEachRow="False">
                                                 <ueab:ExcelForEachRowX.Body>
                                                   <ActivityAction x:TypeArguments="ue:CurrentRowQuickHandle, x:Int32">
                                                     <ActivityAction.Argument1>
@@ -250,153 +252,172 @@
                                                     <ActivityAction.Argument2>
                                                       <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                                                     </ActivityAction.Argument2>
-                                                    <Sequence DisplayName="Add row data to datatable" sap:VirtualizedContainerService.HintSize="593,981" sap2010:WorkflowViewState.IdRef="Sequence_31">
-                                                      <Sequence.Variables>
-                                                        <Variable x:TypeArguments="x:String" Name="Reference" />
-                                                      </Sequence.Variables>
+                                                    <TryCatch DisplayName="Add Row to Queue" sap:VirtualizedContainerService.HintSize="531,1006" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
-                                                      <TryCatch DisplayName="Try to add Row to data table" sap:VirtualizedContainerService.HintSize="531,859" sap2010:WorkflowViewState.IdRef="TryCatch_2">
-                                                        <TryCatch.Try>
-                                                          <Sequence DisplayName="Add to queue sequence" sap:VirtualizedContainerService.HintSize="493,622" sap2010:WorkflowViewState.IdRef="Sequence_37">
-                                                            <sap:WorkflowViewStateService.ViewState>
-                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                              </scg:Dictionary>
-                                                            </sap:WorkflowViewStateService.ViewState>
-                                                            <ui:MultipleAssign DisplayName="Assign Data Table and conditional variables" sap:VirtualizedContainerService.HintSize="431,265" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
-                                                              <ui:MultipleAssign.AssignOperations>
-                                                                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-                                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
-                                                                    <ui:AssignOperation.To>
-                                                                      <OutArgument x:TypeArguments="x:String">[BU]</OutArgument>
-                                                                    </ui:AssignOperation.To>
-                                                                    <ui:AssignOperation.Value>
-                                                                      <InArgument x:TypeArguments="x:String">[Row("BU").ToString]</InArgument>
-                                                                    </ui:AssignOperation.Value>
-                                                                  </ui:AssignOperation>
-                                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
-                                                                    <ui:AssignOperation.To>
-                                                                      <OutArgument x:TypeArguments="x:String">[ASSET]</OutArgument>
-                                                                    </ui:AssignOperation.To>
-                                                                    <ui:AssignOperation.Value>
-                                                                      <InArgument x:TypeArguments="x:String">[Row("ASSET").ToString]</InArgument>
-                                                                    </ui:AssignOperation.Value>
-                                                                  </ui:AssignOperation>
-                                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
-                                                                    <ui:AssignOperation.To>
-                                                                      <OutArgument x:TypeArguments="x:String">[PIID]</OutArgument>
-                                                                    </ui:AssignOperation.To>
-                                                                    <ui:AssignOperation.Value>
-                                                                      <InArgument x:TypeArguments="x:String">[Row("PIID").ToString]</InArgument>
-                                                                    </ui:AssignOperation.Value>
-                                                                  </ui:AssignOperation>
-                                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
-                                                                    <ui:AssignOperation.To>
-                                                                      <OutArgument x:TypeArguments="x:String">[INVDT]</OutArgument>
-                                                                    </ui:AssignOperation.To>
-                                                                    <ui:AssignOperation.Value>
-                                                                      <InArgument x:TypeArguments="x:String">[Row("INVDT").ToString]</InArgument>
-                                                                    </ui:AssignOperation.Value>
-                                                                  </ui:AssignOperation>
-                                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
-                                                                    <ui:AssignOperation.To>
-                                                                      <OutArgument x:TypeArguments="x:String">[PERFORMED]</OutArgument>
-                                                                    </ui:AssignOperation.To>
-                                                                    <ui:AssignOperation.Value>
-                                                                      <InArgument x:TypeArguments="x:String">[Row("PERFORMED").ToString]</InArgument>
-                                                                    </ui:AssignOperation.Value>
-                                                                  </ui:AssignOperation>
-                                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
-                                                                    <ui:AssignOperation.To>
-                                                                      <OutArgument x:TypeArguments="x:String">[Reference]</OutArgument>
-                                                                    </ui:AssignOperation.To>
-                                                                    <ui:AssignOperation.Value>
-                                                                      <InArgument x:TypeArguments="x:String">[Environment.MachineName + Environment.UserName + "-" + BU + ASSET + PIID + INVDT + INVDT + PERFORMED + DateTime.Now.ToString]</InArgument>
-                                                                    </ui:AssignOperation.Value>
-                                                                  </ui:AssignOperation>
-                                                                </scg:List>
-                                                              </ui:MultipleAssign.AssignOperations>
-                                                            </ui:MultipleAssign>
-                                                            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{ BU, ASSET, PIID, INVDT, PERFORMED, Reference }]" DataTable="[dt_Sheet]" DisplayName="Add Data Row to data table" sap:VirtualizedContainerService.HintSize="431,195" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
-                                                          </Sequence>
-                                                        </TryCatch.Try>
-                                                        <TryCatch.Catches>
-                                                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="497,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
-                                                            <sap:WorkflowViewStateService.ViewState>
-                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                              </scg:Dictionary>
-                                                            </sap:WorkflowViewStateService.ViewState>
-                                                            <ActivityAction x:TypeArguments="s:Exception">
-                                                              <ActivityAction.Argument>
-                                                                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                                                              </ActivityAction.Argument>
-                                                              <Sequence DisplayName="Add Row to Data Table Catch Block" sap:VirtualizedContainerService.HintSize="544,938" sap2010:WorkflowViewState.IdRef="Sequence_34">
-                                                                <sap:WorkflowViewStateService.ViewState>
-                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                                  </scg:Dictionary>
-                                                                </sap:WorkflowViewStateService.ViewState>
-                                                                <ui:LogMessage DisplayName="Log Message - add row to dt exception" sap:VirtualizedContainerService.HintSize="482,101" sap2010:WorkflowViewState.IdRef="LogMessage_33" Level="Error" Message="[&quot;Error adding row to datatable: &quot; + exception.Message]" />
-                                                                <Assign DisplayName="Increment not-added-to-queue count" sap:VirtualizedContainerService.HintSize="482,70" sap2010:WorkflowViewState.IdRef="Assign_20">
-                                                                  <Assign.To>
-                                                                    <OutArgument x:TypeArguments="x:String">[io_CountsErrors(2)]</OutArgument>
-                                                                  </Assign.To>
-                                                                  <Assign.Value>
-                                                                    <InArgument x:TypeArguments="x:String">[(Convert.ToInt32(io_CountsErrors(2)) + 1).ToString]</InArgument>
-                                                                  </Assign.Value>
-                                                                </Assign>
-                                                                <If Condition="[io_CountsErrors(4) = &quot;None&quot;]" DisplayName="If add to queue error message is 'None' then remove it" sap:VirtualizedContainerService.HintSize="482,565" sap2010:WorkflowViewState.IdRef="If_7">
-                                                                  <If.Then>
-                                                                    <Sequence DisplayName="Clear message before adding exception info" sap:VirtualizedContainerService.HintSize="400,302" sap2010:WorkflowViewState.IdRef="Sequence_35">
-                                                                      <sap:WorkflowViewStateService.ViewState>
-                                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                                        </scg:Dictionary>
-                                                                      </sap:WorkflowViewStateService.ViewState>
-                                                                      <Assign DisplayName="Clear it" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_21">
-                                                                        <Assign.To>
-                                                                          <OutArgument x:TypeArguments="x:String">[io_CountsErrors(4)]</OutArgument>
-                                                                        </Assign.To>
-                                                                        <Assign.Value>
-                                                                          <InArgument x:TypeArguments="x:String">
-                                                                            <Literal x:TypeArguments="x:String" Value="" />
-                                                                          </InArgument>
-                                                                        </Assign.Value>
-                                                                      </Assign>
-                                                                      <Assign DisplayName="And then add the exception message" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_22">
-                                                                        <Assign.To>
-                                                                          <OutArgument x:TypeArguments="x:String">[io_CountsErrors(4)]</OutArgument>
-                                                                        </Assign.To>
-                                                                        <Assign.Value>
-                                                                          <InArgument x:TypeArguments="x:String">[io_CountsErrors(4) + exception.Message + Environment.NewLine]</InArgument>
-                                                                        </Assign.Value>
-                                                                      </Assign>
-                                                                    </Sequence>
-                                                                  </If.Then>
-                                                                  <If.Else>
-                                                                    <Assign DisplayName="Add add-to-queue exception info" sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_23">
+                                                      <TryCatch.Try>
+                                                        <Sequence DisplayName="Add to queue sequence" sap:VirtualizedContainerService.HintSize="493,769" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <ui:MultipleAssign DisplayName="Assign Data Table and conditional variables" sap:VirtualizedContainerService.HintSize="431,265" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                                                            <ui:MultipleAssign.AssignOperations>
+                                                              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                                                                  <ui:AssignOperation.To>
+                                                                    <OutArgument x:TypeArguments="x:String">[BU]</OutArgument>
+                                                                  </ui:AssignOperation.To>
+                                                                  <ui:AssignOperation.Value>
+                                                                    <InArgument x:TypeArguments="x:String">[Row("BU").ToString]</InArgument>
+                                                                  </ui:AssignOperation.Value>
+                                                                </ui:AssignOperation>
+                                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                                                                  <ui:AssignOperation.To>
+                                                                    <OutArgument x:TypeArguments="x:String">[ASSET]</OutArgument>
+                                                                  </ui:AssignOperation.To>
+                                                                  <ui:AssignOperation.Value>
+                                                                    <InArgument x:TypeArguments="x:String">[Row("ASSET").ToString]</InArgument>
+                                                                  </ui:AssignOperation.Value>
+                                                                </ui:AssignOperation>
+                                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                                                                  <ui:AssignOperation.To>
+                                                                    <OutArgument x:TypeArguments="x:String">[PIID]</OutArgument>
+                                                                  </ui:AssignOperation.To>
+                                                                  <ui:AssignOperation.Value>
+                                                                    <InArgument x:TypeArguments="x:String">[Row("PIID").ToString]</InArgument>
+                                                                  </ui:AssignOperation.Value>
+                                                                </ui:AssignOperation>
+                                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                                                                  <ui:AssignOperation.To>
+                                                                    <OutArgument x:TypeArguments="x:String">[INVDT]</OutArgument>
+                                                                  </ui:AssignOperation.To>
+                                                                  <ui:AssignOperation.Value>
+                                                                    <InArgument x:TypeArguments="x:String">[Row("INVDT").ToString]</InArgument>
+                                                                  </ui:AssignOperation.Value>
+                                                                </ui:AssignOperation>
+                                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                                                                  <ui:AssignOperation.To>
+                                                                    <OutArgument x:TypeArguments="x:String">[PERFORMED]</OutArgument>
+                                                                  </ui:AssignOperation.To>
+                                                                  <ui:AssignOperation.Value>
+                                                                    <InArgument x:TypeArguments="x:String">[Row("PERFORMED").ToString]</InArgument>
+                                                                  </ui:AssignOperation.Value>
+                                                                </ui:AssignOperation>
+                                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                                                                  <ui:AssignOperation.To>
+                                                                    <OutArgument x:TypeArguments="x:String">[Reference]</OutArgument>
+                                                                  </ui:AssignOperation.To>
+                                                                  <ui:AssignOperation.Value>
+                                                                    <InArgument x:TypeArguments="x:String">[Environment.MachineName + Environment.UserName + "-" + BU + ASSET + PIID + INVDT + INVDT + PERFORMED + DateTime.Now.ToString]</InArgument>
+                                                                  </ui:AssignOperation.Value>
+                                                                </ui:AssignOperation>
+                                                              </scg:List>
+                                                            </ui:MultipleAssign.AssignOperations>
+                                                          </ui:MultipleAssign>
+                                                          <ui:AddQueueItem ServiceBaseAddress="{x:Null}" DisplayName="Add Queue Item using Excel row data" FolderPath="UITS" sap:VirtualizedContainerService.HintSize="431,232" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="FinancePhysicalAssetHistory" Reference="[Reference]" TimeoutMS="60000">
+                                                            <ui:AddQueueItem.ItemInformation>
+                                                              <InArgument x:TypeArguments="x:String" x:Key="BU">[BU]</InArgument>
+                                                              <InArgument x:TypeArguments="x:String" x:Key="ASSET">[ASSET]</InArgument>
+                                                              <InArgument x:TypeArguments="x:String" x:Key="PIID">[PIID]</InArgument>
+                                                              <InArgument x:TypeArguments="x:String" x:Key="INVDT">[INVDT]</InArgument>
+                                                              <InArgument x:TypeArguments="x:String" x:Key="PERFORMED">[PERFORMED]</InArgument>
+                                                            </ui:AddQueueItem.ItemInformation>
+                                                          </ui:AddQueueItem>
+                                                          <Assign DisplayName="Increment Queue Count" sap:VirtualizedContainerService.HintSize="431,70" sap2010:WorkflowViewState.IdRef="Assign_27">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[io_QueueCounts(1)]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">[(Convert.ToInt32(io_QueueCounts(1)) + 1).ToString]</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                        </Sequence>
+                                                      </TryCatch.Try>
+                                                      <TryCatch.Catches>
+                                                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="497,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <ActivityAction x:TypeArguments="s:Exception">
+                                                            <ActivityAction.Argument>
+                                                              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                                            </ActivityAction.Argument>
+                                                            <Sequence DisplayName="Add Row to Data Table Catch Block" sap:VirtualizedContainerService.HintSize="544,1048" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <ui:LogMessage DisplayName="Log Message - add row to dt exception" sap:VirtualizedContainerService.HintSize="482,101" sap2010:WorkflowViewState.IdRef="LogMessage_33" Level="Error" Message="[&quot;Error adding row to datatable: &quot; + exception.Message]" />
+                                                              <Assign DisplayName="Increment add-to-queue error count" sap:VirtualizedContainerService.HintSize="482,70" sap2010:WorkflowViewState.IdRef="Assign_28">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:String">[io_QueueCounts(3)]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:String">[(Convert.ToInt32(io_CountsErrors(3)) +1).ToString]</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                              <Assign DisplayName="Increment not-added-to-queue count" sap:VirtualizedContainerService.HintSize="482,70" sap2010:WorkflowViewState.IdRef="Assign_20">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:String">[io_CountsErrors(2)]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:String">[(Convert.ToInt32(io_CountsErrors(2)) + 1).ToString]</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                              <If Condition="[io_QueueCounts(4) = &quot;None&quot;]" DisplayName="If add to queue error message is 'None' then remove it" sap:VirtualizedContainerService.HintSize="482,565" sap2010:WorkflowViewState.IdRef="If_7">
+                                                                <If.Then>
+                                                                  <Sequence DisplayName="Clear message before adding exception info" sap:VirtualizedContainerService.HintSize="400,302" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      </scg:Dictionary>
+                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                    <Assign DisplayName="Clear it" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_21">
                                                                       <Assign.To>
-                                                                        <OutArgument x:TypeArguments="x:String">[io_CountsErrors(4)]</OutArgument>
+                                                                        <OutArgument x:TypeArguments="x:String">[io_QueueCounts(4)]</OutArgument>
                                                                       </Assign.To>
                                                                       <Assign.Value>
-                                                                        <InArgument x:TypeArguments="x:String">[io_CountsErrors(4) + exception.Message + Environment.NewLine]</InArgument>
+                                                                        <InArgument x:TypeArguments="x:String">
+                                                                          <Literal x:TypeArguments="x:String" Value="" />
+                                                                        </InArgument>
                                                                       </Assign.Value>
                                                                     </Assign>
-                                                                  </If.Else>
-                                                                </If>
-                                                              </Sequence>
-                                                            </ActivityAction>
-                                                          </Catch>
-                                                        </TryCatch.Catches>
-                                                      </TryCatch>
-                                                    </Sequence>
+                                                                    <Assign DisplayName="And then add the exception message" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_22">
+                                                                      <Assign.To>
+                                                                        <OutArgument x:TypeArguments="x:String">[io_QueueCounts(4)]</OutArgument>
+                                                                      </Assign.To>
+                                                                      <Assign.Value>
+                                                                        <InArgument x:TypeArguments="x:String">[io_QueueCounts(4) + exception.Message + Environment.NewLine]</InArgument>
+                                                                      </Assign.Value>
+                                                                    </Assign>
+                                                                  </Sequence>
+                                                                </If.Then>
+                                                                <If.Else>
+                                                                  <Assign DisplayName="Add add-to-queue exception info" sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_23">
+                                                                    <Assign.To>
+                                                                      <OutArgument x:TypeArguments="x:String">[io_QueueCounts(4)]</OutArgument>
+                                                                    </Assign.To>
+                                                                    <Assign.Value>
+                                                                      <InArgument x:TypeArguments="x:String">[io_QueueCounts(4) + exception.Message + Environment.NewLine]</InArgument>
+                                                                    </Assign.Value>
+                                                                  </Assign>
+                                                                </If.Else>
+                                                              </If>
+                                                            </Sequence>
+                                                          </ActivityAction>
+                                                        </Catch>
+                                                      </TryCatch.Catches>
+                                                    </TryCatch>
                                                   </ActivityAction>
                                                 </ueab:ExcelForEachRowX.Body>
                                                 <sap:WorkflowViewStateService.ViewState>
@@ -406,85 +427,7 @@
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
                                               </ueab:ExcelForEachRowX>
-                                              <If Condition="[dt_Sheet.Rows.Count &gt; 0]" DisplayName="If data table row length is greater than 0" sap:VirtualizedContainerService.HintSize="627,1315" sap2010:WorkflowViewState.IdRef="If_3">
-                                                <sap:WorkflowViewStateService.ViewState>
-                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                  </scg:Dictionary>
-                                                </sap:WorkflowViewStateService.ViewState>
-                                                <If.Then>
-                                                  <Sequence DisplayName="Add data table rows to Queue" sap:VirtualizedContainerService.HintSize="400,929" sap2010:WorkflowViewState.IdRef="Sequence_20">
-                                                    <sap:WorkflowViewStateService.ViewState>
-                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      </scg:Dictionary>
-                                                    </sap:WorkflowViewStateService.ViewState>
-                                                    <ui:LogMessage DisplayName="Log Message - adding rows to queue" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;Adding &quot; + dt_Sheet.Rows.Count.ToString + &quot; records to queue&quot;]" />
-                                                    <Assign sap2010:Annotation.AnnotationText="Set the total amount of rows to be added to the queue. This is the total rows less any invalid rows." DisplayName="Set Processing Count" sap:VirtualizedContainerService.HintSize="338,127" sap2010:WorkflowViewState.IdRef="Assign_2">
-                                                      <Assign.To>
-                                                        <OutArgument x:TypeArguments="x:String">[io_CountsErrors(1)]</OutArgument>
-                                                      </Assign.To>
-                                                      <Assign.Value>
-                                                        <InArgument x:TypeArguments="x:String">[(Convert.ToInt32(io_CountsErrors(1)) + dt_sheet.Rows.Count).ToString]</InArgument>
-                                                      </Assign.Value>
-                                                      <sap:WorkflowViewStateService.ViewState>
-                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                                        </scg:Dictionary>
-                                                      </sap:WorkflowViewStateService.ViewState>
-                                                    </Assign>
-                                                    <ui:BulkAddQueueItems CommitType="ProcessAllIndependently" ContinueOnError="True" DisplayName="Bulk Add Queue Items using data table" FolderPath="UITS" sap:VirtualizedContainerService.HintSize="338,499" sap2010:WorkflowViewState.IdRef="BulkAddQueueItems_2" QueueItemsDataTable="[dt_Sheet]" QueueName="FinancePhysicalAssetHistory" Result="[dt_BulkAddErrors]" TimeoutMS="60000" />
-                                                  </Sequence>
-                                                </If.Then>
-                                                <If.Else>
-                                                  <Sequence DisplayName="Don't add data table rows to queue" sap:VirtualizedContainerService.HintSize="400,223" sap2010:WorkflowViewState.IdRef="Sequence_21">
-                                                    <sap:WorkflowViewStateService.ViewState>
-                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      </scg:Dictionary>
-                                                    </sap:WorkflowViewStateService.ViewState>
-                                                    <ui:LogMessage DisplayName="Log Message - skipping add to queue" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info" Message="[&quot;Data table rows length is 0. Skipping add to queue&quot;]" />
-                                                  </Sequence>
-                                                </If.Else>
-                                              </If>
-                                              <If Condition="[dt_BulkAddErrors.RowCount &gt; 0]" DisplayName="If there are any add-to-queue errors" sap:VirtualizedContainerService.HintSize="627,719" sap2010:WorkflowViewState.IdRef="If_4">
-                                                <sap:WorkflowViewStateService.ViewState>
-                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                  </scg:Dictionary>
-                                                </sap:WorkflowViewStateService.ViewState>
-                                                <If.Then>
-                                                  <Sequence DisplayName="Change count of CountsErrors variable" sap:VirtualizedContainerService.HintSize="400,333" sap2010:WorkflowViewState.IdRef="Sequence_22">
-                                                    <sap:WorkflowViewStateService.ViewState>
-                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      </scg:Dictionary>
-                                                    </sap:WorkflowViewStateService.ViewState>
-                                                    <ui:LogMessage DisplayName="Log Message - add to queue error" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="Info" Message="[&quot;There were &quot; + dt_BulkAddErrors.RowCount.ToString + &quot; errors during add to queue&quot;]" />
-                                                    <Assign DisplayName="Assign add-to-queue error count" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_6">
-                                                      <Assign.To>
-                                                        <OutArgument x:TypeArguments="x:String">[io_CountsErrors(3)]</OutArgument>
-                                                      </Assign.To>
-                                                      <Assign.Value>
-                                                        <InArgument x:TypeArguments="x:String">[(Convert.ToInt32(io_CountsErrors(3)) + dt_BulkAddErrors.RowCount).ToString]</InArgument>
-                                                      </Assign.Value>
-                                                    </Assign>
-                                                  </Sequence>
-                                                </If.Then>
-                                                <If.Else>
-                                                  <Sequence DisplayName="Everything was added to the queue!" sap:VirtualizedContainerService.HintSize="400,223" sap2010:WorkflowViewState.IdRef="Sequence_23">
-                                                    <sap:WorkflowViewStateService.ViewState>
-                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      </scg:Dictionary>
-                                                    </sap:WorkflowViewStateService.ViewState>
-                                                    <ui:LogMessage DisplayName="Log Message - everything added to queue" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_28" Level="Info" Message="[&quot;No errors during add to queue&quot;]" />
-                                                  </Sequence>
-                                                </If.Else>
-                                              </If>
-                                              <Assign DisplayName="Increment files processed count" sap:VirtualizedContainerService.HintSize="627,70" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                              <Assign DisplayName="Increment files processed count" sap:VirtualizedContainerService.HintSize="565,70" sap2010:WorkflowViewState.IdRef="Assign_9">
                                                 <Assign.To>
                                                   <OutArgument x:TypeArguments="x:Int32">[FilesProcessedCount]</OutArgument>
                                                 </Assign.To>
@@ -492,7 +435,7 @@
                                                   <InArgument x:TypeArguments="x:Int32">[FilesProcessedCount + 1]</InArgument>
                                                 </Assign.Value>
                                               </Assign>
-                                              <Assign DisplayName="Add filename to processed filenames variable" sap:VirtualizedContainerService.HintSize="627,70" sap2010:WorkflowViewState.IdRef="Assign_11">
+                                              <Assign DisplayName="Add filename to processed filenames variable" sap:VirtualizedContainerService.HintSize="565,70" sap2010:WorkflowViewState.IdRef="Assign_11">
                                                 <Assign.To>
                                                   <OutArgument x:TypeArguments="x:String">[io_FilenamesProcessed]</OutArgument>
                                                 </Assign.To>
@@ -532,13 +475,13 @@
                                                   <OutArgument x:TypeArguments="x:String">[io_UnprocessedFilesMessages]</OutArgument>
                                                 </Assign.To>
                                                 <Assign.Value>
-                                                  <InArgument x:TypeArguments="x:String">[io_UnprocessedFilesMessages + "Sheet `" + CurrentSheet.Name + "` has no rows" + Environment.NewLine]</InArgument>
+                                                  <InArgument x:TypeArguments="x:String">[io_UnprocessedFilesMessages + Environment.NewLine + "Sheet `" + CurrentSheet.Name + "` has no rows"]</InArgument>
                                                 </Assign.Value>
                                               </Assign>
                                             </Sequence>
                                           </If.Else>
                                         </If>
-                                        <ui:Break DisplayName="Break - Only process first sheet" sap:VirtualizedContainerService.HintSize="771,32" sap2010:WorkflowViewState.IdRef="Break_1" />
+                                        <ui:Break DisplayName="Break - Only process first sheet" sap:VirtualizedContainerService.HintSize="709,32" sap2010:WorkflowViewState.IdRef="Break_1" />
                                       </Sequence>
                                     </ActivityAction>
                                   </ueab:ForEachSheetX.Body>
@@ -557,16 +500,24 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ueab:ExcelProcessScopeX>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Move file after processing - MoveFile.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="1059,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Custom\MoveFile.xaml">
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Move file after processing - MoveFile.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="997,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Custom\MoveFile.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="x:String" x:Key="in_FileName">[CurrentFile.FullName]</InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="in_TargetFolder">[CurrentFile.Directory.FullName + "\Processed"]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
+                <Assign DisplayName="Add queue counts to Read File Counts" sap:VirtualizedContainerService.HintSize="997,70" sap2010:WorkflowViewState.IdRef="Assign_26">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[io_CountsErrors(1)]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[io_QueueCounts(1)]</InArgument>
+                  </Assign.Value>
+                </Assign>
               </Sequence>
             </TryCatch.Try>
             <TryCatch.Catches>
-              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1125,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1063,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -577,14 +528,14 @@
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Process file catch block" sap:VirtualizedContainerService.HintSize="400,605" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                  <Sequence DisplayName="Process file catch block" sap:VirtualizedContainerService.HintSize="493,848" sap2010:WorkflowViewState.IdRef="Sequence_27">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message - Exception during processing" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_29" Level="Error" Message="[&quot;Error during file processing: &quot; + exception.Message]" />
-                    <Assign DisplayName="Add filename to not-processed variable" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_12">
+                    <ui:LogMessage DisplayName="Log Message - Exception during processing" sap:VirtualizedContainerService.HintSize="431,101" sap2010:WorkflowViewState.IdRef="LogMessage_29" Level="Error" Message="[&quot;Error during file processing: &quot; + exception.Message]" />
+                    <Assign DisplayName="Add filename to not-processed variable" sap:VirtualizedContainerService.HintSize="431,70" sap2010:WorkflowViewState.IdRef="Assign_12">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[io_FilenamesNotProcessed]</OutArgument>
                       </Assign.To>
@@ -592,7 +543,7 @@
                         <InArgument x:TypeArguments="x:String">[io_FilenamesNotProcessed + CurrentFile.Name.ToString + Environment.NewLine]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <Assign DisplayName="Increment File Error Count" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_24">
+                    <Assign DisplayName="Increment File Error Count" sap:VirtualizedContainerService.HintSize="431,70" sap2010:WorkflowViewState.IdRef="Assign_24">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Int32">[ProcessedFilesErrorCount]</OutArgument>
                       </Assign.To>
@@ -600,7 +551,45 @@
                         <InArgument x:TypeArguments="x:Int32">[ProcessedFilesErrorCount + 1]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="MoveFile.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="338,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Custom\MoveFile.xaml">
+                    <ui:MultipleAssign DisplayName="Multiple Assign - set in/out arguments in catch" sap:VirtualizedContainerService.HintSize="431,203" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                      <ui:MultipleAssign.AssignOperations>
+                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                          <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,32" sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[io_countsErrors(0)]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[io_QueueCounts(5)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[io_countsErrors(1)]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[io_QueueCounts(1)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[io_countsErrors(2)]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[ProcessedFilesErrorCount.ToString]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[io_countsErrors(3)]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[io_CountsErrors(3) + Environment.NewLine + exception.Message]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                        </scg:List>
+                      </ui:MultipleAssign.AssignOperations>
+                    </ui:MultipleAssign>
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="MoveFile.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="431,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Custom\MoveFile.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="x:String" x:Key="in_FileName">[CurrentFile.FullName]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="in_TargetFolder">[CurrentFile.Directory.FullName + "\Errors"]</InArgument>
@@ -620,24 +609,24 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachFileX>
-    <ui:LogMessage DisplayName="Log Message - total files processed" sap:VirtualizedContainerService.HintSize="1193,101" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info" Message="[&quot;Processed &quot; + FilesProcessedCount.ToString + &quot; file(s)&quot;]" />
-    <ui:LogMessage DisplayName="Log Message - total files skipped" sap:VirtualizedContainerService.HintSize="1193,101" sap2010:WorkflowViewState.IdRef="LogMessage_32" Level="Info" Message="[&quot;Skipped &quot; + FilesSkippedCount.ToString + &quot; file(s)&quot;]" />
-    <Assign DisplayName="Assign total files" sap:VirtualizedContainerService.HintSize="1193,70" sap2010:WorkflowViewState.IdRef="Assign_10">
+    <ui:LogMessage DisplayName="Log Message - total files processed" sap:VirtualizedContainerService.HintSize="1131,101" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info" Message="[&quot;Processed &quot; + FilesProcessedCount.ToString + &quot; file(s)&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - total files skipped" sap:VirtualizedContainerService.HintSize="1131,101" sap2010:WorkflowViewState.IdRef="LogMessage_32" Level="Info" Message="[&quot;Skipped &quot; + FilesSkippedCount.ToString + &quot; file(s)&quot;]" />
+    <Assign DisplayName="Assign total files" sap:VirtualizedContainerService.HintSize="1131,70" sap2010:WorkflowViewState.IdRef="Assign_10">
       <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[io_CountsErrors(5)]</OutArgument>
+        <OutArgument x:TypeArguments="x:String">[io_QueueCounts(5)]</OutArgument>
       </Assign.To>
       <Assign.Value>
         <InArgument x:TypeArguments="x:String">[FilesProcessedCount.ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Assign total skipped files" sap:VirtualizedContainerService.HintSize="1193,70" sap2010:WorkflowViewState.IdRef="Assign_15">
+    <Assign DisplayName="Assign total skipped files" sap:VirtualizedContainerService.HintSize="1131,70" sap2010:WorkflowViewState.IdRef="Assign_15">
       <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[io_CountsErrors(6)]</OutArgument>
+        <OutArgument x:TypeArguments="x:String">[io_QueueCounts(6)]</OutArgument>
       </Assign.To>
       <Assign.Value>
         <InArgument x:TypeArguments="x:String">[FilesSkippedCount.ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message - ReadExcelFilePopulateQueue end" sap:VirtualizedContainerService.HintSize="1193,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Ending ReadExcelFilePopulateQueue workflow&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - ReadExcelFilePopulateQueue end" sap:VirtualizedContainerService.HintSize="1131,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Ending ReadExcelFilePopulateQueue workflow&quot;]" />
   </Sequence>
 </Activity>
