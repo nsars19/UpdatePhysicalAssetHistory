@@ -11,7 +11,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1398,2435</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1398,2475</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetTransactionData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -179,7 +179,7 @@
               <OutArgument x:TypeArguments="x:String">[out_TransactionField2]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[out_TransactionItem.SpecificContent("ASSET").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String">[out_TransactionItem.SpecificContent("Datetime").ToString]</InArgument>
             </Assign.Value>
           </Assign>
         </Sequence>
