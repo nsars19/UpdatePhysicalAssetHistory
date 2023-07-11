@@ -541,7 +541,7 @@ ReadEmailCountsErrors(3) + Environment.NewLine + Environment.NewLine +
 ReadFileCountsErrors(3) + Environment.NewLine + Environment.NewLine +
 "Queue Processing Errors" + Environment.NewLine +
 "----------------------------" + Environment.NewLine +
-"Application exceptions: " +
+"Application Exceptions: " +
 ExceptionMessage + Environment.NewLine + Environment.NewLine]</InArgument>
                         </Assign.Value>
                       </Assign>
