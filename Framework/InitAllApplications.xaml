@@ -10,7 +10,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1398,2100</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1483,2100</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="43">
@@ -163,9 +163,9 @@
       </If.Then>
     </If>
     <ui:LogMessage DisplayName="Log Message - Finance Login Start" sap:VirtualizedContainerService.HintSize="482,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Starting Finance PS login. Using environment: &quot; + in_Config(&quot;FinancePhysicalAssetHistory_Environment&quot;).ToString]" />
-    <f:FinanceWindowsLogin DisplayName="Start process - FinanceWindowsLogin" sap:VirtualizedContainerService.HintSize="482,250" sap2010:WorkflowViewState.IdRef="FinanceWindowsLogin_2" in_CredentialAssetname="[&quot;FinancePhysicalAssetHistory_Credentials&quot;]" in_EnvironmentAssetname="[&quot;FinancePhysicalAssetHistory_Environment&quot;]" in_Foldername="UITS" in_URLAssetname="[&quot;FinancePhysicalAssetHistory_LoginURL&quot;]" />
+    <f:FinanceWindowsLogin DisplayName="Start process - FinanceWindowsLogin" sap:VirtualizedContainerService.HintSize="482,250" sap2010:WorkflowViewState.IdRef="FinanceWindowsLogin_3" in_CredentialAssetname="[&quot;FinancePhysicalAssetHistory_Credentials&quot;]" in_EnvironmentAssetname="[&quot;FinancePhysicalAssetHistory_Environment&quot;]" in_Foldername="UITS" in_URLAssetname="[&quot;FinancePhysicalAssetHistory_LoginURL&quot;]" />
     <ui:LogMessage DisplayName="Log Message - Finance Login End" sap:VirtualizedContainerService.HintSize="482,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Successfully logged into Finance PS&quot;]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Navigate to start point" DisplayName="NavigateToPSPage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="482,153" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Custom\NavigateToPSPage.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Navigate to start point" DisplayName="NavigateToPSPage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="482,153" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Custom\NavigateToPSPage.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_LandingPageURL">[in_Config("FinancePhysicalAssetHistory_LandingPageURL").ToString]</InArgument>
         <InOutArgument x:TypeArguments="s:Exception" x:Key="io_SystemException">[io_SystemException]</InOutArgument>

@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1396,2208</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1483,4924</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -125,7 +125,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="536,2143" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="678,4859" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="BU" />
       <Variable x:TypeArguments="x:String" Name="ASSET" />
@@ -142,8 +142,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - ProcessTransaction start" sap:VirtualizedContainerService.HintSize="474,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting ProcessTransaction&quot;]" />
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Check to see if each field is populated, and throw a BRE if not." DisplayName="Validate Field Present in Transaction Item" sap:VirtualizedContainerService.HintSize="474,103" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[Fields]">
+    <ui:LogMessage DisplayName="Log Message - ProcessTransaction start" sap:VirtualizedContainerService.HintSize="616,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting ProcessTransaction&quot;]" />
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Check to see if each field is populated, and throw a BRE if not." DisplayName="Validate Field Present in Transaction Item" sap:VirtualizedContainerService.HintSize="616,103" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[Fields]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
@@ -196,7 +196,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:MultipleAssign DisplayName="Multiple Assign - QueueItemVariables" sap:VirtualizedContainerService.HintSize="474,234" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Multiple Assign - QueueItemVariables" sap:VirtualizedContainerService.HintSize="616,234" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -242,7 +242,7 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <Sequence sap2010:Annotation.AnnotationText="Validates that the date is in the format MM/DD/YYYY, and formats the date to match PeopleSoft's date string if it is. ie. Turns transaction item date 5/8/2022 to 05/08/2022, which is the format PeopleSoft uses. Throws a Business Rule Exception otherwise." DisplayName="Date validation &amp; formatting" sap:VirtualizedContainerService.HintSize="474,162" sap2010:WorkflowViewState.IdRef="Sequence_40">
+    <Sequence sap2010:Annotation.AnnotationText="Validates that the date is in the format MM/DD/YYYY, and formats the date to match PeopleSoft's date string if it is. ie. Turns transaction item date 5/8/2022 to 05/08/2022, which is the format PeopleSoft uses. Throws a Business Rule Exception otherwise." DisplayName="Date validation &amp; formatting" sap:VirtualizedContainerService.HintSize="616,162" sap2010:WorkflowViewState.IdRef="Sequence_40">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -262,7 +262,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:InvokeWorkflowFile>
-      <Sequence DisplayName="Format Date to match PeopleSoft Date" sap:VirtualizedContainerService.HintSize="400,90" sap2010:WorkflowViewState.IdRef="Sequence_38">
+      <Sequence DisplayName="Format Date to match PeopleSoft Date" sap:VirtualizedContainerService.HintSize="493,606" sap2010:WorkflowViewState.IdRef="Sequence_38">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="Month" />
           <Variable x:TypeArguments="x:String" Name="Day" />
@@ -350,7 +350,7 @@
         </Assign>
       </Sequence>
     </Sequence>
-    <If sap2010:Annotation.AnnotationText="Used to determine whether or not the name needs to be formatted. Names will contain spaces only when they are not formatted properly, as any leading or trailing spaces are trimmed before being added to the queue." Condition="[PERFORMED.Contains(&quot; &quot;)]" DisplayName="If name contains a space" sap:VirtualizedContainerService.HintSize="474,208" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap2010:Annotation.AnnotationText="Used to determine whether or not the name needs to be formatted. Names will contain spaces only when they are not formatted properly, as any leading or trailing spaces are trimmed before being added to the queue." Condition="[PERFORMED.Contains(&quot; &quot;)]" DisplayName="If name contains a space" sap:VirtualizedContainerService.HintSize="616,208" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -386,13 +386,13 @@
         </Assign>
       </If.Else>
     </If>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="ProcessTransaction - Use Browser Chrome: Update Physical Inv. History" sap:VirtualizedContainerService.HintSize="474,1013" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OutUiElement="[PS]" ScopeGuid="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="ProcessTransaction - Use Browser Chrome: Update Physical Inv. History" sap:VirtualizedContainerService.HintSize="616,3729" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OutUiElement="[PS]" ScopeGuid="bd60a733-df05-4be7-a690-06dc34de5ec7" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <TryCatch DisplayName="Try Catch for ProcessTransaction" sap:VirtualizedContainerService.HintSize="440,787" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+          <TryCatch DisplayName="Try Catch for ProcessTransaction" sap:VirtualizedContainerService.HintSize="582,3503" sap2010:WorkflowViewState.IdRef="TryCatch_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -400,13 +400,13 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <TryCatch.Try>
-              <Sequence DisplayName="ProcessTransaction Try block sequence" sap:VirtualizedContainerService.HintSize="462,852" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence DisplayName="ProcessTransaction Try block sequence" sap:VirtualizedContainerService.HintSize="544,3244" sap2010:WorkflowViewState.IdRef="Sequence_5">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence sap2010:Annotation.AnnotationText="Reload at the start of a transaction to put the form in a clean state.&#xA;&#xA;When exceptions are thrown in a transaction, the following transaction will pick up at the page where the exception was thrown. This prevents that." DisplayName="Reload Physical Inv. Page" sap:VirtualizedContainerService.HintSize="400,177" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                <Sequence sap2010:Annotation.AnnotationText="Reload at the start of a transaction to put the form in a clean state.&#xA;&#xA;When exceptions are thrown in a transaction, the following transaction will pick up at the page where the exception was thrown. This prevents that." DisplayName="Reload Physical Inv. Page" sap:VirtualizedContainerService.HintSize="482,177" sap2010:WorkflowViewState.IdRef="Sequence_46">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -427,7 +427,7 @@
                     </uix:NClick.Target>
                   </uix:NClick>
                 </Sequence>
-                <Sequence sap2010:Annotation.AnnotationText="Fill in the form using transaction item data" DisplayName="Add transaction item details" sap:VirtualizedContainerService.HintSize="400,121" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                <Sequence sap2010:Annotation.AnnotationText="Fill in the form using transaction item data" DisplayName="Add transaction item details" sap:VirtualizedContainerService.HintSize="482,121" sap2010:WorkflowViewState.IdRef="Sequence_22">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -522,7 +522,7 @@
                     </uix:NClick.Target>
                   </uix:NClick>
                 </Sequence>
-                <Sequence sap2010:Annotation.AnnotationText="Check to see if:&#xA;1. The asset does not exist&#xA;2. The asset would be a duplicate entry" DisplayName="Business Rule Exception Checks" sap:VirtualizedContainerService.HintSize="400,147" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                <Sequence sap2010:Annotation.AnnotationText="Check to see if:&#xA;1. The asset does not exist&#xA;2. The asset would be a duplicate entry" DisplayName="Business Rule Exception Checks" sap:VirtualizedContainerService.HintSize="482,147" sap2010:WorkflowViewState.IdRef="Sequence_23">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -728,19 +728,19 @@
                     </If>
                   </Sequence>
                 </Sequence>
-                <If sap2010:Annotation.AnnotationText="If the FinancePhysicalAssetHistory_SaveAssetFlag Asset flag is true, then proceed with the add new row sequence, otherwise skip it." Condition="[Convert.ToBoolean(in_Config(&quot;FinancePhysicalAssetHistory_SaveAssetFlag&quot;).ToString)]" DisplayName="If Save Asset flag is enabled" sap:VirtualizedContainerService.HintSize="400,163" sap2010:WorkflowViewState.IdRef="If_13">
+                <If sap2010:Annotation.AnnotationText="If the FinancePhysicalAssetHistory_SaveAssetFlag Asset flag is true, then proceed with the add new row sequence, otherwise skip it." Condition="[Convert.ToBoolean(in_Config(&quot;FinancePhysicalAssetHistory_SaveAssetFlag&quot;).ToString)]" DisplayName="If Save Asset flag is enabled" sap:VirtualizedContainerService.HintSize="482,2555" sap2010:WorkflowViewState.IdRef="If_13">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence DisplayName="Add new row sequence" sap:VirtualizedContainerService.HintSize="400,90" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                    <Sequence DisplayName="Add new row sequence" sap:VirtualizedContainerService.HintSize="400,2249" sap2010:WorkflowViewState.IdRef="Sequence_49">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
@@ -845,7 +845,7 @@
               </Sequence>
             </TryCatch.Try>
             <TryCatch.Catches>
-              <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="406,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+              <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="548,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -873,10 +873,10 @@
                   </Sequence>
                 </ActivityAction>
               </Catch>
-              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,593" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="548,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>

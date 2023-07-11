@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1388,1614</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1483,1614</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ValidateDate_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
@@ -192,7 +192,7 @@
                     <OutArgument x:TypeArguments="x:String">[Year]</OutArgument>
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[in_Date.Split("/")(2)]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[in_Date.Split("/")(2).Split(" ")(0)]</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
               </scg:List>
