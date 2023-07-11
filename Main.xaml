@@ -298,7 +298,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="144,129" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="576,3235" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
               <State.Entry>
                 <Sequence DisplayName="Sequence - End Process" sap:VirtualizedContainerService.HintSize="530,3081" sap2010:WorkflowViewState.IdRef="Sequence_57">
                   <Sequence.Variables>
@@ -539,7 +539,8 @@ InitErrors + Environment.NewLine]</InArgument>
 ReadEmailCountsErrors(3) + Environment.NewLine + Environment.NewLine +
 "File Read and Process Errors:" +
 ReadFileCountsErrors(3) + Environment.NewLine + Environment.NewLine +
-"Queue Processing Errors: " + Environment.NewLine +
+"Queue Processing Errors" + Environment.NewLine +
+"----------------------------" + Environment.NewLine +
 "Application exceptions: " +
 ExceptionMessage + Environment.NewLine + Environment.NewLine]</InArgument>
                         </Assign.Value>
@@ -613,7 +614,7 @@ BRExceptionMessage + Environment.NewLine]</InArgument>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception, 4) Retry Transaction, 5) End Process&#xA;&#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="584,1633" sap2010:WorkflowViewState.IdRef="State_3">
+            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception, 4) Retry Transaction, 5) End Process&#xA;&#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="231,227" sap2010:WorkflowViewState.IdRef="State_3">
               <State.Entry>
                 <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="538,1122" sap2010:WorkflowViewState.IdRef="TryCatch_17">
                   <sap:WorkflowViewStateService.ViewState>
