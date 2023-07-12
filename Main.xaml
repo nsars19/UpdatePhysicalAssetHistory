@@ -6,10 +6,10 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1483,1187</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1710,1187</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="73">
+    <scg:List x:TypeArguments="x:String" Capacity="146">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -83,6 +83,7 @@
       <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
       <x:String>UiPath.Core.Activities.Storage</x:String>
       <x:String>UiPath.Excel.Model</x:String>
+      <x:String>System.Collections.Specialized</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -163,6 +164,8 @@
       <AssemblyReference>ReadExcelFilePopulateQueueWindows</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="Finance Physical Asset History&#xA;&#xA;Upload and update an excel sheet data of physical assets inventory history into Asset Management.&#xA;&#xA;Nick Sardonini - nsardonini@umassp.edu" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="808,1117" sap2010:WorkflowViewState.IdRef="StateMachine_1">
@@ -298,9 +301,9 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="576,3235" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="590,3550" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
               <State.Entry>
-                <Sequence DisplayName="Sequence - End Process" sap:VirtualizedContainerService.HintSize="530,3081" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                <Sequence DisplayName="Sequence - End Process" sap:VirtualizedContainerService.HintSize="544,3396" sap2010:WorkflowViewState.IdRef="Sequence_57">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="EmailToField" />
                     <Variable x:TypeArguments="x:String" Name="EmailSubject" />
@@ -311,7 +314,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:MultipleAssign DisplayName="Assign end process variables" sap:VirtualizedContainerService.HintSize="468,172" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                  <ui:MultipleAssign DisplayName="Assign end process variables" sap:VirtualizedContainerService.HintSize="482,172" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -343,7 +346,7 @@
                       </scg:List>
                     </ui:MultipleAssign.AssignOperations>
                   </ui:MultipleAssign>
-                  <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="468,359" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                  <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="482,359" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -393,10 +396,10 @@
                       </If>
                     </TryCatch.Finally>
                   </TryCatch>
-                  <If Condition="[ExceptionMessage.Length &gt; 0]" DisplayName="If there is an error, prefix email subject with 'ERROR'" sap:VirtualizedContainerService.HintSize="468,61" sap2010:WorkflowViewState.IdRef="If_22">
+                  <If Condition="[ExceptionMessage.Length &gt; 0 Or ReadFileCountsErrors(3) &lt;&gt; &quot;None&quot; Or ReadEmailCountsErrors(3) &lt;&gt; &quot;None&quot;]" DisplayName="If there is an error, prefix email subject with 'ERROR'" sap:VirtualizedContainerService.HintSize="482,376" sap2010:WorkflowViewState.IdRef="If_22">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
@@ -420,7 +423,7 @@
                       </Sequence>
                     </If.Else>
                   </If>
-                  <Sequence DisplayName="Build Email Message" sap:VirtualizedContainerService.HintSize="468,1444" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                  <Sequence DisplayName="Build Email Message" sap:VirtualizedContainerService.HintSize="482,1444" sap2010:WorkflowViewState.IdRef="Sequence_64">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1312,8 +1315,8 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                                               <ui:LogMessage DisplayName="Log Message - email read + download start" sap:VirtualizedContainerService.HintSize="436,101" sap2010:WorkflowViewState.IdRef="LogMessage_42" Level="Info" Message="[&quot;In first run. Reading email and downloading Excel file&quot;]" />
                                               <r:ReadEmailDownloadExcelFileWindows DisplayName="Read Email &amp; Download Excel file - ReadEmailDownloadExcelFileWindows" sap:VirtualizedContainerService.HintSize="436,301" sap2010:WorkflowViewState.IdRef="ReadEmailDownloadExcelFileWindows_3" in_EmailIncomingFoldername="[Config(&quot;FinancePhysicalAssetHistory_EmailIncomingFolderName&quot;).ToString]" in_EmailProcessedFoldername="[Config(&quot;FinancePhysicalAssetHistory_ProcessedFolderName&quot;).ToString]" in_EmailSubject="[Config(&quot;FinancePhysicalAssetHistory_EmailSubject&quot;).ToString]" in_LocalFoldername="[Config(&quot;FinancePhysicalAssetHistory_LocalFolderName&quot;).ToString]" io_CountsErrors="[ReadEmailCountsErrors]" />
                                               <ui:LogMessage DisplayName="Log Message Email read count" sap:VirtualizedContainerService.HintSize="436,101" sap2010:WorkflowViewState.IdRef="LogMessage_57" Level="Info" Message="[&quot;Email read count &quot; + ReadEmailCountsErrors(0) + &quot; files downloaded count &quot; + ReadEmailCountsErrors(1).ToString]" />
-                                              <ui:BuildDataTable DataTable="[dt_Main]" DisplayName="Build Data Table to provide structure to ReadExcelFilePopulateQueue library" sap:VirtualizedContainerService.HintSize="436,69" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;BU&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ASSET&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PIID&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;INVDT&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PERFORMED&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-                                              <r1:ReadExcelFilePopulateQueueWIndows DisplayName="Read the Excel files &amp; populate the queue" sap:VirtualizedContainerService.HintSize="436,352" sap2010:WorkflowViewState.IdRef="ReadExcelFilePopulateQueueWIndows_1" in_FolderName="E:\UiPath\FinancePhysicalAssetHistoryFiles" in_UniqueColumnsArg="[UniqueKeyColumns]" in_dt_Main="[dt_Main]" in_queueFolderName="UITS" in_queueName="FinancePhysicalAssetHistory" io_countsErrors="[ReadFileCountsErrors]" />
+                                              <ui:BuildDataTable DataTable="[dt_Main]" DisplayName="Build Data Table to provide structure to ReadExcelFilePopulateQueue library" sap:VirtualizedContainerService.HintSize="436,69" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;BU&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ASSET&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;PIID&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;INVDT&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;PERFORMED&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+                                              <r1:ReadExcelFilePopulateQueueWIndows DisplayName="Read the Excel files &amp; populate the queue ()" sap:VirtualizedContainerService.HintSize="436,352" sap2010:WorkflowViewState.IdRef="ReadExcelFilePopulateQueueWIndows_1" in_FolderName="[FileLocation]" in_UniqueColumnsListArg="[new list(of string)() from { &quot;A&quot; ,&quot;b&quot;, &quot;c&quot;, &quot;d&quot; ,&quot;e&quot;, &quot;f&quot;, &quot;g&quot;}]" in_dt_Main="[dt_Main]" in_queueFolderName="UITS" in_queueName="[QueueName]" io_countsErrors="[ReadFileCountsErrors]" />
                                               <ui:CommentOut DisplayName="Comment Out - to use library instead" sap:VirtualizedContainerService.HintSize="436,332" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                                                 <ui:CommentOut.Body>
                                                   <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,244" sap2010:WorkflowViewState.IdRef="Sequence_80">
@@ -1350,7 +1353,7 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                                                 <ActivityAction.Argument>
                                                   <DelegateInArgument x:TypeArguments="s:Exception" Name="Exception" />
                                                 </ActivityAction.Argument>
-                                                <Sequence DisplayName="Log exception message and end process" sap:VirtualizedContainerService.HintSize="400,333" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                                <Sequence DisplayName="Log exception message and end process" sap:VirtualizedContainerService.HintSize="400,441" sap2010:WorkflowViewState.IdRef="Sequence_34">
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1364,6 +1367,14 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                                                     </Assign.To>
                                                     <Assign.Value>
                                                       <InArgument x:TypeArguments="s:Exception">[exception]</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <Assign DisplayName="Grab Exception Message string and save to variable" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_79">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[ReadFileCountsErrors(3)]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">[ReadFileCountsErrors(3) + Environment.NewLine + Exception.Message]</InArgument>
                                                     </Assign.Value>
                                                   </Assign>
                                                 </Sequence>
@@ -1539,8 +1550,22 @@ Environment.NewLine + Environment.NewLine]</InArgument>
           <Literal x:TypeArguments="x:String" Value="" />
         </Variable.Default>
       </Variable>
-      <Variable x:TypeArguments="s:String[]" Default="[{ &quot;BU&quot;, &quot;ASSET&quot;,  &quot;PIID&quot; }]" Name="UniqueKeyColumns" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="UniqueKeyColumns">
+        <Variable.Default>
+          <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="new list(Of String)() from { &quot;BU&quot;, &quot;ASSET&quot;,  &quot;PIID&quot; }" />
+        </Variable.Default>
+      </Variable>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_Main" />
+      <Variable x:TypeArguments="x:String" Name="FileLocation">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">E:\UiPath\FinancePhysicalAssetHistoryFiles</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="QueueName">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">FinancePhysicalAssetHistory</Literal>
+        </Variable.Default>
+      </Variable>
     </StateMachine.Variables>
   </StateMachine>
 </Activity>

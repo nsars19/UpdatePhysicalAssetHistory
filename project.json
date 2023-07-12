@@ -6,7 +6,7 @@
     "FinanceWindowsLogin": "[1.0.2]",
     "KillAllChromeWindowsProcess": "[1.0.1]",
     "ReadEmailDownloadExcelFileWindows": "[1.0.6]",
-    "ReadExcelFilePopulateQueueWindows": "[1.0.108]",
+    "ReadExcelFilePopulateQueueWindows": "[1.0.125]",
     "UiPath.Excel.Activities": "[2.16.0]",
     "UiPath.System.Activities": "[22.10.3]",
     "UiPath.UIAutomation.Activities": "[22.10.3]",
