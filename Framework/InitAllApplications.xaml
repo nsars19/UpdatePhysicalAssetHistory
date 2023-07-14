@@ -10,7 +10,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1710,2520</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1445,2100</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="43">
@@ -123,7 +123,7 @@
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="544,2455" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="544,2035" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="BoolSendEmail" />
     </Sequence.Variables>
@@ -163,44 +163,22 @@
       </If.Then>
     </If>
     <ui:LogMessage DisplayName="Log Message - Finance Login Start" sap:VirtualizedContainerService.HintSize="482,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Starting Finance PS login. Using environment: &quot; + in_Config(&quot;FinancePhysicalAssetHistory_Environment&quot;).ToString]" />
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="482,460" sap2010:WorkflowViewState.IdRef="CommentOut_3">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,372" sap2010:WorkflowViewState.IdRef="Sequence_14">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <f:FinanceWindowsLogin DisplayName="Start process - FinanceWindowsLogin" sap:VirtualizedContainerService.HintSize="338,250" sap2010:WorkflowViewState.IdRef="FinanceWindowsLogin_4" in_CredentialAssetname="[&quot;FinancePhysicalAssetHistory_Credentials&quot;]" in_EnvironmentAssetname="[&quot;FinancePhysicalAssetHistory_Environment&quot;]" in_Foldername="UITS" in_URLAssetname="[&quot;FinancePhysicalAssetHistory_LoginURL&quot;]" />
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
+    <f:FinanceWindowsLogin DisplayName="Start process - FinanceWindowsLogin" sap:VirtualizedContainerService.HintSize="482,250" sap2010:WorkflowViewState.IdRef="FinanceWindowsLogin_5" in_CredentialAssetname="[&quot;FinancePhysicalAssetHistory_Credentials&quot;]" in_EnvironmentAssetname="[&quot;FinancePhysicalAssetHistory_Environment&quot;]" in_Foldername="UITS" in_URLAssetname="[&quot;FinancePhysicalAssetHistory_LoginURL&quot;]" />
     <ui:LogMessage DisplayName="Log Message - Finance Login End" sap:VirtualizedContainerService.HintSize="482,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Successfully logged into Finance PS&quot;]" />
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="482,363" sap2010:WorkflowViewState.IdRef="CommentOut_4">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,275" sap2010:WorkflowViewState.IdRef="Sequence_15">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Navigate to start point" DisplayName="NavigateToPSPage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="338,153" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Custom\NavigateToPSPage.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_LandingPageURL">[in_Config("FinancePhysicalAssetHistory_LandingPageURL").ToString]</InArgument>
-              <InOutArgument x:TypeArguments="s:Exception" x:Key="io_SystemException">[io_SystemException]</InOutArgument>
-              <InOutArgument x:TypeArguments="x:String" x:Key="io_ExceptionMessage">[io_ExceptionMessage]</InOutArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_ScreenshotsFolder">[in_ScreenshotsPath]</InArgument>
-            </ui:InvokeWorkflowFile.Arguments>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:InvokeWorkflowFile>
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Navigate to start point" DisplayName="NavigateToPSPage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="482,153" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Custom\NavigateToPSPage.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_LandingPageURL">[in_Config("FinancePhysicalAssetHistory_LandingPageURL").ToString]</InArgument>
+        <InOutArgument x:TypeArguments="s:Exception" x:Key="io_SystemException">[io_SystemException]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_ExceptionMessage">[io_ExceptionMessage]</InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ScreenshotsFolder">[in_ScreenshotsPath]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
   </Sequence>
 </Activity>
