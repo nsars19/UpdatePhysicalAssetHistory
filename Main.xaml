@@ -6,10 +6,10 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>798,1142</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1339,1187</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="146">
+    <scg:List x:TypeArguments="x:String" Capacity="74">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -87,7 +87,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="152">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="79">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -301,9 +301,9 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="144,129" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="576,3537" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
               <State.Entry>
-                <Sequence DisplayName="Sequence - End Process" sap:VirtualizedContainerService.HintSize="544,3396" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                <Sequence DisplayName="Sequence - End Process" sap:VirtualizedContainerService.HintSize="530,3383" sap2010:WorkflowViewState.IdRef="Sequence_57">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="EmailToField" />
                     <Variable x:TypeArguments="x:String" Name="EmailSubject" />
@@ -314,7 +314,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:MultipleAssign DisplayName="Assign end process variables" sap:VirtualizedContainerService.HintSize="482,172" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                  <ui:MultipleAssign DisplayName="Assign end process variables" sap:VirtualizedContainerService.HintSize="468,172" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -346,7 +346,7 @@
                       </scg:List>
                     </ui:MultipleAssign.AssignOperations>
                   </ui:MultipleAssign>
-                  <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="482,359" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                  <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="468,359" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -396,7 +396,7 @@
                       </If>
                     </TryCatch.Finally>
                   </TryCatch>
-                  <If Condition="[ExceptionMessage.Length &gt; 0 Or ReadFileCountsErrors(3) &lt;&gt; &quot;None&quot; Or ReadEmailCountsErrors(3) &lt;&gt; &quot;None&quot;]" DisplayName="If there is an error, prefix email subject with 'ERROR'" sap:VirtualizedContainerService.HintSize="482,376" sap2010:WorkflowViewState.IdRef="If_22">
+                  <If Condition="[ExceptionMessage.Length &gt; 0 Or ReadFileCountsErrors(3).Length &gt; 0 Or ReadEmailCountsErrors(3) &lt;&gt; &quot;None&quot;]" DisplayName="If there is an error, prefix email subject with 'ERROR'" sap:VirtualizedContainerService.HintSize="468,363" sap2010:WorkflowViewState.IdRef="If_22">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -413,17 +413,8 @@
                         </Assign.Value>
                       </Assign>
                     </If.Then>
-                    <If.Else>
-                      <Sequence sap:VirtualizedContainerService.HintSize="400,113" sap2010:WorkflowViewState.IdRef="Sequence_65">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </Sequence>
-                    </If.Else>
                   </If>
-                  <Sequence DisplayName="Build Email Message" sap:VirtualizedContainerService.HintSize="482,1444" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                  <Sequence DisplayName="Build Email Message" sap:VirtualizedContainerService.HintSize="468,1444" sap2010:WorkflowViewState.IdRef="Sequence_64">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1264,17 +1255,17 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                           </sap:WorkflowViewStateService.ViewState>
                           <Transition.Condition>[SystemException is Nothing]</Transition.Condition>
                           <Transition.To>
-                            <State x:Name="__ReferenceID4" sap2010:Annotation.AnnotationText="Reads the email from the FinancePhysicalAssetHistoryIncoming folder and downloads the xlsx file, and then adds each row into the FinancePhysicalAssetHistoryQueue." DisplayName="Read Email Save File and Populate Queue" sap:VirtualizedContainerService.HintSize="692,1940" sap2010:WorkflowViewState.IdRef="State_6">
+                            <State x:Name="__ReferenceID4" sap2010:Annotation.AnnotationText="Reads the email from the FinancePhysicalAssetHistoryIncoming folder and downloads the xlsx file, and then adds each row into the FinancePhysicalAssetHistoryQueue." DisplayName="Read Email Save File and Populate Queue" sap:VirtualizedContainerService.HintSize="251,167" sap2010:WorkflowViewState.IdRef="State_6">
                               <State.Entry>
-                                <Sequence DisplayName="Read Email Save File and Populate Queue workflow logic" sap:VirtualizedContainerService.HintSize="646,1474" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                                <Sequence DisplayName="Read Email Save File and Populate Queue workflow logic" sap:VirtualizedContainerService.HintSize="673,2343" sap2010:WorkflowViewState.IdRef="Sequence_55">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:ShouldStop DisplayName="Check Stop Signal" sap:VirtualizedContainerService.HintSize="584,32" sap2010:WorkflowViewState.IdRef="ShouldStop_3" Result="[StopProcess]" />
-                                  <If Condition="[FirstRun And Not StopProcess]" DisplayName="First Run &amp; Not Should Stop" sap:VirtualizedContainerService.HintSize="584,1280" sap2010:WorkflowViewState.IdRef="If_16">
+                                  <ui:ShouldStop DisplayName="Check Stop Signal" sap:VirtualizedContainerService.HintSize="611,32" sap2010:WorkflowViewState.IdRef="ShouldStop_3" Result="[StopProcess]" />
+                                  <If Condition="[FirstRun And Not StopProcess]" DisplayName="First Run &amp; Not Should Stop" sap:VirtualizedContainerService.HintSize="611,2149" sap2010:WorkflowViewState.IdRef="If_16">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1282,7 +1273,7 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                     <If.Then>
-                                      <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Read Email, Save File, and Populate Queue " sap:VirtualizedContainerService.HintSize="502,837" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                      <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Read Email, Save File, and Populate Queue " sap:VirtualizedContainerService.HintSize="529,1706" sap2010:WorkflowViewState.IdRef="Sequence_35">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1290,7 +1281,7 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <TryCatch DisplayName="Try Get Email, Download Excel File, and Populate Queue" sap:VirtualizedContainerService.HintSize="440,684" sap2010:WorkflowViewState.IdRef="TryCatch_15">
+                                        <TryCatch DisplayName="Try Get Email, Download Excel File, and Populate Queue" sap:VirtualizedContainerService.HintSize="467,1553" sap2010:WorkflowViewState.IdRef="TryCatch_15">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1299,6 +1290,9 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                                           </sap:WorkflowViewStateService.ViewState>
                                           <TryCatch.Try>
                                             <Sequence DisplayName="Sequence - Get Email, Download Excel File, and Populate Queue" sap:VirtualizedContainerService.HintSize="429,1316" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                              <Sequence.Variables>
+                                                <Variable x:TypeArguments="x:String" Name="QueueName" />
+                                              </Sequence.Variables>
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1316,14 +1310,14 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                                               <r:ReadEmailDownloadExcelFileWindows DisplayName="Read Email &amp; Download Excel file - ReadEmailDownloadExcelFileWindows" sap:VirtualizedContainerService.HintSize="367,301" sap2010:WorkflowViewState.IdRef="ReadEmailDownloadExcelFileWindows_3" in_EmailIncomingFoldername="[Config(&quot;FinancePhysicalAssetHistory_EmailIncomingFolderName&quot;).ToString]" in_EmailProcessedFoldername="[Config(&quot;FinancePhysicalAssetHistory_ProcessedFolderName&quot;).ToString]" in_EmailSubject="[Config(&quot;FinancePhysicalAssetHistory_EmailSubject&quot;).ToString]" in_LocalFoldername="[Config(&quot;FinancePhysicalAssetHistory_LocalFolderName&quot;).ToString]" io_CountsErrors="[ReadEmailCountsErrors]" />
                                               <ui:LogMessage DisplayName="Log Message Email read count" sap:VirtualizedContainerService.HintSize="367,101" sap2010:WorkflowViewState.IdRef="LogMessage_57" Level="Info" Message="[&quot;Email read count &quot; + ReadEmailCountsErrors(0) + &quot; files downloaded count &quot; + ReadEmailCountsErrors(1).ToString]" />
                                               <ui:BuildDataTable DataTable="[dt_Main]" DisplayName="Build Data Table to provide structure to ReadExcelFilePopulateQueue library" sap:VirtualizedContainerService.HintSize="367,69" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;BU&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ASSET&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PIID&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;INVDT&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PERFORMED&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-                                              <r1:ReadExcelFilePopulateQueueWIndows DisplayName="Read the Excel files &amp; populate the queue" sap:VirtualizedContainerService.HintSize="367,352" sap2010:WorkflowViewState.IdRef="ReadExcelFilePopulateQueueWIndows_1" in_FolderName="[FileLocation]" in_QueueFolderName="UITS'" in_QueueName="[QueueName]" in_UniqueColumnsList="[UniqueKeyColumns]" in_dt_Main="[dt_Main]" io_CountsErrors="[ReadFileCountsErrors]" />
+                                              <r1:ReadExcelFilePopulateQueueWIndows DisplayName="Read the Excel files &amp; populate the queue" sap:VirtualizedContainerService.HintSize="367,352" sap2010:WorkflowViewState.IdRef="ReadExcelFilePopulateQueueWIndows_1" in_FolderName="E:\UiPath\FinancePhysicalAssetHistoryFiles" in_QueueFolderName="UITS" in_QueueName="FinancePhysicalAssetHistory" in_UniqueColumnsList="[UniqueKeyColumns]" in_dt_Main="[dt_Main]" io_CountsErrors="[ReadFileCountsErrors]" />
                                             </Sequence>
                                           </TryCatch.Try>
                                           <TryCatch.Catches>
-                                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,512" sap2010:WorkflowViewState.IdRef="Catch`1_16">
+                                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="433,21" sap2010:WorkflowViewState.IdRef="Catch`1_16">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
@@ -1331,7 +1325,7 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                                                 <ActivityAction.Argument>
                                                   <DelegateInArgument x:TypeArguments="s:Exception" Name="Exception" />
                                                 </ActivityAction.Argument>
-                                                <Sequence DisplayName="Log exception message and end process" sap:VirtualizedContainerService.HintSize="400,443" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                                <Sequence DisplayName="Log exception message and end process" sap:VirtualizedContainerService.HintSize="400,441" sap2010:WorkflowViewState.IdRef="Sequence_34">
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1515,8 +1509,6 @@ Environment.NewLine + Environment.NewLine]</InArgument>
       </Variable>
       <Variable x:TypeArguments="scg:List(x:String)" Default="[new list(Of String)() from { &quot;BU&quot;, &quot;ASSET&quot;,  &quot;PIID&quot; }]" Name="UniqueKeyColumns" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_Main" />
-      <Variable x:TypeArguments="x:String" Default="E:\UiPath\FinancePhysicalAssetHistoryFiles" Name="FileLocation" />
-      <Variable x:TypeArguments="x:String" Default="FinancePhysicalAssetHistory" Name="QueueName" />
     </StateMachine.Variables>
   </StateMachine>
 </Activity>
