@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1339,1187</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1282,1187</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="74">
@@ -396,7 +396,7 @@
                       </If>
                     </TryCatch.Finally>
                   </TryCatch>
-                  <If Condition="[ExceptionMessage.Length &gt; 0 Or ReadFileCountsErrors(3).Length &gt; 0 Or ReadEmailCountsErrors(3) &lt;&gt; &quot;None&quot;]" DisplayName="If there is an error, prefix email subject with 'ERROR'" sap:VirtualizedContainerService.HintSize="468,363" sap2010:WorkflowViewState.IdRef="If_22">
+                  <If Condition="[BRExceptionMessage.Length &gt; 0 Or ExceptionMessage.Length &gt; 0 Or ReadFileCountsErrors(3).Length &gt; 0 Or ReadEmailCountsErrors(3) &lt;&gt; &quot;None&quot;]" DisplayName="If there is an error, prefix email subject with 'ERROR'" sap:VirtualizedContainerService.HintSize="468,363" sap2010:WorkflowViewState.IdRef="If_22">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -962,7 +962,7 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                 <Transition DisplayName="System Exception during Process Transaction" sap:VirtualizedContainerService.HintSize="450,515" sap2010:WorkflowViewState.IdRef="Transition_18">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:PointCollection x:Key="ConnectorLocation">236.9,868.5 236.9,937.04 727.5,937.04 727.5,95.65 507,95.65</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">236.9,868.5 236.9,898.5 26.900000000000006,898.5 26.900000000000006,176.5 536.9,176.5 536.9,95.65 507,95.65</av:PointCollection>
                       <x:Int32 x:Key="SrcConnectionPointIndex">31</x:Int32>
                       <x:Int32 x:Key="DestConnectionPointIndex">40</x:Int32>
                     </scg:Dictionary>
@@ -1231,7 +1231,7 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                         <Transition DisplayName="System Exception (failed initialization)" sap:VirtualizedContainerService.HintSize="450,515" sap2010:WorkflowViewState.IdRef="Transition_3">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <av:PointCollection x:Key="ConnectorLocation">380,146.5 380,199.04 102.8,199.04 102.8,235.5</av:PointCollection>
+                              <av:PointCollection x:Key="ConnectorLocation">380,146.5 380,176.5 102.8,176.5 102.8,235.5</av:PointCollection>
                               <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
                               <x:Int32 x:Key="DestConnectionPointIndex">34</x:Int32>
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1290,9 +1290,6 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                                           </sap:WorkflowViewStateService.ViewState>
                                           <TryCatch.Try>
                                             <Sequence DisplayName="Sequence - Get Email, Download Excel File, and Populate Queue" sap:VirtualizedContainerService.HintSize="429,1316" sap2010:WorkflowViewState.IdRef="Sequence_36">
-                                              <Sequence.Variables>
-                                                <Variable x:TypeArguments="x:String" Name="QueueName" />
-                                              </Sequence.Variables>
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1428,7 +1425,7 @@ Environment.NewLine + Environment.NewLine]</InArgument>
                         <Transition DisplayName="No Emails Read" sap:VirtualizedContainerService.HintSize="527,515" sap2010:WorkflowViewState.IdRef="Transition_15">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <av:PointCollection x:Key="ConnectorLocation">329.20000000000005,146.5 329.20000000000005,173.04 74,173.04 74,235.5</av:PointCollection>
+                              <av:PointCollection x:Key="ConnectorLocation">329.20000000000005,146.5 329.20000000000005,176.5 74,176.5 74,235.5</av:PointCollection>
                               <x:Int32 x:Key="SrcConnectionPointIndex">23</x:Int32>
                               <x:Int32 x:Key="DestConnectionPointIndex">18</x:Int32>
                             </scg:Dictionary>
